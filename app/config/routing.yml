@@ -1,0 +1,4 @@
+spj_challenge:
+    resource: "@SPJChallengeBundle/Resources/config/routing.yml"
+    prefix:   /
+
