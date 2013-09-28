@@ -27,6 +27,16 @@ class Challenge
     protected $status;
 
     /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $startDate;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $endDate;
+
+    /**
      * Get id
      *
      * @return integer
@@ -80,5 +90,51 @@ class Challenge
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * Set startDate
+     *
+     * @param \DateTime $startDate
+     * @return Challenge
+     */
+    public function setStartDate($startDate)
+    {
+        $this->startDate = $startDate;
+
+        return $this;
+    }
+
+    /**
+     * Get startDate
+     *
+     * @return \DateTime
+     */
+    public function getStartDate()
+    {
+        return $this->startDate;
+    }
+
+    /**
+     * Set endDate
+     *
+     * @param \DateTime $endDate
+     * @return Challenge
+     */
+    public function setEndDate($endDate)
+    {
+        $this->endDate = $endDate;
+
+        return $this;
+    }
+
+    /**
+     * Get endDate
+     *
+     * @return \DateTime
+     */
+    public function getEndDate()
+    {
+        return $this->endDate;
     }
 }
