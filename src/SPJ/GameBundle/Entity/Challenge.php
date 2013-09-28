@@ -17,16 +17,6 @@ class Challenge
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=150)
-     */
-    protected $subject;
-
-    /**
-     * @ORM\Column(type="string", length=15)
-     */
-    protected $status;
-
-    /**
      * @ORM\Column(type="datetime")
      */
     protected $startDate;
@@ -35,6 +25,16 @@ class Challenge
      * @ORM\Column(type="datetime")
      */
     protected $endDate;
+
+    /**
+     * @ORM\Column(type="string", length=150)
+     */
+    protected $subject;
+
+    /**
+     * @ORM\Column(type="string", length=15)
+     */
+    protected $status;
 
     /**
      * Get id
