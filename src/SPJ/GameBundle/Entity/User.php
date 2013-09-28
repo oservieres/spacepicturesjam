@@ -1,6 +1,7 @@
 <?php
 namespace SPJ\GameBundle\Entity;
 
+use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,6 +36,11 @@ class User
      * @ORM\Column(type="string", length=32)
      */
     protected $password;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $isAdmin;
 
     /**
      * Get id
@@ -129,12 +135,41 @@ class User
     }
 
     /**
-     * Get password
+     * Get salt
      *
      * @return string
      */
-    public function getPassword()
+    public function getSalt()
     {
-        return $this->password;
+        return "";
     }
+
+    /**
+     * Get username
+     *
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->email;
+    }
+
+    /**
+     * erase credentials
+     *
+     */
+    public function eraseCredentials()
+    {
+    }
+
+    /**
+     * Get roles
+     *
+     * @return array
+     */
+    public function getRoles()
+    {
+        return array($isAdmin ? 'ROLE_ADMIN' : 'ROLE_USER');
+    }
+
 }
