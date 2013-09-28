@@ -1,5 +1,18 @@
 {% extends "SPJGameBundle:Layout:base.html.twig" %}
 
 {% block page_content %}
-    here is the list of challenges
+    <h2>Challenges</h2>
+
+    <div id="inprogress_challenge">
+        <h3>Challenge of the week</h3>
+        {{ inprogressChallenge.subject }}
+    </div>
+
+    <div id="over_challenges">
+        <h3>Previous challenges</h3>
+        {% for challenge in overChallenges %}
+            {{ challenge.subject }}
+        {% endfor %}
+    </div>
+
 {% endblock %}

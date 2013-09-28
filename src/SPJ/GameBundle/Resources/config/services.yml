@@ -1,7 +1,6 @@
-parameters:
-#    spj_game.example.class: SPJ\GameBundle\Example
-
 services:
-#    spj_game.example:
-#        class: %spj_game.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    challenge_repository:
+        class: SPJ\GameBundle\Repository\ChallengeRepository
+        arguments: [SPJGameBundle:Challenge]
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository

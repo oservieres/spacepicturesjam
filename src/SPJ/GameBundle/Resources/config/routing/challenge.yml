@@ -1,0 +1,30 @@
+admin_challenge:
+    pattern:  /
+    defaults: { _controller: "SPJGameBundle:Challenge:index" }
+
+admin_challenge_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "SPJGameBundle:Challenge:show" }
+
+admin_challenge_new:
+    pattern:  /new
+    defaults: { _controller: "SPJGameBundle:Challenge:new" }
+
+admin_challenge_create:
+    pattern:  /create
+    defaults: { _controller: "SPJGameBundle:Challenge:create" }
+    requirements: { _method: post }
+
+admin_challenge_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "SPJGameBundle:Challenge:edit" }
+
+admin_challenge_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "SPJGameBundle:Challenge:update" }
+    requirements: { _method: post|put }
+
+admin_challenge_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "SPJGameBundle:Challenge:delete" }
+    requirements: { _method: post|delete }

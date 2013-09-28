@@ -4,7 +4,7 @@ namespace SPJ\GameBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="SPJ\GameBundle\Repository\ChallengeRepository")
  * @ORM\Table(name="challenge")
  */
 class Challenge
@@ -17,12 +17,12 @@ class Challenge
     protected $id;
 
     /**
-     * @ORM\Column(type="datetime")
-     */
+     * @ORM\Column(type="datetime", nullable=true)
+   i  */
     protected $startDate;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     protected $endDate;
 
@@ -34,7 +34,7 @@ class Challenge
     /**
      * @ORM\Column(type="string", length=15)
      */
-    protected $status;
+    protected $status = "queued";
 
     /**
      * Get id
