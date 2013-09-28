@@ -1,3 +1,7 @@
 spj_game_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: SPJGameBundle:Default:index }
+
+list:
+    pattern: /
+    defaults: { _controller: SPJGameBundle:Challenge:list }
