@@ -8,3 +8,5 @@ vendor/*
 web/uploads/*
 web/bundles/*
 composer.phar
+
+*.swp
