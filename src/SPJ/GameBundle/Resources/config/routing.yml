@@ -5,14 +5,18 @@ login:
 login_check:
     pattern:   /login_check
 
+signup:
+    defaults:  { _controller: SPJGameBundle:User:signup }
+    pattern: /inscription
+
 challenge_list:
     pattern: /
     defaults: { _controller: SPJGameBundle:Challenge:list }
 
-SPJGameBundle_admin_challenge:
-        resource: "@SPJGameBundle/Resources/config/routing/challenge.yml"
-        prefix:   /admin/challenge
-
 login:
     pattern: /login
     defaults: { _controller: SPJGameBundle:User:login }
+
+SPJGameBundle_admin_challenge:
+        resource: "@SPJGameBundle/Resources/config/routing/challenge.yml"
+        prefix:   /admin/challenge
