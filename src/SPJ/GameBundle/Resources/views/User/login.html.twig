@@ -1,0 +1,16 @@
+{% extends "SPJGameBundle:Layout:base.html.twig" %}
+
+{% block title %}SPJGameBundle:User:login{% endblock %}
+
+{% block page_content %}
+    <form action="{{ path('login_check') }}" method="post">
+        <label for="username">E-mail :</label>
+        <input type="text" id="username" name="_username" />
+
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" name="_password" />
+
+    <button type="submit">Me connecter</button>
+</form>
+
+{% endblock %}
