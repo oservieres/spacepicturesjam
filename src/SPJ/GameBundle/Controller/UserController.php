@@ -27,7 +27,7 @@ class UserController extends Controller
 
         return $this->render(
             'SPJGameBundle:User:signup.html.twig',
-            array('form' => $form)
+            array('form' => $form->createView())
         );
     }
 
