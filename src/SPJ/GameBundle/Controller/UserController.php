@@ -3,6 +3,7 @@
 namespace SPJ\GameBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 use SPJ\GameBundle\Entity\User;
 use SPJ\GameBundle\Form\UserType;
@@ -22,13 +23,17 @@ class UserController extends Controller
             'action' => $this->generateUrl('signup_check'),
             'method' => 'POST',
         ));
-
         $form->add('submit', 'submit', array('label' => 'Create'));
 
         return $this->render(
             'SPJGameBundle:User:signup.html.twig',
             array('form' => $form->createView())
         );
+    }
+
+    public function signupCheckAction()
+    {
+        return new Response(json_encode(array('code' => 201, 'data' => array('redirect_url' => '/'))));
     }
 
 }
