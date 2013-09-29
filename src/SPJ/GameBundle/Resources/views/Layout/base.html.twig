@@ -22,8 +22,12 @@
                     <li><a href="{{ path('challenge_list') }}">Accueil</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ path('login') }}">Se connecter</a></li>
-                    <li><a href="{{ path('signup') }}">S'inscrire</a></li>
+                    {% if app.user == "" %}
+                        <li><a href="{{ path('login') }}">Se connecter</a></li>
+                        <li><a href="{{ path('signup') }}">S'inscrire</a></li>
+                    {% else %}
+                        <li><a href="{{ path('logout') }}">Se déconnecter</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="user")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id
@@ -40,7 +40,7 @@ class User
     /**
      * @ORM\Column(type="boolean")
      */
-    protected $isAdmin;
+    protected $isAdmin = false;
 
     /**
      * Get id

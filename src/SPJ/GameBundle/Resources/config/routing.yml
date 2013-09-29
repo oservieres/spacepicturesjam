@@ -5,6 +5,9 @@ login:
 login_check:
     pattern:   /login_check
 
+logout:
+    pattern:   /logout
+
 signup:
     defaults:  { _controller: SPJGameBundle:User:signup }
     pattern: /inscription
