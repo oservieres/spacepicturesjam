@@ -169,7 +169,7 @@ class User implements UserInterface
      */
     public function getRoles()
     {
-        return array($isAdmin ? 'ROLE_ADMIN' : 'ROLE_USER');
+        return array($this->isAdmin ? 'ROLE_ADMIN' : 'ROLE_USER');
     }
 
 

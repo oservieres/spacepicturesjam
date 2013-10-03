@@ -7,7 +7,7 @@ security:
 
     providers:
         main:
-            entity: { class: SPJ\GameBundle\Entity\User, property: username }
+            entity: { class: SPJ\GameBundle\Entity\User, property: email }
 
     firewalls:
         secured_area:
