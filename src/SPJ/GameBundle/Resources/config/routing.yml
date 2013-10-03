@@ -26,7 +26,7 @@ login:
 
 picture_create:
     pattern:  /challenge/{challengeId}/picture/create
-    defaults: { _controller: "SPJGameBundle:Picture:create" }
+    defaults: { _controller: SPJGameBundle:Picture:create }
 
 SPJGameBundle_admin_challenge:
         resource: "@SPJGameBundle/Resources/config/routing/challenge.yml"
