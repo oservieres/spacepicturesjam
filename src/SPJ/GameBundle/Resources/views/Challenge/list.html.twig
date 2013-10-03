@@ -4,8 +4,34 @@
     <h2>Challenges</h2>
 
     <div id="inprogress_challenge">
-        <h3>Challenge of the week</h3>
-        {{ inprogressChallenge.subject }}
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Challenge of the week : <strong>{{ inprogressChallenge.subject }}</strong>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        IMAGES EXISTANTES
+                    </div>
+                    <div class="col-md-4">
+
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Your picture</h3>
+                            </div>
+                            <div class="panel-body">
+                                <button type="button" id="picture_upload_button" class="btn btn-primary" data-href="{{ path('picture_create', { challengeId : inprogressChallenge.id }) }}">Upload my picture</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <div id="over_challenges">
