@@ -36,6 +36,11 @@ class Challenge
      */
     protected $status = "queued";
 
+     /**
+     * @ORM\OneToMany(targetEntity="Picture", mappedBy="challenge")
+     */
+    protected $pictures;
+
     /**
      * Get id
      *
@@ -136,5 +141,45 @@ class Challenge
     public function getEndDate()
     {
         return $this->endDate;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->pictures = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add pictures
+     *
+     * @param \SPJ\GameBundle\Entity\Picture $pictures
+     * @return Challenge
+     */
+    public function addPicture(\SPJ\GameBundle\Entity\Picture $pictures)
+    {
+        $this->pictures[] = $pictures;
+    
+        return $this;
+    }
+
+    /**
+     * Remove pictures
+     *
+     * @param \SPJ\GameBundle\Entity\Picture $pictures
+     */
+    public function removePicture(\SPJ\GameBundle\Entity\Picture $pictures)
+    {
+        $this->pictures->removeElement($pictures);
+    }
+
+    /**
+     * Get pictures
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPictures()
+    {
+        return $this->pictures;
     }
 }

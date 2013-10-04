@@ -43,6 +43,11 @@ class User implements UserInterface
     protected $isAdmin = false;
 
     /**
+     * @ORM\OneToMany(targetEntity="Picture", mappedBy="user")
+     */
+    protected $pictures;
+
+    /**
      * Get id
      *
      * @return integer
@@ -204,5 +209,45 @@ class User implements UserInterface
     public function getIsAdmin()
     {
         return $this->isAdmin;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->pictures = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add pictures
+     *
+     * @param \SPJ\GameBundle\Entity\Picture $pictures
+     * @return User
+     */
+    public function addPicture(\SPJ\GameBundle\Entity\Picture $pictures)
+    {
+        $this->pictures[] = $pictures;
+    
+        return $this;
+    }
+
+    /**
+     * Remove pictures
+     *
+     * @param \SPJ\GameBundle\Entity\Picture $pictures
+     */
+    public function removePicture(\SPJ\GameBundle\Entity\Picture $pictures)
+    {
+        $this->pictures->removeElement($pictures);
+    }
+
+    /**
+     * Get pictures
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPictures()
+    {
+        return $this->pictures;
     }
 }
