@@ -30,6 +30,7 @@ class PictureController extends Controller
             $fileUploadPaths = $this->get('picture_upload')->upload($picture->getFile());
             $picture->setPath($fileUploadPaths['path']);
             $picture->setMiniaturePath($fileUploadPaths['miniature_path']);
+            $picture->setBlurredMiniaturePath($fileUploadPaths['blurred_miniature_path']);
             $picture->setDateCreated(new \DateTime());
             $picture->setUser($user);
             $picture->setChallenge($challenge);

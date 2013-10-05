@@ -10,3 +10,4 @@ web/bundles/*
 composer.phar
 
 *.swp
+app/tmp

@@ -7,4 +7,7 @@ services:
 
     picture_upload:
         class: SPJ\GameBundle\Service\PictureUploadService
-        arguments: [%cdn_local_path%]
+        arguments: [@image_filter, %kernel.root_dir%, %cdn_local_path%, %secret%]
+
+    image_filter:
+        class: SPJ\GameBundle\Service\ImageFilterService
