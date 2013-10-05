@@ -27,5 +27,5 @@ monolog:
 assetic:
     use_controller: true
 
-#swiftmailer:
-#    delivery_address: me@example.com
+parameters:
+    cdn_local_path: "/home/oservieres/dev/cdn/spacepicturesjam"

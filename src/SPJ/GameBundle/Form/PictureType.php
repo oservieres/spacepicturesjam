@@ -18,6 +18,7 @@ class PictureType extends AbstractType
             ->add('title')
             ->add('location')
             ->add('description')
+            ->add('file', 'file')
         ;
     }
 

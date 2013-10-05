@@ -4,3 +4,7 @@ services:
         arguments: [SPJGameBundle:Challenge]
         factory_service: doctrine.orm.entity_manager
         factory_method: getRepository
+
+    picture_upload:
+        class: SPJ\GameBundle\Service\PictureUploadService
+        arguments: [%cdn_local_path%]

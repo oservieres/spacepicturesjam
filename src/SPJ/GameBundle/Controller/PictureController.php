@@ -25,6 +25,9 @@ class PictureController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+            $fileUploadPaths = $this->get('picture_upload')->upload($picture->getFile());
+            $picture->setPath($fileUploadPaths['path']);
+            $picture->setMiniaturePath($fileUploadPaths['miniature_path']);
             $em = $this->getDoctrine()->getManager();
             $em->persist($picture);
             $em->flush();

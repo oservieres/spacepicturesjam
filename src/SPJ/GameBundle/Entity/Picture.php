@@ -2,6 +2,7 @@
 namespace SPJ\GameBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -17,7 +18,7 @@ class Picture
     protected $id;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="datetime")
      */
     protected $dateCreated;
 
@@ -27,32 +28,32 @@ class Picture
     protected $title;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $location;
 
     /**
-     * @ORM\Column(type="string", length=160)
+     * @ORM\Column(type="string", length=160, nullable=true)
      */
     protected $description;
 
     /**
-     * @ORM\Column(type="string", length=10)
+     * @ORM\Column(type="string", length=10, nullable=true)
      */
     protected $focalLength;
 
     /**
-     * @ORM\Column(type="string", length=10)
+     * @ORM\Column(type="string", length=10, nullable=true)
      */
     protected $aperture;
 
     /**
-     * @ORM\Column(type="string", length=10)
+     * @ORM\Column(type="string", length=10, nullable=true)
      */
     protected $ISO;
 
     /**
-     * @ORM\Column(type="string", length=10)
+     * @ORM\Column(type="string", length=10, nullable=true)
      */
     protected $shutterSpeed;
 
@@ -79,13 +80,30 @@ class Picture
     protected $user;
 
     /**
+     * @Assert\File(maxSize="6000000")
+     */
+    protected $file;
+
+    /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    public function setFile($file)
+    {
+        $this->file = $file;
+
+        return $this;
     }
 
     /**
@@ -97,14 +115,14 @@ class Picture
     public function setDateCreated($dateCreated)
     {
         $this->dateCreated = $dateCreated;
-    
+
         return $this;
     }
 
     /**
      * Get dateCreated
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateCreated()
     {
