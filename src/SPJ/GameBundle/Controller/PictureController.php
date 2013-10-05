@@ -12,6 +12,8 @@ class PictureController extends Controller
 {
     public function createAction(Request $request, $challengeId)
     {
+        $user = $this->get('security.context')->getToken()->getUser();
+        $challenge = $this->get('challenge_repository')->findOneById($challengeId);
         $picture = new Picture();
         $form = $this->createForm(new PictureType(), $picture, array(
             'action' => $this->generateUrl(
@@ -28,6 +30,9 @@ class PictureController extends Controller
             $fileUploadPaths = $this->get('picture_upload')->upload($picture->getFile());
             $picture->setPath($fileUploadPaths['path']);
             $picture->setMiniaturePath($fileUploadPaths['miniature_path']);
+            $picture->setDateCreated(new \DateTime());
+            $picture->setUser($user);
+            $picture->setChallenge($challenge);
             $em = $this->getDoctrine()->getManager();
             $em->persist($picture);
             $em->flush();
