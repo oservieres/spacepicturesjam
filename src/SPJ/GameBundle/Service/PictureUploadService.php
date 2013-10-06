@@ -15,7 +15,7 @@ class PictureUploadService
 
     public function __construct($imageFilter, $rootDir, $cdnLocalPath, $secret)
     {
-        $this->cdnLocalPath = $cdnLocalPath;
+        $this->cdnLocalPath = $cdnLocalPath . '/content';
         $this->secret = $secret;
         $this->imageFilter = $imageFilter;
         $this->rootDir = $rootDir;

@@ -21,3 +21,5 @@ monolog:
             type:  stream
             path:  %kernel.logs_dir%/%kernel.environment%.log
             level: debug
+parameters:
+    cdn_local_path: "/var/www/cdn/spacepicturesjam"
