@@ -8,13 +8,7 @@
         <meta name="description" content="">
         <meta name="author" content="SitePoint">
 
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-        {% stylesheets
-            '@SPJGameBundle/Resources/public/css/challenge.css'
-            '@SPJGameBundle/Resources/public/css/fancybox.css'
-        %}
-            <link rel="stylesheet" href="{{ asset_url }}"></link>
-        {% endstylesheets %}
+        {% include 'SPJGameBundle:Layout:stylesheets.html.twig' %}
     </head>
 
     <body>
@@ -42,15 +36,6 @@
             {% block page_content %}{% endblock %}
         </div>
 
-        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
-        {% javascripts
-            '@SPJGameBundle/Resources/public/js/main.js'
-            '@SPJGameBundle/Resources/public/js/user.js'
-            '@SPJGameBundle/Resources/public/js/challenge.js'
-        %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
+        {% include 'SPJGameBundle:Layout:javascripts.html.twig' %}
     </body>
 </html>

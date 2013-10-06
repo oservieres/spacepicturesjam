@@ -1,0 +1,12 @@
+{% block javascripts %}
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+    {% javascripts
+        '@SPJGameBundle/Resources/public/js/main.js'
+        '@SPJGameBundle/Resources/public/js/user.js'
+        '@SPJGameBundle/Resources/public/js/challenge.js'
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

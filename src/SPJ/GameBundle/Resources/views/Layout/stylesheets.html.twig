@@ -1,0 +1,9 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    {% stylesheets
+        '@SPJGameBundle/Resources/public/css/challenge.css'
+        '@SPJGameBundle/Resources/public/css/fancybox.css'
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}"></link>
+    {% endstylesheets %}
+{% endblock %}

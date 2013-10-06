@@ -1,1 +1,9 @@
-Created !
+{% extends "SPJGameBundle:Layout:iframe_popin.html.twig" %}
+
+{% block page_content %}
+    <p>Your picture was successfully submitted</p>
+
+    <script>
+        setTimeout(parent.spacePicturesJam.challenge.pictureCreatedCallback, 1000);
+    </script>
+{% endblock %}
