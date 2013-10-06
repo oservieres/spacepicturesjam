@@ -1,6 +1,3 @@
 {% for picture in pictures %}
-    <div>
-        <img src="{{ asset(picture.blurredMiniaturePath) }}" alt="{{ picture.title }}"/>
-        {{ picture.title }}
-    </div>
+    <img class="img-thumbnail" src="{{ asset(picture.blurredMiniaturePath) }}" alt="{{ picture.title }}"/>
 {% endfor %}

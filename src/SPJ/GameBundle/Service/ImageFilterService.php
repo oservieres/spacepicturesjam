@@ -7,15 +7,16 @@ namespace SPJ\GameBundle\Service;
 class ImageFilterService
 {
 
-    protected function getFileExtension($fileName)
-    {
-        return pathinfo($fileName, PATHINFO_EXTENSION);
-    }
-
-    public function resize($sourcePath, $destinationPath, $newWidth = 1280)
+    public function resize($sourcePath, $destinationPath, $maxWidth, $maxHeight)
     {
         list($width, $height) = getimagesize($sourcePath);
-        $newHeight = $height * $newWidth / $width;
+
+        $newWidth = $maxWidth;
+        $newHeight = $height * $maxWidth / $width;
+        if ($newHeight > $maxHeight) {
+            $newWidth = $width * $maxHeight / $height;
+            $newHeight = $maxHeight;
+        }
 
         $originalImage = imagecreatefromjpeg($sourcePath);
         $resizedImage = imagecreatetruecolor($newWidth, $newHeight);

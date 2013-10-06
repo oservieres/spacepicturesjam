@@ -47,17 +47,21 @@ class PictureUploadService
         $this->imageFilter->resize(
             $temporaryFileDirectory . '/' . $file->getClientOriginalName(),
             $this->cdnLocalPath . '/' . $cdnSubDirectories . '/' . $imageFileName,
-            1280
+            1280,
+            720
         );
         $this->imageFilter->resize(
             $temporaryFileDirectory . '/' . $file->getClientOriginalName(),
             $this->cdnLocalPath . '/' . $cdnSubDirectories . '/' . $miniatureFileName,
-            120
+            128,
+            72
         );
         $this->imageFilter->blur(
             $this->cdnLocalPath . '/' . $cdnSubDirectories . '/' . $miniatureFileName,
             $this->cdnLocalPath . '/' . $cdnSubDirectories . '/' . $blurredMiniatureFileName
         );
+
+        unlink($temporaryFileDirectory . '/' . $file->getClientOriginalName());
 
         return array(
             'path' => 'content/' . $cdnSubDirectories . '/' . $imageFileName,
