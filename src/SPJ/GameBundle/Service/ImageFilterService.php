@@ -35,7 +35,7 @@ class ImageFilterService
     public function blur($sourcePath, $destinationPath)
     {
         $image = imagecreatefromjpeg($sourcePath);
-        imagefilter($image, IMG_FILTER_SMOOTH, -4);
+        imagefilter($image, IMG_FILTER_SMOOTH, -15);
         imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
         imagejpeg($image, $destinationPath, 100);
     }

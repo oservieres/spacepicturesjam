@@ -8,4 +8,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class PictureRepository extends EntityRepository
 {
+    public function findOneByChallengeAndUser($challenge, $user)
+    {
+        return $this->createQueryBuilder('picture')
+                    ->where('picture.challenge = :challenge')
+                    ->setParameter('challenge', $challenge)
+                    ->andWhere('picture.user = :user')
+                    ->setParameter('user', $user)
+                    ->setMaxResults(1)
+                    ->getQuery()
+                    ->getSingleResult();
+    }
 }

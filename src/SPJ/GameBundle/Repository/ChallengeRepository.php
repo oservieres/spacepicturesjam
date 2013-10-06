@@ -12,7 +12,7 @@ class ChallengeRepository extends EntityRepository
     {
         return $this->createQueryBuilder('challenge')
                     ->where('challenge.status = :status')
-                    ->setparameter('status', 'over')
+                    ->setParameter('status', 'over')
                     ->getQuery()
                     ->getResult();
     }
@@ -21,7 +21,7 @@ class ChallengeRepository extends EntityRepository
     {
         return $this->createQueryBuilder('challenge')
                     ->where('challenge.status = :status')
-                    ->setparameter('status', 'inprogress')
+                    ->setParameter('status', 'inprogress')
                     ->getQuery()
                     ->getSingleResult();
     }

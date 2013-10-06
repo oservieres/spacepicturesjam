@@ -18,15 +18,17 @@ class ChallengeController extends Controller
     public function listAction()
     {
         $challengeRepository = $this->get('challenge_repository');
+        $user = $this->get('security.context')->getToken()->getUser();
 
         $overChallenges = $challengeRepository->findAllOver();
-        $inprogressChallenge = $challengeRepository->findOneInProgress();
+        $inprogressChallenge = $challengeRepository->findOneInProgress($user);
 
         return $this->render(
             'SPJGameBundle:Challenge:list.html.twig',
             array(
                 'inprogressChallenge' => $inprogressChallenge,
                 'overChallenges'      => $overChallenges,
+                'inprogressUserPicture' => $user === "" ? "" : $this->get('picture_repository')->findOneByChallengeAndUser($inprogressChallenge, $user)
             )
         );
     }
