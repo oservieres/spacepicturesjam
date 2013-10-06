@@ -13,7 +13,7 @@
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-md-10 challenge_pictures inprogress" data-pictures_url="{{ path('challenge_picture_list', { challengeId : inprogressChallenge.id }) }}">
+                    <div class="col-md-10 challenge_pictures inprogress" data-content_url="{{ path('challenge_picture_list', { challengeId : inprogressChallenge.id }) }}">
                         <p>LOADING</p>
                     </div>
                     <div class="col-md-2">
@@ -22,12 +22,8 @@
                             <div class="panel-heading">
                                 <h3 class="panel-title">Your picture</h3>
                             </div>
-                            <div class="panel-body">
-                                {% if inprogressUserPicture %}
-                                    <a href="{{ asset(inprogressUserPicture.path) }}" target="_blank"><img src="{{ asset(inprogressUserPicture.miniaturePath) }}" alt="{{ inprogressUserPicture.title }}"/></a>
-                                {% else %}
-                                    <button type="button" id="picture_upload_button" class="btn btn-primary" data-href="{{ path('picture_create', { challengeId : inprogressChallenge.id }) }}">Upload my picture</button>
-                                {% endif %}
+                            <div id="inprogress_challenge_user_tab" class="panel-body" data-content_url="{{ path('challenge_user_picture_show', { challengeId : inprogressChallenge.id }) }}">
+LOADING
                             </div>
                         </div>
 

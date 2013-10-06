@@ -55,4 +55,14 @@ class PictureController extends Controller
         );
     }
 
+    public function challengeUserShowAction($challengeId)
+    {
+        $challenge = $this->get('challenge_repository')->findOneById($challengeId);
+        $picture = $this->get('picture_repository')->findOneByChallenge($challenge);
+        return $this->render('SPJGameBundle:Picture:challenge_user_show.html.twig', array(
+            'picture' => $picture,
+            'challenge' => $challenge
+        ));
+    }
+
 }

@@ -32,6 +32,10 @@ challenge_picture_list:
     pattern:  /challenge/{challengeId}/pictures
     defaults: { _controller: SPJGameBundle:Picture:challengeList }
 
+challenge_user_picture_show:
+    pattern:  /challenge/{challengeId}/user/picture
+    defaults: { _controller: SPJGameBundle:Picture:challengeUserShow }
+
 SPJGameBundle_admin_challenge:
         resource: "@SPJGameBundle/Resources/config/routing/challenge.yml"
         prefix:   /admin/challenge

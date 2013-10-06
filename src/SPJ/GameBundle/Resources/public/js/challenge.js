@@ -1,16 +1,27 @@
 spacePicturesJam.challenge = {};
 
 spacePicturesJam.challenge.init = function() {
-    $('#picture_upload_button').click(spacePicturesJam.challenge.displayUploadForm);
-
     $('.challenge_pictures').each(function() {
         spacePicturesJam.challenge.loadPictures($(this));
     });
+
+    spacePicturesJam.challenge.loadInprogressChallengeUserTab();
 }
+
+spacePicturesJam.challenge.loadInprogressChallengeUserTab = function() {
+    var tabContainer = $('#inprogress_challenge_user_tab');
+    $.ajax({
+        url : tabContainer.attr('data-content_url'),
+        dataType: 'html'
+    }).done(function(response) {
+        tabContainer.html(response);
+        $('#picture_upload_button').click(spacePicturesJam.challenge.displayUploadForm);
+    });
+};
 
 spacePicturesJam.challenge.loadPictures = function(picturesContainer) {
     $.ajax({
-        url : picturesContainer.attr('data-pictures_url'),
+        url : picturesContainer.attr('data-content_url'),
         dataType: 'html'
     }).done(function(response) {
         picturesContainer.html(response);
