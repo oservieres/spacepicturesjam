@@ -30,6 +30,7 @@ class ChallengeController extends Controller
             )
         );
     }
+
     /**
      * Creates a new Challenge entity.
      *

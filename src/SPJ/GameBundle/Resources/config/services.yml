@@ -1,4 +1,10 @@
 services:
+    picture_repository:
+        class: SPJ\GameBundle\Repository\PictureRepository
+        arguments: [SPJGameBundle:Picture]
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+
     challenge_repository:
         class: SPJ\GameBundle\Repository\ChallengeRepository
         arguments: [SPJGameBundle:Challenge]

@@ -9,7 +9,7 @@ logout:
     pattern:   /logout
 
 signup:
-    defaults:  { _controller: SPJGameBundle:User:signup }
+    defaults: { _controller: SPJGameBundle:User:signup }
     pattern: /inscription
 
 signup_check:
@@ -27,6 +27,10 @@ login:
 picture_create:
     pattern:  /challenge/{challengeId}/picture/create
     defaults: { _controller: SPJGameBundle:Picture:create }
+
+challenge_picture_list:
+    pattern:  /challenge/{challengeId}/pictures
+    defaults: { _controller: SPJGameBundle:Picture:challengeList }
 
 SPJGameBundle_admin_challenge:
         resource: "@SPJGameBundle/Resources/config/routing/challenge.yml"
