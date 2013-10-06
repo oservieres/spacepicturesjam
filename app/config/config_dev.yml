@@ -4,7 +4,7 @@ imports:
 framework:
     templating:
         assets_base_urls:
-            http: ["http://assets.local.deudtens.com"]
+            http: ["http://assets.local.deudtens.com/spacepicturesjam"]
     router:
         resource: "%kernel.root_dir%/config/routing_dev.yml"
         strict_requirements: true

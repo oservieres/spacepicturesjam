@@ -4,7 +4,7 @@ imports:
 framework:
     templating:
         assets_base_urls:
-            http: ["http://assets1.deudtens.com", "http://assets2.deudtens.com"] }
+            http: ["http://assets1.deudtens.com/spacepicturesjam", "http://assets2.deudtens.com/spacepicturesjam"] }
 
 #doctrine:
 #    orm:

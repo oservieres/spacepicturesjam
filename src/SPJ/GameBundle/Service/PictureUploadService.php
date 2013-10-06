@@ -37,9 +37,10 @@ class PictureUploadService
 
         $temporaryFileDirectory = $this->rootDir . "/tmp/img";
 
-        $imageFileName = md5($file->getClientOriginalName() . $this->secret) . '.jpg';
-        $miniatureFileName = md5($file->getClientOriginalName() . 'miniature' . $this->secret) . '.jpg';
-        $blurredMiniatureFileName = md5($file->getClientOriginalName() . 'blur' . $this->secret) . '.jpg';
+        $microTime = microtime();
+        $imageFileName = $microTime . md5($file->getClientOriginalName() . $this->secret) . '.jpg';
+        $miniatureFileName = $microTime . md5($file->getClientOriginalName() . 'miniature' . $this->secret) . '.jpg';
+        $blurredMiniatureFileName = $microTime . md5($file->getClientOriginalName() . 'blur' . $this->secret) . '.jpg';
 
         $file->move($temporaryFileDirectory, $file->getClientOriginalName());
 
@@ -59,9 +60,9 @@ class PictureUploadService
         );
 
         return array(
-            'path' => $cdnSubDirectories . '/' . $imageFileName,
-            'miniature_path' => $cdnSubDirectories . '/' . $miniatureFileName,
-            'blurred_miniature_path' => $cdnSubDirectories . '/' . $blurredMiniatureFileName
+            'path' => 'content/' . $cdnSubDirectories . '/' . $imageFileName,
+            'miniature_path' => 'content/' . $cdnSubDirectories . '/' . $miniatureFileName,
+            'blurred_miniature_path' => 'content/' . $cdnSubDirectories . '/' . $blurredMiniatureFileName
         );
     }
 }

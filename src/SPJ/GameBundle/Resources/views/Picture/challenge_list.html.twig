@@ -1,1 +1,6 @@
-<p>Pictures list !</p>
+{% for picture in pictures %}
+    <div>
+        <img src="{{ asset(picture.blurredMiniaturePath) }}" alt="{{ picture.title }}"/>
+        {{ picture.title }}
+    </div>
+{% endfor %}
