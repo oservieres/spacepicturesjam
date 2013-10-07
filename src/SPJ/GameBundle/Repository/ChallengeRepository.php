@@ -23,6 +23,14 @@ class ChallengeRepository extends EntityRepository
                     ->where('challenge.status = :status')
                     ->setParameter('status', 'inprogress')
                     ->getQuery()
-                    ->getSingleResult();
+                    ->getOneOrNullResult();
+    }
+    public function findOneVoting()
+    {
+        return $this->createQueryBuilder('challenge')
+                    ->where('challenge.status = :status')
+                    ->setParameter('status', 'voting')
+                    ->getQuery()
+                    ->getOneOrNullResult();
     }
 }

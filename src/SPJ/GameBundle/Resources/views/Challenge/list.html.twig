@@ -3,41 +3,27 @@
 {% block page_content %}
     <h2>Challenges</h2>
 
-    <div id="inprogress_challenge">
-
-        <div class="panel panel-success">
-            <div class="panel-heading">
-                <h3 class="panel-title">
-                    Challenge of the week : <strong>{{ inprogressChallenge.subject }}</strong>
-                </h3>
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-10 challenge_pictures inprogress" data-content_url="{{ path('challenge_picture_list', { challengeId : inprogressChallenge.id }) }}">
-                        <p>LOADING</p>
-                    </div>
-                    <div class="col-md-2">
-
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Your picture</h3>
-                            </div>
-                            <div id="inprogress_challenge_user_tab" class="panel-body" data-content_url="{{ path('challenge_user_picture_show', { challengeId : inprogressChallenge.id }) }}">
-LOADING
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+    <div class="row">
+        <div id="voting_challenge" class="col-md-6">
+            {% if votingChallenge %}
+                {% include 'SPJGameBundle:Challenge:summary_voting.html.twig' with {'challenge' : votingChallenge} %}
+            {% else %}
+                <p>No voting challenge for now !</p>
+            {% endif %}
         </div>
-
+        <div id="inprogress_challenge" class="col-md-6">
+            {% if inprogressChallenge %}
+                {% include 'SPJGameBundle:Challenge:summary_inprogress.html.twig' with {'challenge' : inprogressChallenge} %}
+            {% else %}
+                <p>No challenge in progress for now !</p>
+            {% endif %}
+        </div>
     </div>
 
     <div id="over_challenges">
         <h3>Previous challenges</h3>
         {% for challenge in overChallenges %}
-            {{ challenge.subject }}
+            {% include 'SPJGameBundle:Challenge:summary_over.html.twig' with {'challenge' : challenge} %}
         {% endfor %}
     </div>
 

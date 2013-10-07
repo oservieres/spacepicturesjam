@@ -1,0 +1,26 @@
+<div class="panel panel-{% block panelType %}{% endblock %}">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            {% block panelTitle %}Challenge{% endblock %} : <strong>{{ challenge.subject }}</strong>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-8 challenge_pictures inprogress" data-content_url="{{ path('challenge_picture_list', { challengeId : challenge.id }) }}">
+                <p>LOADING</p>
+            </div>
+            <div class="col-md-4">
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Your picture</h3>
+                    </div>
+                    <div id="inprogress_challenge_user_tab" class="panel-body" data-content_url="{{ path('challenge_user_picture_show', { challengeId : challenge.id }) }}">
+LOADING
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
