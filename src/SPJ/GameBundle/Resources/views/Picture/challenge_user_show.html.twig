@@ -1,5 +1,9 @@
-{% if picture %}
-    <a href="{{ asset(picture.path) }}" target="_blank"><img src="{{ asset(picture.miniaturePath) }}" alt="{{ picture.title }}"/></a>
+{% if app.user %}
+    {% if picture %}
+        <a href="{{ asset(picture.path) }}" target="_blank"><img src="{{ asset(picture.miniaturePath) }}" alt="{{ picture.title }}"/></a>
+    {% else %}
+        <button type="button" id="picture_upload_button" class="btn btn-primary" data-href="{{ path('picture_create', { challengeId : challenge.id }) }}">Upload my picture</button>
+    {% endif %}
 {% else %}
-    <button type="button" id="picture_upload_button" class="btn btn-primary" data-href="{{ path('picture_create', { challengeId : challenge.id }) }}">Upload my picture</button>
+        <button type="button" id="signup_button" class="btn btn-primary" data-href="{{ path('signup') }}">Upload my picture</button>
 {% endif %}

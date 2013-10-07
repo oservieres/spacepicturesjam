@@ -58,7 +58,11 @@ class PictureController extends Controller
     public function challengeUserShowAction($challengeId)
     {
         $challenge = $this->get('challenge_repository')->findOneById($challengeId);
-        $picture = $this->get('picture_repository')->findOneByChallenge($challenge);
+        if ($this->get('security.context')->getToken()->getUser()) {
+            $picture = $this->get('picture_repository')->findOneByChallenge($challenge);
+        } else {
+            $picture = null;
+        }
         return $this->render('SPJGameBundle:Picture:challenge_user_show.html.twig', array(
             'picture' => $picture,
             'challenge' => $challenge

@@ -16,6 +16,7 @@ spacePicturesJam.challenge.loadInprogressChallengeUserTab = function() {
     }).done(function(response) {
         tabContainer.html(response);
         $('#picture_upload_button').click(spacePicturesJam.challenge.displayUploadForm);
+        $('#signup_button').click(function() { window.location = $(this).attr('data-href') });
     });
 };
 
