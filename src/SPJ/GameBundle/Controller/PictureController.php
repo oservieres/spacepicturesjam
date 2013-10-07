@@ -51,8 +51,9 @@ class PictureController extends Controller
     {
         $challenge = $this->get('challenge_repository')->findOneById($challengeId);
         return $this->render('SPJGameBundle:Picture:challenge_list.html.twig', array(
-            'pictures' => $this->get('picture_repository')->findByChallenge($challenge))
-        );
+            'pictures' => $this->get('picture_repository')->findByChallenge($challenge),
+            'challenge' => $challenge
+        ));
     }
 
     public function challengeUserShowAction($challengeId)
@@ -63,7 +64,8 @@ class PictureController extends Controller
         } else {
             $picture = null;
         }
-        return $this->render('SPJGameBundle:Picture:challenge_user_show.html.twig', array(
+        $templateName = $challenge->getStatus() === 'inprogress' ? 'SPJGameBundle:Picture:challenge_user_show_inprogress.html.twig' : 'SPJGameBundle:Picture:challenge_user_show.html.twig';
+        return $this->render($templateName, array(
             'picture' => $picture,
             'challenge' => $challenge
         ));

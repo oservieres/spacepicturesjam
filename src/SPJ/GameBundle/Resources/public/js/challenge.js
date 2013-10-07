@@ -5,16 +5,17 @@ spacePicturesJam.challenge.init = function() {
         spacePicturesJam.challenge.loadPictures($(this));
     });
 
-    spacePicturesJam.challenge.loadInprogressChallengeUserTab();
+    $('.challenge_user_picture').each(function() {
+        spacePicturesJam.challenge.loadUserPicture($(this));
+    });
 }
 
-spacePicturesJam.challenge.loadInprogressChallengeUserTab = function() {
-    var tabContainer = $('#inprogress_challenge_user_tab');
+spacePicturesJam.challenge.loadUserPicture = function(pictureContainer) {
     $.ajax({
-        url : tabContainer.attr('data-content_url'),
+        url : pictureContainer.attr('data-content_url'),
         dataType: 'html'
     }).done(function(response) {
-        tabContainer.html(response);
+        pictureContainer.html(response);
         $('#picture_upload_button').click(spacePicturesJam.challenge.displayUploadForm);
         $('#signup_button').click(function() { window.location = $(this).attr('data-href') });
     });
