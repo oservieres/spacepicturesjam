@@ -12,7 +12,7 @@ echo "create database spacepicturesjam ; GRANT ALL PRIVILEGES ON spacepicturesja
 sudo apt-get install -fy tree curl apache2 php5-mysql php5 php5-cli php-pear php5-curl phpunit php5-intl php5-dev php5-gd php5-mcrypt git-core git
 
 sudo cp /vagrant/etc/apache_local.conf /etc/apache2/sites-available/spacepicturesjam
-ln -s /vagrant/app/config/parameters.yml.dist /vagrant/app/config/parameters.yml
+ln -s parameters.yml.dist /vagrant/app/config/parameters.yml
 
 rm -f /vagrant/logs/web/*.log
 
@@ -23,5 +23,7 @@ sudo service apache2 restart
 
 cd /vagrant
 curl -s http://getcomposer.org/installer | php5
-php5 composer.phar install
-php5 composer.phar update
+php composer.phar install
+php composer.phar update
+
+php app/console doctrine:migrations:migrate --no-interaction
