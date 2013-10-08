@@ -1,0 +1,13 @@
+parameters:
+    database_driver: pdo_mysql
+    database_host: localhost
+    database_port: null
+    database_name: spacepicturesjam
+    database_user: spacepicturesjam
+    database_password: spacepicturesjam
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    locale: en
+    secret: dsfkjdfdhsk6776Dd-dDlo9

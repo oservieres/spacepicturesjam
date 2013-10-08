@@ -8,6 +8,9 @@ vendor/*
 web/uploads/*
 web/bundles/*
 composer.phar
+app/config/parameters.yml
 
 *.swp
 app/tmp
+
+.vagrant

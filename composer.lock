@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "3ef0e7f40a7f4e6c5ca7f02ab408e2ec",
+    "hash": "466990e5d3e18c781ab8c05b81626891",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -426,19 +426,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineMigrationsBundle.git",
-                "reference": "3db446747fa70dedb7adbd5413cd87bb5a4ad1bb"
+                "reference": "1a7f58d7639cf65b8fcae56fd9a8f4e42a41a27c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/3db446747fa70dedb7adbd5413cd87bb5a4ad1bb",
-                "reference": "3db446747fa70dedb7adbd5413cd87bb5a4ad1bb",
+                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/1a7f58d7639cf65b8fcae56fd9a8f4e42a41a27c",
+                "reference": "1a7f58d7639cf65b8fcae56fd9a8f4e42a41a27c",
                 "shasum": ""
             },
             "require": {
                 "doctrine/doctrine-bundle": "~1.0",
                 "doctrine/migrations": "*",
                 "php": ">=5.3.2",
-                "symfony/framework-bundle": ">=2.1.0,<2.4-dev"
+                "symfony/framework-bundle": "~2.1"
             },
             "type": "symfony-bundle",
             "autoload": {
@@ -471,7 +471,7 @@
                 "migrations",
                 "schema"
             ],
-            "time": "2013-09-03 20:38:48"
+            "time": "2013-10-02 14:42:48"
         },
         {
             "name": "doctrine/inflector",
@@ -594,12 +594,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-                "reference": "99475d79841dc00a63fe7dd051f8fb1ba03bf1a8"
+                "reference": "e96022469595b4def59756f7b6b9ceb78c9f0e66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/99475d79841dc00a63fe7dd051f8fb1ba03bf1a8",
-                "reference": "99475d79841dc00a63fe7dd051f8fb1ba03bf1a8",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/e96022469595b4def59756f7b6b9ceb78c9f0e66",
+                "reference": "e96022469595b4def59756f7b6b9ceb78c9f0e66",
                 "shasum": ""
             },
             "require": {
@@ -640,7 +640,7 @@
                 "database",
                 "migrations"
             ],
-            "time": "2013-09-13 02:44:30"
+            "time": "2013-10-03 12:44:16"
         },
         {
             "name": "doctrine/orm",
@@ -1554,16 +1554,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.13.2",
+            "version": "v1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "6d6a1009427d1f398c9d40904147bf9f723d5755"
+                "reference": "224fc55635d544a2ec8edb3592be18db5a093f59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/6d6a1009427d1f398c9d40904147bf9f723d5755",
-                "reference": "6d6a1009427d1f398c9d40904147bf9f723d5755",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/224fc55635d544a2ec8edb3592be18db5a093f59",
+                "reference": "224fc55635d544a2ec8edb3592be18db5a093f59",
                 "shasum": ""
             },
             "require": {
@@ -1572,7 +1572,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.13-dev"
+                    "dev-master": "1.14-dev"
                 }
             },
             "autoload": {
@@ -1599,7 +1599,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-08-03 15:35:31"
+            "time": "2013-10-03 06:41:20"
         }
     ],
     "packages-dev": [
