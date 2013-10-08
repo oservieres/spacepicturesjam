@@ -3,8 +3,8 @@
 echo mysql-server-5.5 mysql-server/root_password password root | sudo debconf-set-selections
 echo mysql-server-5.5 mysql-server/root_password_again password root | sudo debconf-set-selections
 
-#sudo apt-get update -y
-#sudo apt-get upgrade -y
+sudo apt-get update -y
+sudo apt-get upgrade -y
 
 sudo apt-get install mysql-server mysql-client
 echo "create database spacepicturesjam ; GRANT ALL PRIVILEGES ON spacepicturesjam.* To 'spacepicturesjam'@'localhost' IDENTIFIED BY 'spacepicturesjam' ;" | mysql -u root -proot
