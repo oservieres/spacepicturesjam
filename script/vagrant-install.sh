@@ -11,7 +11,7 @@ echo mysql-server-5.5 mysql-server/root_password password root | sudo debconf-se
 echo mysql-server-5.5 mysql-server/root_password_again password root | sudo debconf-set-selections
 
 sudo apt-get install -y mysql-server-5.5 mysql-client-5.5
-echo "create database spacepicturesjam ; GRANT ALL PRIVILEGES ON spacepicturesjam.* To 'spacepicturesjam'@'localhost' IDENTIFIED BY 'spacepicturesjam' ;" | mysql -u root -proot
+echo "create database if not exists spacepicturesjam ; GRANT ALL PRIVILEGES ON spacepicturesjam.* To 'spacepicturesjam'@'localhost' IDENTIFIED BY 'spacepicturesjam' ;" | mysql -u root -proot
 
 sudo apt-get install -y tree curl apache2 php5-mysql php5 php5-cli php-pear php5-curl phpunit php5-intl php5-dev php5-gd php5-mcrypt git-core git
 

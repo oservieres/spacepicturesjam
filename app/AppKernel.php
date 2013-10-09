@@ -31,7 +31,7 @@ class AppKernel extends Kernel
     public function getCacheDir()
     {
         if (in_array($this->environment, array('dev', 'test'))) {
-            return '/dev/shm/appname/cache/' .  $this->environment;
+            return sys_get_temp_dir() . '/spj/cache/' .  $this->environment;
         }
 
         return parent::getCacheDir();
@@ -40,7 +40,7 @@ class AppKernel extends Kernel
     public function getLogDir()
     {
         if (in_array($this->environment, array('dev', 'test'))) {
-            return '/dev/shm/appname/logs';
+            return sys_get_temp_dir() . '/spj/logs';
         }
 
         return parent::getLogDir();
