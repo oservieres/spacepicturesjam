@@ -35,7 +35,7 @@ class PictureUploadService
             mkdir($this->cdnLocalPath . '/' . $cdnSubDirectories, 0777, true);
         }
 
-        $temporaryFileDirectory = $this->rootDir . "/tmp/img";
+        $temporaryFileDirectory = sys_get_temp_dir() . "/tmp/img";
 
         $microTime = microtime();
         $imageFileName = $microTime . md5($file->getClientOriginalName() . $this->secret) . '.jpg';

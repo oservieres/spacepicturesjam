@@ -4,7 +4,7 @@ imports:
 framework:
     templating:
         assets_base_urls:
-            http: ["http://assets.local.deudtens.com/spacepicturesjam"]
+            http: ["http://localhost:8080"]
     router:
         resource: "%kernel.root_dir%/config/routing_dev.yml"
         strict_requirements: true
@@ -31,4 +31,4 @@ assetic:
     use_controller: true
 
 parameters:
-    cdn_local_path: "/var/www/cdn/spacepicturesjam"
+    cdn_local_path: "/vagrant/web"
