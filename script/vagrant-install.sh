@@ -16,11 +16,15 @@ echo "create database if not exists spacepicturesjam ; GRANT ALL PRIVILEGES ON s
 sudo apt-get install -y tree curl apache2 php5-mysql php5 php5-cli php-pear php5-curl phpunit php5-intl php5-dev php5-gd php5-mcrypt git-core git
 
 sudo apt-get install -y acl
+mkdir /tmp/spj/
 APACHEUSER=`ps aux | grep -E '[a]pache|[h]ttpd' | grep -v root | head -1 | cut -d\  -f1`
 sudo setfacl -R -m u:$APACHEUSER:rwX -m u:vagrant:rwX /tmp/spj/
 sudo setfacl -dR -m u:$APACHEUSER:rwX -m u:vagrant:rwX /tmp/spj/
 
-sudo ln -s /vagrant/etc/apache_local.conf /etc/apache2/sites-available/spacepicturesjam
+if [ ! -f /etc/apache2/sites-available/spacepicturesjam ]
+then
+    sudo ln -s /vagrant/etc/apache_local.conf /etc/apache2/sites-available/spacepicturesjam
+fi
 
 rm -f /vagrant/logs/web/*.log
 
