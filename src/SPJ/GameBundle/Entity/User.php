@@ -18,14 +18,9 @@ class User implements UserInterface
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=20)
-     */
-    protected $firstName;
-
-    /**
      * @ORM\Column(type="string", length=30)
      */
-    protected $lastName;
+    protected $username;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -55,52 +50,6 @@ class User implements UserInterface
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set firstName
-     *
-     * @param string $firstName
-     * @return User
-     */
-    public function setFirstName($firstName)
-    {
-        $this->firstName = $firstName;
-
-        return $this;
-    }
-
-    /**
-     * Get firstName
-     *
-     * @return string
-     */
-    public function getFirstName()
-    {
-        return $this->firstName;
-    }
-
-    /**
-     * Set lastName
-     *
-     * @param string $lastName
-     * @return User
-     */
-    public function setLastName($lastName)
-    {
-        $this->lastName = $lastName;
-
-        return $this;
-    }
-
-    /**
-     * Get lastName
-     *
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->lastName;
     }
 
     /**
@@ -150,16 +99,6 @@ class User implements UserInterface
     }
 
     /**
-     * Get username
-     *
-     * @return string
-     */
-    public function getUsername()
-    {
-        return $this->email;
-    }
-
-    /**
      * erase credentials
      *
      */
@@ -176,7 +115,6 @@ class User implements UserInterface
     {
         return array($this->isAdmin ? 'ROLE_ADMIN' : 'ROLE_USER');
     }
-
 
     /**
      * Get password
@@ -217,7 +155,7 @@ class User implements UserInterface
     {
         $this->pictures = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Add pictures
      *
@@ -227,7 +165,7 @@ class User implements UserInterface
     public function addPicture(\SPJ\GameBundle\Entity\Picture $pictures)
     {
         $this->pictures[] = $pictures;
-    
+
         return $this;
     }
 
@@ -244,10 +182,33 @@ class User implements UserInterface
     /**
      * Get pictures
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getPictures()
     {
         return $this->pictures;
+    }
+
+    /**
+     * Set username
+     *
+     * @param string $username
+     * @return User
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
     }
 }
