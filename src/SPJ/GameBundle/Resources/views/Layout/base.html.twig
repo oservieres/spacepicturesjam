@@ -14,19 +14,19 @@
     <body>
         <nav class="navbar navbar-default" role="navigation">
             <div class="navbar-header">
-                <a class="navbar-brand" href="{{ path('challenge_list') }}">Space Picture Jam</a>
+                <a class="navbar-brand" href="{{ path('challenge_list') }}">{{ "site.name"|trans() }}</a>
             </div>
 
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ path('challenge_list') }}">Accueil</a></li>
+                    <li><a href="{{ path('challenge_list') }}">{{ "menu.home"|trans() }}</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     {% if app.user == "" %}
-                        <li><a href="{{ path('login') }}">Se connecter</a></li>
-                        <li><a href="{{ path('signup') }}">S'inscrire</a></li>
+                        <li><a href="{{ path('login') }}">{{ "menu.login"|trans()}}</a></li>
+                        <li><a href="{{ path('signup') }}">{{ "menu.signup"|trans() }}</a></li>
                     {% else %}
-                        <li><a href="{{ path('logout') }}">Se déconnecter</a></li>
+                        <li><a href="{{ path('logout') }}">{{ "menu.logout"|trans() }}</a></li>
                     {% endif %}
                 </ul>
             </div>

@@ -7,16 +7,16 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-md-8 challenge_pictures inprogress" data-content_url="{{ path('challenge_picture_list', { challengeId : challenge.id }) }}">
-                <p>LOADING</p>
+                <p>{{ "challenge.loading"|trans() }}</p>
             </div>
             <div class="col-md-4">
 
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Your picture</h3>
+                        <h3 class="panel-title">{{ "challenge.user_picture"|trans() }}</h3>
                     </div>
                     <div class="challenge_user_picture panel-body" data-content_url="{{ path('challenge_user_picture_show', { challengeId : challenge.id }) }}">
-LOADING
+                        <p>{{ "challenge.loading"|trans() }}</p>
                     </div>
                 </div>
 

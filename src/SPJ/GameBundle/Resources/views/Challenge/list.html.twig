@@ -1,27 +1,27 @@
 {% extends "SPJGameBundle:Layout:base.html.twig" %}
 
 {% block page_content %}
-    <h2>Challenges</h2>
+    <h2>{{ "challenge.title_plural"|trans() }}</h2>
 
     <div class="row">
         <div id="voting_challenge" class="col-md-6">
             {% if votingChallenge %}
                 {% include 'SPJGameBundle:Challenge:summary_voting.html.twig' with {'challenge' : votingChallenge} %}
             {% else %}
-                <p>No voting challenge for now !</p>
+                <p>{{ "challenge.no_voting"|trans() }}</p>
             {% endif %}
         </div>
         <div id="inprogress_challenge" class="col-md-6">
             {% if inprogressChallenge %}
                 {% include 'SPJGameBundle:Challenge:summary_inprogress.html.twig' with {'challenge' : inprogressChallenge} %}
             {% else %}
-                <p>No challenge in progress for now !</p>
+                <p>{{ "challenge.no_inprogress"|trans() }}</p>
             {% endif %}
         </div>
     </div>
 
     <div id="over_challenges">
-        <h3>Previous challenges</h3>
+        <h3>{{ "challenge.list.previous"|trans() }}</h3>
         {% for challenge in overChallenges %}
             {% include 'SPJGameBundle:Challenge:summary_over.html.twig' with {'challenge' : challenge} %}
         {% endfor %}

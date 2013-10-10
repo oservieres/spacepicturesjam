@@ -4,13 +4,13 @@
 
 {% block page_content %}
     <form action="{{ path('login_check') }}" method="post">
-        <label for="username">E-mail :</label>
+        <label for="username">{{ "user.login.username"|trans() }} :</label>
         <input type="text" id="username" name="_username" />
 
-        <label for="password">Mot de passe :</label>
+        <label for="password">{{ "user.login.password"|trans() }} :</label>
         <input type="password" id="password" name="_password" />
 
-    <button type="submit">Me connecter</button>
+    <button type="submit">{{ "user.login.submit"|trans() }}</button>
 </form>
 
 {% endblock %}
