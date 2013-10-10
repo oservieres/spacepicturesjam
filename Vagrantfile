@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision :shell, :path => "script/vagrant-install.sh"
 
-  config.vm.synced_folder "./", "/vagrant", nfs: true, :extra => 'dmode=777,fmode=777'
+  config.vm.synced_folder "./", "/vagrant", nfs: true
 
 end
 

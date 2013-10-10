@@ -39,7 +39,6 @@ sudo service apache2 restart
 cd /vagrant
 curl -s http://getcomposer.org/installer | php5
 php composer.phar install
-php composer.phar update
 
 #Setup db structure and fixtures
 php app/console doctrine:migrations:migrate --no-interaction
