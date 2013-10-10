@@ -6,8 +6,8 @@ I don't really know yet. The main idea was to keep contact with friends spreaded
 
 ## Requirements
 
- * Vagrant
- * Virtualbox
+ * Vagrant 1.3.4 (may work with older versions)
+ * Virtualbox 4.2 (may work with older versions)
  * A NFS server
 
 ## Installation
