@@ -16,7 +16,7 @@ I don't really know yet. The main idea was to keep contact with friends spreaded
     cd spacepicturesjam
     vagrant up
 
-Then, go to **http://localhost:8080**
+Then, go to **http://localhost:8080**. Before trying to sign up, you can use fixture users : **admin** (pass : admin) and **player** (pass : player).
 
 ## Requirements installation under ubuntu 12.04 LTS i386
     wget "http://download.virtualbox.org/virtualbox/4.2.18/virtualbox-4.2_4.2.18-88780~Ubuntu~precise_i386.deb"
