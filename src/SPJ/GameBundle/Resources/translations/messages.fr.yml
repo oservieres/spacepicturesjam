@@ -1,20 +1,21 @@
-challenge.title_plural: Challenges
-challenge.no_voting: Aucun challenge en cours de vote.
-challenge.no_inprogress: Aucun challenge en cours.
-challenge.loading: Chargement...
-challenge.user_picture: Votre photo
-challenge.status.over: Challenge terminé
-challenge.status.voting: Challenge en cours de vote
-challenge.status.inprogress: Challenge en cours
-challenge.list.previous: Précédents challenges
-user.login.username: Nom d'utilisateur
-user.login.password: Mot de passe
-user.login.submit: Me connecter
-site.name: Space pictures Jam
-menu.home: Accueil
-menu.login: Me connecter
-menu.signup: M'inscrire
-menu.logout: Me déconnecter
-challenge.picture.upload: Envoyer une photo
-challenge.picture.login_advice: Connectez vous ou inscrivez vous pour participer !
-challenge.user.picture_empty: Vous n'avez pas participé.
+challenge.title_plural: 'Challenges'
+challenge.no_voting: 'Aucun challenge en cours de vote.'
+challenge.no_inprogress: 'Aucun challenge en cours.'
+challenge.loading: 'Chargement...'
+challenge.user_picture: 'Votre photo'
+challenge.status.over: 'Challenge terminé'
+challenge.status.voting: 'Challenge en cours de vote'
+challenge.status.inprogress: 'Challenge en cours'
+challenge.list.previous: 'Précédents challenges'
+user.login.username: 'Nom d''utilisateur'
+user.login.password: 'Mot de passe'
+user.login.submit: 'Me connecter'
+site.name: 'Space pictures Jam'
+menu.home: 'Accueil'
+menu.login: 'Me connecter'
+menu.signup: 'M''inscrire'
+menu.logout: 'Me déconnecter'
+challenge.picture.upload: 'Envoyer une photo'
+challenge.picture.login_advice: 'Connectez vous ou inscrivez vous pour participer !'
+challenge.user.picture_empty: 'Vous n''avez pas participé.'
+user.signup: 'Inscription'
