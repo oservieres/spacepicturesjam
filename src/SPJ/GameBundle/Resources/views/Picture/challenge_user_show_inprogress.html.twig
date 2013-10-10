@@ -5,5 +5,5 @@
         <button type="button" id="picture_upload_button" class="btn btn-primary" data-href="{{ path('picture_create', { challengeId : challenge.id }) }}">Upload my picture</button>
     {% endif %}
 {% else %}
-    <button type="button" id="signup_button" class="btn btn-primary" data-href="{{ path('signup') }}">Upload my picture</button>
+    <div class="alert alert-warning">Log-in or signup to participate</div>
 {% endif %}
