@@ -10,5 +10,6 @@ parameters:
     mailer_host: 127.0.0.1
     mailer_user: null
     mailer_password: null
-    locale: en
     secret: dsfkjdfdhsk6776Dd-dDlo9
+    facebook_app_id: "place your facebook app id"
+    facebook_app_secret: "place your facebook app secret"
