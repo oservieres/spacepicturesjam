@@ -15,8 +15,21 @@ class UserController extends Controller
     public function loginAction()
     {
         return $this->render(
-            'SPJGameBundle:User:login.html.twig'
+            'SPJGameBundle:User:login.html.twig', array(
+                'facebookLoginUrl' => $this->get('facebook')->getLoginUrl()
+            )
         );
+    }
+
+    public function facebookLoginCheckAction(Request $request)
+    {
+        try {
+            $this->get('facebook')->login();
+        } catch (\Exception $e) {
+            return $this->redirect($this->get('router')->generate('login'));
+        }
+
+        return $this->redirect($this->get('router')->generate('challenge_list'));
     }
 
     private function getSignupForm(User $user)
@@ -36,7 +49,8 @@ class UserController extends Controller
         return $this->render(
             'SPJGameBundle:User:signup.html.twig',
             array(
-                'form' => $this->getSignupForm(new User())->createView()
+                'form' => $this->getSignupForm(new User())->createView(),
+                'facebookLoginUrl' => $this->get('facebook')->getLoginUrl()
             )
         );
     }

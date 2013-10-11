@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "99d34cb64b3c4c87d7b658efece2d19b",
+    "hash": "996c571510fafe5253d834d9e428ee0a",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -824,6 +824,49 @@
                 "orm"
             ],
             "time": "2013-05-11 07:51:12"
+        },
+        {
+            "name": "facebook/php-sdk",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/facebook/facebook-php-sdk.git",
+                "reference": "97a623be0fd43ba192a83422ea5a919d54e9597f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/facebook/facebook-php-sdk/zipball/97a623be0fd43ba192a83422ea5a919d54e9597f",
+                "reference": "97a623be0fd43ba192a83422ea5a919d54e9597f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache2"
+            ],
+            "authors": [
+                {
+                    "name": "Facebook",
+                    "homepage": "https://github.com/facebook/facebook-php-sdk/contributors"
+                }
+            ],
+            "description": "Facebook PHP SDK",
+            "homepage": "https://github.com/facebook/facebook-php-sdk",
+            "keywords": [
+                "facebook",
+                "sdk"
+            ],
+            "time": "2013-10-10 21:53:48"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1725,7 +1768,8 @@
     "stability-flags": {
         "doctrine/migrations": 20,
         "doctrine/doctrine-migrations-bundle": 20,
-        "doctrine/doctrine-fixtures-bundle": 20
+        "doctrine/doctrine-fixtures-bundle": 20,
+        "facebook/php-sdk": 20
     },
     "platform": {
         "php": ">=5.3.3"

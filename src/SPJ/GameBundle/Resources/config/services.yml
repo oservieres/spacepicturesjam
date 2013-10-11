@@ -17,3 +17,7 @@ services:
 
     image_filter:
         class: SPJ\GameBundle\Service\ImageFilterService
+
+    facebook:
+        class: SPJ\GameBundle\Service\FacebookService
+        arguments: [%facebook_app_id%, %facebook_app_secret%, @router]

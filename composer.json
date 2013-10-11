@@ -21,7 +21,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "doctrine/migrations": "dev-master",
         "doctrine/doctrine-migrations-bundle": "dev-master",
-        "doctrine/doctrine-fixtures-bundle": "dev-master"
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
+        "facebook/php-sdk": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

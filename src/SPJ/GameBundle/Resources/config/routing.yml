@@ -5,12 +5,16 @@ login:
 login_check:
     pattern:   /login_check
 
+facebook_login_check:
+    pattern:   /facebook/login_check
+    defaults: { _controller: SPJGameBundle:User:facebookLoginCheck }
+
 logout:
     pattern:   /logout
 
 signup:
-    defaults: { _controller: SPJGameBundle:User:signup }
     pattern: /inscription
+    defaults: { _controller: SPJGameBundle:User:signup }
 
 signup_check:
     pattern: /signup_check

@@ -3,6 +3,7 @@
 {% block title %}SPJGameBundle:User:login{% endblock %}
 
 {% block page_content %}
+
     <form action="{{ path('login_check') }}" method="post">
         <label for="username">{{ "user.login.username"|trans() }} :</label>
         <input type="text" id="username" name="_username" />
@@ -10,7 +11,9 @@
         <label for="password">{{ "user.login.password"|trans() }} :</label>
         <input type="password" id="password" name="_password" />
 
-    <button type="submit">{{ "user.login.submit"|trans() }}</button>
-</form>
+        <button type="submit">{{ "user.login.submit"|trans() }}</button>
+    </form>
+
+    <a href="{{ facebookLoginUrl }}">{{ "user.facebook_login"|trans() }}</a>
 
 {% endblock %}

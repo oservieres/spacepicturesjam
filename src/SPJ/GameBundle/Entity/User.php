@@ -28,6 +28,11 @@ class User implements UserInterface
     protected $email;
 
     /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $facebookId;
+
+    /**
      * @ORM\Column(type="string", length=32)
      */
     protected $password;
@@ -210,5 +215,28 @@ class User implements UserInterface
     public function getUsername()
     {
         return $this->username;
+    }
+
+    /**
+     * Set facebookId
+     *
+     * @param integer $facebookId
+     * @return User
+     */
+    public function setFacebookId($facebookId)
+    {
+        $this->facebookId = $facebookId;
+    
+        return $this;
+    }
+
+    /**
+     * Get facebookId
+     *
+     * @return integer 
+     */
+    public function getFacebookId()
+    {
+        return $this->facebookId;
     }
 }
