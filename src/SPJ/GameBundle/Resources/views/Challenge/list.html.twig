@@ -4,18 +4,18 @@
     <h2>{{ "challenge.title_plural"|trans() }}</h2>
 
     <div class="row">
-        <div id="voting_challenge" class="col-md-6">
-            {% if votingChallenge %}
-                {% include 'SPJGameBundle:Challenge:summary_voting.html.twig' with {'challenge' : votingChallenge} %}
-            {% else %}
-                <p>{{ "challenge.no_voting"|trans() }}</p>
-            {% endif %}
-        </div>
         <div id="inprogress_challenge" class="col-md-6">
             {% if inprogressChallenge %}
                 {% include 'SPJGameBundle:Challenge:summary_inprogress.html.twig' with {'challenge' : inprogressChallenge} %}
             {% else %}
-                <p>{{ "challenge.no_inprogress"|trans() }}</p>
+                <div class="alert alert-danger">{{ "challenge.no_inprogress"|trans() }}</div>
+            {% endif %}
+        </div>
+        <div id="voting_challenge" class="col-md-6">
+            {% if votingChallenge %}
+                {% include 'SPJGameBundle:Challenge:summary_voting.html.twig' with {'challenge' : votingChallenge} %}
+            {% else %}
+                <div class="alert alert-danger">{{ "challenge.no_voting"|trans() }}</div>
             {% endif %}
         </div>
     </div>
