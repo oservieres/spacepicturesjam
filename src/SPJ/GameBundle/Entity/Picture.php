@@ -74,13 +74,13 @@ class Picture
 
     /**
      * @ORM\ManyToOne(targetEntity="Challenge", inversedBy="pictures")
-     * @ORM\JoinColumn(name="challenge_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="challenge_id", referencedColumnName="id", onDelete="CASCADE")
      */
     protected $challenge;
 
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="pictures")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")
      */
     protected $user;
 
