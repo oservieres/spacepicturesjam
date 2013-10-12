@@ -49,11 +49,12 @@ class FacebookService
 
         try {
             $user = $this->userRepository->findOneByFacebookId();
+            $user->setFacebookId($facebookUserData['id']);
         } catch (\Exception $e) {
             $user = new User();
+            $user->setFacebookData($facebookUserData);
+            $user->setPassword($this->encoderFactory->getEncoder($user)->encodePassword($this->getRandomPassword(), $user->getSalt()));
         }
-        $user->setFacebookData($facebookUserData);
-        $user->setPassword($this->encoderFactory->getEncoder($user)->encodePassword($this->getRandomPassword(), $user->getSalt()));
         $this->entityManager->persist($user);
         $this->entityManager->flush();
 

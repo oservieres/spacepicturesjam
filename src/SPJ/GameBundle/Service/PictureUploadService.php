@@ -37,10 +37,10 @@ class PictureUploadService
 
         $temporaryFileDirectory = sys_get_temp_dir() . "/tmp/img";
 
-        $microTime = trim(microtime());
-        $imageFileName = $microTime . md5($file->getClientOriginalName() . $this->secret) . '.jpg';
-        $miniatureFileName = $microTime . md5($file->getClientOriginalName() . 'miniature' . $this->secret) . '.jpg';
-        $blurredMiniatureFileName = $microTime . md5($file->getClientOriginalName() . 'blur' . $this->secret) . '.jpg';
+        $time = time();
+        $imageFileName = $time . md5($file->getClientOriginalName() . $this->secret) . '.jpg';
+        $miniatureFileName = $time . md5($file->getClientOriginalName() . 'miniature' . $this->secret) . '.jpg';
+        $blurredMiniatureFileName = $time . md5($file->getClientOriginalName() . 'blur' . $this->secret) . '.jpg';
 
         $file->move($temporaryFileDirectory, $file->getClientOriginalName());
         $exifData = exif_read_data($temporaryFileDirectory . '/' . $file->getClientOriginalName());
