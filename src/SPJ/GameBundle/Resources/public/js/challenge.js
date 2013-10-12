@@ -8,7 +8,25 @@ spacePicturesJam.challenge.init = function() {
     $('.challenge_user_picture').each(function() {
         spacePicturesJam.challenge.loadUserPicture($(this));
     });
-}
+
+    $('#spj_gamebundle_picture_file').change(function() {
+        spacePicturesJam.challenge.previewPicture(this);
+    });
+};
+
+spacePicturesJam.challenge.previewPicture = function (input) {
+    if (input.files && input.files[0]) {
+        var fileReader = new FileReader();
+        fileReader.onload = function(e) {
+            var imageElement = $('<img/>')
+                               .attr('width', '100')
+                               .attr('class', 'img-thumbnail')
+                               .attr('src', e.target.result);
+            $('#picture_preview_area').html(imageElement)
+        };
+        fileReader.readAsDataURL(input.files[0]);
+    }
+};
 
 spacePicturesJam.challenge.loadUserPicture = function(pictureContainer) {
     $.ajax({
@@ -32,6 +50,10 @@ spacePicturesJam.challenge.loadPictures = function(picturesContainer) {
 spacePicturesJam.challenge.displayUploadForm = function(event) {
     event.preventDefault();
     $.fancybox.open({
+        fitToView   : false,
+        autoSize    : false,
+        width: 600,
+        height: 400,
         padding : 0,
         href: $('#picture_upload_button').attr('data-href'),
         type: 'iframe'

@@ -1,1 +1,16 @@
-{{ form(form) }}
+{% extends "SPJGameBundle:Layout:iframe_popin.html.twig" %}
+
+{% block page_content %}
+    {% form_theme form 'SPJGameBundle:Form:form_div_layout.html.twig' %}
+
+    <h2>{{ "picture.create"|trans() }}</h2>
+
+    <div class="row">
+        <div class="col-xs-6">
+            {{ form(form) }}
+        </div>
+        <div class="col-xs-6" id="picture_preview_area">
+
+        </div>
+    </div>
+{% endblock %}
