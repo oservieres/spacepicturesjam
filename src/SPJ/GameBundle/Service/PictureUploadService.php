@@ -37,12 +37,13 @@ class PictureUploadService
 
         $temporaryFileDirectory = sys_get_temp_dir() . "/tmp/img";
 
-        $microTime = microtime();
+        $microTime = trim(microtime());
         $imageFileName = $microTime . md5($file->getClientOriginalName() . $this->secret) . '.jpg';
         $miniatureFileName = $microTime . md5($file->getClientOriginalName() . 'miniature' . $this->secret) . '.jpg';
         $blurredMiniatureFileName = $microTime . md5($file->getClientOriginalName() . 'blur' . $this->secret) . '.jpg';
 
         $file->move($temporaryFileDirectory, $file->getClientOriginalName());
+        $exifData = exif_read_data($temporaryFileDirectory . '/' . $file->getClientOriginalName());
 
         $this->imageFilter->resize(
             $temporaryFileDirectory . '/' . $file->getClientOriginalName(),
@@ -66,7 +67,8 @@ class PictureUploadService
         return array(
             'path' => 'content/' . $cdnSubDirectories . '/' . $imageFileName,
             'miniature_path' => 'content/' . $cdnSubDirectories . '/' . $miniatureFileName,
-            'blurred_miniature_path' => 'content/' . $cdnSubDirectories . '/' . $blurredMiniatureFileName
+            'blurred_miniature_path' => 'content/' . $cdnSubDirectories . '/' . $blurredMiniatureFileName,
+            'exif' => $exifData
         );
     }
 }

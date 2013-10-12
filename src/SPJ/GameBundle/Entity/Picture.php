@@ -396,17 +396,32 @@ class Picture
     public function setBlurredMiniaturePath($blurredMiniaturePath)
     {
         $this->blurredMiniaturePath = $blurredMiniaturePath;
-    
+
         return $this;
     }
 
     /**
      * Get blurredMiniaturePath
      *
-     * @return string 
+     * @return string
      */
     public function getBlurredMiniaturePath()
     {
         return $this->blurredMiniaturePath;
+    }
+
+    public function setExifProperties($exif)
+    {
+        if (array_key_exists('ShutterSpeedValue', $exif)) {
+            $this->shutterSpeed = $exif['ShutterSpeedValue'];
+        }
+
+        if (array_key_exists('ApertureFNumber', $exif['COMPUTED'])) {
+            $this->aperture = $exif['COMPUTED']['ApertureFNumber'];
+        }
+
+        if (@array_key_exists('ISOSpeedRatings', $exif)) {
+            $this->ISO = $exif['ISOSpeedRatings'];
+        }
     }
 }
