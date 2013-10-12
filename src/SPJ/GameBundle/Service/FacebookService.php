@@ -48,7 +48,7 @@ class FacebookService
         $facebookUserData = $this->facebookSdk->api('/me');
 
         try {
-            $user = $this->userRepository->findOneByFacebookId();
+            $user = $this->userRepository->findOneByEmail($facebookUserData['email']);
             $user->setFacebookId($facebookUserData['id']);
         } catch (\Exception $e) {
             $user = new User();
