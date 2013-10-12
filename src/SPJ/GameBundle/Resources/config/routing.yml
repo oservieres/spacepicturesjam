@@ -16,10 +16,6 @@ signup:
     pattern: /inscription
     defaults: { _controller: SPJGameBundle:User:signup }
 
-signup_check:
-    pattern: /signup_check
-    defaults: { _controller: SPJGameBundle:User:signupCheck }
-
 challenge_list:
     pattern: /
     defaults: { _controller: SPJGameBundle:Challenge:list }

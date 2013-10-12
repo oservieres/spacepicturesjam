@@ -26,7 +26,6 @@ class UserController extends Controller
         try {
             $this->get('facebook')->login();
         } catch (\Exception $e) {
-echo $e->getMessage();exit;
             return $this->redirect($this->get('router')->generate('login'));
         }
 
@@ -36,7 +35,7 @@ echo $e->getMessage();exit;
     private function getSignupForm(User $user)
     {
         $form = $this->createForm(new UserType(), $user, array(
-            'action' => $this->generateUrl('signup_check'),
+            'action' => $this->generateUrl('signup'),
             'method' => 'POST',
         ));
 
@@ -45,36 +44,30 @@ echo $e->getMessage();exit;
         return $form;
     }
 
-    public function signupAction()
-    {
-        return $this->render(
-            'SPJGameBundle:User:signup.html.twig',
-            array(
-                'form' => $this->getSignupForm(new User())->createView(),
-                'facebookLoginUrl' => $this->get('facebook')->getLoginUrl()
-            )
-        );
-    }
-
-    public function signupCheckAction(Request $request)
+    public function signupAction(Request $request)
     {
         $user = new User();
         $form = $this->getSignupForm($user);
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
-            $passwordEncoder = $this->get('security.encoder_factory')->getEncoder($user);
-            $user->setPassword($passwordEncoder->encodePassword($user->getPassword(), $user->getSalt()));
-
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
-
-            $token = new UsernamePasswordToken($user, null, 'main', array('ROLE_USER'));
-            $this->get('security.context')->setToken($token);
-
-            return new JsonResponse(array('redirect_url' => '/'), 201);
+        $errors = $this->get('validator')->validate($user);
+        if (!$form->isValid() || 0 < sizeof($errors)) {
+            return $this->render('SPJGameBundle:User:signup.html.twig', array(
+                'facebookLoginUrl' => $this->get('facebook')->getLoginUrl(),
+                'entity' => $user,
+                'form'   => $form->createView(),
+            ));
         }
-        return new JsonResponse(null, 403);
+        $passwordEncoder = $this->get('security.encoder_factory')->getEncoder($user);
+        $user->setPassword($passwordEncoder->encodePassword($user->getPassword(), $user->getSalt()));
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->flush();
+
+        $token = new UsernamePasswordToken($user, null, 'main', array('ROLE_USER'));
+        $this->get('security.context')->setToken($token);
+
+        return $this->redirect($this->get('router')->generate('challenge_list'));
     }
 }

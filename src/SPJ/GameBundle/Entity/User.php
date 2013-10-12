@@ -3,10 +3,16 @@ namespace SPJ\GameBundle\Entity;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="SPJ\GameBundle\Repository\UserRepository")
- * @ORM\Table(name="user")
+ * @ORM\Table(name="user",uniqueConstraints={
+ *     @ORM\UniqueConstraint(name="username_idx", columns={"username"}),
+ *     @ORM\UniqueConstraint(name="email_idx", columns={"email"})
+ * })
+ * @UniqueEntity(fields="email", message="user.email.taken")
+ * @UniqueEntity(fields="username", message="user.username.taken")
  */
 class User implements UserInterface
 {
