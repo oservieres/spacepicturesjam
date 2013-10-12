@@ -226,17 +226,24 @@ class User implements UserInterface
     public function setFacebookId($facebookId)
     {
         $this->facebookId = $facebookId;
-    
+
         return $this;
     }
 
     /**
      * Get facebookId
      *
-     * @return integer 
+     * @return integer
      */
     public function getFacebookId()
     {
         return $this->facebookId;
+    }
+
+    public function setFacebookData($facebookData)
+    {
+        $this->setFacebookId($facebookData['id']);
+        $this->setUsername($facebookData['first_name'] . ' ' . substr($facebookData['last_name'], 0, 1));
+        $this->setEmail($facebookData['email']);
     }
 }

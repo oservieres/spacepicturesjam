@@ -26,6 +26,7 @@ class UserController extends Controller
         try {
             $this->get('facebook')->login();
         } catch (\Exception $e) {
+echo $e->getMessage();exit;
             return $this->redirect($this->get('router')->generate('login'));
         }
 
@@ -63,7 +64,7 @@ class UserController extends Controller
 
         if ($form->isValid()) {
             $passwordEncoder = $this->get('security.encoder_factory')->getEncoder($user);
-            $user->setPassword($passwordEncoder->encodePassword($user->getpassword(), $user->getSalt()));
+            $user->setPassword($passwordEncoder->encodePassword($user->getPassword(), $user->getSalt()));
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);

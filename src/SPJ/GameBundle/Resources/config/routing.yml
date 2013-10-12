@@ -6,7 +6,7 @@ login_check:
     pattern:   /login_check
 
 facebook_login_check:
-    pattern:   /facebook/login_check
+    pattern:  /facebook/login_check
     defaults: { _controller: SPJGameBundle:User:facebookLoginCheck }
 
 logout:

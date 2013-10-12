@@ -11,6 +11,12 @@ services:
         factory_service: doctrine.orm.entity_manager
         factory_method: getRepository
 
+    user_repository:
+        class: SPJ\GameBundle\Repository\UserRepository
+        arguments: [SPJGameBundle:User]
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+
     picture_upload:
         class: SPJ\GameBundle\Service\PictureUploadService
         arguments: [@image_filter, %kernel.root_dir%, %cdn_local_path%, %secret%]
@@ -20,4 +26,4 @@ services:
 
     facebook:
         class: SPJ\GameBundle\Service\FacebookService
-        arguments: [%facebook_app_id%, %facebook_app_secret%, @router]
+        arguments: [%facebook_app_id%, %facebook_app_secret%, @router, @user_repository, @security.context, @security.encoder_factory, @doctrine.orm.entity_manager]
