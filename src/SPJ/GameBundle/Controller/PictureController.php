@@ -51,7 +51,7 @@ class PictureController extends Controller
     public function challengeListAction($challengeId, $page = 1)
     {
         $challenge = $this->get('challenge_repository')->findOneById($challengeId);
-        return $this->render('SPJGameBundle:Picture:challenge_list.html.twig', array(
+        return $this->render('SPJGameBundle:Picture:' . $challenge->getStatus() . '_challenge_list.html.twig', array(
             'pictures' => $this->get('picture_repository')->findByChallenge($challenge),
             'challenge' => $challenge
         ));
@@ -63,7 +63,7 @@ class PictureController extends Controller
         $user = $this->get('security.context')->getToken()->getUser();
 
         if ("" !== $user) {
-            $picture = $this->get('picture_repository')->findOneByChallengeAndUser($challenge, $user);
+            $picture = $this->get('picture_repository')->yyfindOneByChallengeAndUser($challenge, $user);
         } else {
             $picture = null;
         }
@@ -74,4 +74,12 @@ class PictureController extends Controller
         ));
     }
 
+    public function showAction($pictureId)
+    {
+        $picture = $this->get('picture_repository')->findOneById($pictureId);
+        $user = $this->get('security.context')->getToken()->getUser();
+        return $this->render('SPJGameBundle:Picture:show.html.twig', array(
+            'picture' => $picture
+        ));
+    }
 }

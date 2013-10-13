@@ -28,6 +28,10 @@ picture_create:
     pattern:  /challenge/{challengeId}/picture/create
     defaults: { _controller: SPJGameBundle:Picture:create }
 
+picture_show:
+    pattern:  /picture/{pictureId}
+    defaults: { _controller: SPJGameBundle:Picture:show }
+
 challenge_picture_list:
     pattern:  /challenge/{challengeId}/pictures
     defaults: { _controller: SPJGameBundle:Picture:challengeList }

@@ -44,16 +44,35 @@ spacePicturesJam.challenge.loadPictures = function(picturesContainer) {
         dataType: 'html'
     }).done(function(response) {
         picturesContainer.html(response);
+        picturesContainer.find('.challenge_picture_link').click(function(event) {
+            event.preventDefault();
+            spacePicturesJam.challenge.displayPictureDetails($(this).attr('href'));
+        });
+    });
+};
+
+spacePicturesJam.challenge.displayPictureDetails = function(url) {
+    $.ajax({
+        url : url,
+        dataType: 'html'
+    }).done(function(response) {
+        $.fancybox.open({
+            fitToView : false,
+            autoSize : false,
+            width : 900,
+            padding : 0,
+            content : response
+        });
     });
 };
 
 spacePicturesJam.challenge.displayUploadForm = function(event) {
     event.preventDefault();
     $.fancybox.open({
-        fitToView   : false,
-        autoSize    : false,
-        width: 600,
-        height: 400,
+        fitToView : false,
+        autoSize : false,
+        width : 600,
+        height : 400,
         padding : 0,
         href: $('#picture_upload_button').attr('data-href'),
         type: 'iframe'

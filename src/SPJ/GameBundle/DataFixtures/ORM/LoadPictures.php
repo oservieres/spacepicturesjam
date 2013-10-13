@@ -35,8 +35,8 @@ class LoadPictureData extends AbstractFixture implements FixtureInterface, Conta
                        ->setISO('800')
                        ->setShutterSpeed('1/345')
                        ->setPath('http://imageshack.com/scaled/800x600/163/yzsw.jpg')
-                       ->setMiniaturePath('http://imageshack.com/scaled/800x600/707/42jg.jpg')
-                       ->setBlurredMiniaturePath('http://imageshack.com/scaled/800x600/208/jw1q.jpg')
+                       ->setBlurredMiniaturePath('http://imageshack.com/scaled/800x600/707/42jg.jpg')
+                       ->setMiniaturePath('http://imageshack.com/scaled/800x600/208/jw1q.jpg')
                        ->setChallenge($this->getReference('voting_challenge'))
                        ->setUser($this->getReference('user_player'));
         $manager->persist($votingPicture1);
@@ -51,8 +51,8 @@ class LoadPictureData extends AbstractFixture implements FixtureInterface, Conta
                        ->setISO('200')
                        ->setShutterSpeed('1/100')
                        ->setPath('http://imageshack.com/scaled/800x600/163/yzsw.jpg')
-                       ->setMiniaturePath('http://imageshack.com/scaled/800x600/707/42jg.jpg')
-                       ->setBlurredMiniaturePath('http://imageshack.com/scaled/800x600/208/jw1q.jpg')
+                       ->setBlurredMiniaturePath('http://imageshack.com/scaled/800x600/707/42jg.jpg')
+                       ->setMiniaturePath('http://imageshack.com/scaled/800x600/208/jw1q.jpg')
                        ->setChallenge($this->getReference('voting_challenge'))
                        ->setUser($this->getReference('user_admin'));
         $manager->persist($votingPicture2);

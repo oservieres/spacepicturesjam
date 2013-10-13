@@ -1,3 +1,8 @@
 .panel {
     margin: 10px;
 }
+
+.picture_details .picture {
+    width: 100%;
+    height: auto;
+}
