@@ -25,6 +25,9 @@ class RotateChallengesCommand extends ContainerAwareCommand
 
         $inprogressChallenge = $challengeRepository->findOneInProgress();
         if (null !== $inprogressChallenge) {
+            if ($inprogressChallenge->getEndDate() > new \DateTime()) {
+                return;
+            }
             $inprogressChallenge->setStatus('voting');
             $endVotingDate = new \DateTime('today');
             $endVotingDate->add(new \DateInterval('P' . $challengeDuration . 'D'));
