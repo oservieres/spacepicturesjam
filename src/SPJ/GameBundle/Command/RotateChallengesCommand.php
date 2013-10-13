@@ -21,10 +21,14 @@ class RotateChallengesCommand extends ContainerAwareCommand
     {
         $entityManager = $this->getContainer()->get('doctrine.orm.entity_manager');
         $challengeRepository = $this->getContainer()->get('challenge_repository');
+        $challengeDuration = $this->getContainer()->getParameter('challenge_duration');
 
         $inprogressChallenge = $challengeRepository->findOneInProgress();
         if (null !== $inprogressChallenge) {
             $inprogressChallenge->setStatus('voting');
+            $endVotingDate = new \DateTime('today');
+            $endVotingDate->add(new \DateInterval('P' . $challengeDuration . 'D'));
+            $inprogressChallenge->setEndDate($endVotingDate);
             $entityManager->persist($inprogressChallenge);
         }
 
@@ -38,7 +42,7 @@ class RotateChallengesCommand extends ContainerAwareCommand
         $newChallenge->setStatus('inprogress');
         $newChallenge->setStartDate(new \DateTime());
         $endDate = new \DateTime('today');
-        $endDate->add(new \DateInterval('P' . $this->getContainer()->getParameter('challenge_duration') . 'D'));
+        $endDate->add(new \DateInterval('P' . $challengeDuration . 'D'));
         $newChallenge->setEndDate($endDate);
         $entityManager->persist($newChallenge);
 

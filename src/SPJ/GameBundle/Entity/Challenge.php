@@ -27,6 +27,11 @@ class Challenge
     protected $endDate;
 
     /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $endVotingDate;
+
+    /**
      * @ORM\Column(type="string", length=150)
      */
     protected $subject;
@@ -176,10 +181,33 @@ class Challenge
     /**
      * Get pictures
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getPictures()
     {
         return $this->pictures;
+    }
+
+    /**
+     * Set endVotingDate
+     *
+     * @param \DateTime $endVotingDate
+     * @return Challenge
+     */
+    public function setEndVotingDate($endVotingDate)
+    {
+        $this->endVotingDate = $endVotingDate;
+
+        return $this;
+    }
+
+    /**
+     * Get endVotingDate
+     *
+     * @return \DateTime
+     */
+    public function getEndVotingDate()
+    {
+        return $this->endVotingDate;
     }
 }
