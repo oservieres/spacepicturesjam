@@ -1,10 +1,6 @@
-admin_challenge:
+admin_challenge_list:
     pattern:  /
-    defaults: { _controller: "SPJGameBundle:Challenge:index" }
-
-admin_challenge_show:
-    pattern:  /{id}/show
-    defaults: { _controller: "SPJGameBundle:Challenge:show" }
+    defaults: { _controller: "SPJGameBundle:Challenge:adminList" }
 
 admin_challenge_new:
     pattern:  /new

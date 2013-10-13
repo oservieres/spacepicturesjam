@@ -15,6 +15,19 @@ use SPJ\GameBundle\Form\ChallengeType;
 class ChallengeController extends Controller
 {
 
+    public function adminListAction()
+    {
+        $challengeRepository = $this->get('challenge_repository');
+        $challenges = $challengeRepository->findAllQueued();
+
+        return $this->render(
+            'SPJGameBundle:Challenge:admin_list.html.twig',
+            array(
+                'challenges' => $challenges,
+            )
+        );
+    }
+
     public function listAction()
     {
         $challengeRepository = $this->get('challenge_repository');
@@ -50,7 +63,7 @@ class ChallengeController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_challenge_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('admin_challenge_edit', array('id' => $entity->getId())));
         }
 
         return $this->render('SPJGameBundle:Challenge:new.html.twig', array(

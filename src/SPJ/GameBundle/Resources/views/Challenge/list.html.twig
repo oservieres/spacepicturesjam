@@ -3,6 +3,10 @@
 {% block page_content %}
     <h2>{{ "challenge.title_plural"|trans() }}</h2>
 
+    {% if is_granted('ROLE_ADMIN') %}
+        <p><a href="{{ url('admin_challenge_list') }}">Challenges admin</a></p>
+    {% endif %}
+
     <div class="row">
         <div id="inprogress_challenge" class="col-md-6">
             {% if inprogressChallenge %}

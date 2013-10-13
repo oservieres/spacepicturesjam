@@ -1,0 +1,38 @@
+{% extends "SPJGameBundle:Layout:base.html.twig" %}
+
+{% block page_content%}
+    <h1>Challenge admin</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Subject</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for challenge in challenges %}
+            <tr>
+                <td><a href="{{ path('admin_challenge_edit', { 'id': challenge.id }) }}">{{ challenge.id }}</a></td>
+                <td>{{ challenge.subject }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('admin_challenge_edit', { 'id': challenge.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('admin_challenge_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

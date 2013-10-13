@@ -8,6 +8,16 @@ use Doctrine\ORM\EntityRepository;
  */
 class ChallengeRepository extends EntityRepository
 {
+
+    public function findAllQueued()
+    {
+        return $this->createQueryBuilder('challenge')
+                    ->where('challenge.status = :status')
+                    ->setParameter('status', 'queued')
+                    ->getQuery()
+                    ->getResult();
+    }
+
     public function findAllOver()
     {
         return $this->createQueryBuilder('challenge')
