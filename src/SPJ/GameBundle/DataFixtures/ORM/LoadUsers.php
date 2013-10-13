@@ -3,14 +3,15 @@
 namespace SPJ\GameBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
 use SPJ\GameBundle\Entity\User;
-use SPJ\GameBundle\Entity\Challenge;
 
-class LoadUserData implements FixtureInterface, ContainerAwareInterface
+class LoadUserData extends AbstractFixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
 {
     private $container;
 
@@ -41,12 +42,15 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface
                    ->setPassword($encoder->encodePassword('player', $userPlayer->getSalt()));
         $manager->persist($userPlayer);
 
-        $inprogressChallenge = new Challenge();
-        $inprogressChallenge->setStatus('inprogress')
-                            ->setSubject('La Nuit');
-        $manager->persist($inprogressChallenge);
-
         $manager->flush();
+
+        $this->addReference('user_admin', $userAdmin);
+        $this->addReference('user_player', $userPlayer);
+    }
+
+    public function getOrder()
+    {
+        return 1;
     }
 }
 
