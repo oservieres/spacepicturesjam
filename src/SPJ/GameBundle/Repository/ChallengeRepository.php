@@ -9,6 +9,26 @@ use Doctrine\ORM\EntityRepository;
 class ChallengeRepository extends EntityRepository
 {
 
+    public function findOneRandomQueued()
+    {
+        $challengesCount = $this->createQueryBuilder('challenge')
+                                ->select('COUNT(challenge)')
+                                ->where('challenge.status = :status')
+                                ->setParameter('status', 'queued')
+                                ->getQuery()
+                                ->getSingleScalarResult();
+
+        $randomOffset = rand(0, $challengesCount - 1);
+
+        return $this->createQueryBuilder('challenge')
+                    ->where('challenge.status = :status')
+                    ->setParameter('status', 'queued')
+                    ->getQuery()
+                    ->setFirstResult($randomOffset)
+                    ->setMaxResults(1)
+                    ->getSingleResult();
+    }
+
     public function findAllQueued()
     {
         return $this->createQueryBuilder('challenge')
