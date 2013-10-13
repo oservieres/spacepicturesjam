@@ -60,8 +60,10 @@ class PictureController extends Controller
     public function challengeUserShowAction($challengeId)
     {
         $challenge = $this->get('challenge_repository')->findOneById($challengeId);
-        if ($this->get('security.context')->getToken()->getUser()) {
-            $picture = $this->get('picture_repository')->findOneByChallenge($challenge);
+        $user = $this->get('security.context')->getToken()->getUser();
+
+        if ("" !== $user) {
+            $picture = $this->get('picture_repository')->findOneByChallengeAndUser($challenge, $user);
         } else {
             $picture = null;
         }
