@@ -25,39 +25,35 @@ class LoadPictureData extends AbstractFixture implements FixtureInterface, Conta
      */
     public function load(ObjectManager $manager)
     {
-        $votingPicture1 = new Picture();
-        $votingPicture1->setDateCreated(new \DateTime())
-                       ->setTitle('photo ouf')
-                       ->setLocation('Lyon 9eme')
-                       ->setDescription('photo de bla bla bla')
-                       ->setFocalLength('250mm')
-                       ->setAperture('f4.5')
-                       ->setISO('800')
-                       ->setShutterSpeed('1/345')
-                       ->setPath('http://imageshack.com/scaled/800x600/163/yzsw.jpg')
-                       ->setBlurredMiniaturePath('http://imageshack.com/scaled/800x600/707/42jg.jpg')
-                       ->setMiniaturePath('http://imageshack.com/scaled/800x600/208/jw1q.jpg')
-                       ->setChallenge($this->getReference('voting_challenge'))
-                       ->setUser($this->getReference('user_player'));
+        $votingPicture1 = $this->getPicture($this->getReference('voting_challenge'), $this->getReference('user_admin'));
         $manager->persist($votingPicture1);
 
-        $votingPicture2 = new Picture();
-        $votingPicture2->setDateCreated(new \DateTime())
-                       ->setTitle('Hey hey')
-                       ->setLocation('Berlin')
-                       ->setDescription('photo de bla bli blo bla')
-                       ->setFocalLength('50mm')
-                       ->setAperture('f1.5')
-                       ->setISO('200')
-                       ->setShutterSpeed('1/100')
-                       ->setPath('http://imageshack.com/scaled/800x600/163/yzsw.jpg')
-                       ->setBlurredMiniaturePath('http://imageshack.com/scaled/800x600/707/42jg.jpg')
-                       ->setMiniaturePath('http://imageshack.com/scaled/800x600/208/jw1q.jpg')
-                       ->setChallenge($this->getReference('voting_challenge'))
-                       ->setUser($this->getReference('user_admin'));
+        $votingPicture2 = $this->getPicture($this->getReference('voting_challenge'), $this->getReference('user_player'));
         $manager->persist($votingPicture2);
 
+        $inprogressPicture1 = $this->getPicture($this->getReference('inprogress_challenge'), $this->getReference('user_admin'));
+        $manager->persist($inprogressPicture1);
+
         $manager->flush();
+    }
+
+    public function getPicture($challenge, $user)
+    {
+        $picture = new Picture();
+        $picture->setDateCreated(new \DateTime())
+                ->setTitle('Hey hey')
+                ->setLocation('Berlin')
+                ->setDescription('photo de bla bli blo bla')
+                ->setFocalLength('50mm')
+                ->setAperture('f1.5')
+                ->setISO('200')
+                ->setShutterSpeed('1/100')
+                ->setPath('http://imageshack.com/scaled/800x600/163/yzsw.jpg')
+                ->setBlurredMiniaturePath('http://imageshack.com/scaled/800x600/707/42jg.jpg')
+                ->setMiniaturePath('http://imageshack.com/scaled/800x600/208/jw1q.jpg')
+                ->setChallenge($challenge)
+                ->setUser($user);
+        return $picture;
     }
 
     public function getOrder()
