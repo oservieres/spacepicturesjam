@@ -61,10 +61,18 @@ spacePicturesJam.challenge.displayPictureDetails = function(url) {
             autoSize : false,
             width : 900,
             padding : 0,
-            content : response
+            content : response,
+            afterShow : spacePicturesJam.challenge.bindPictureDetails
         });
     });
 };
+
+spacePicturesJam.challenge.bindPictureDetails = function() {
+    $('.fancybox-inner .comments .create .submit').click(function(e) {
+        e.preventDefault();
+        alert('désolé ça marche pas encore');
+    });
+}
 
 spacePicturesJam.challenge.displayUploadForm = function(event) {
     event.preventDefault();

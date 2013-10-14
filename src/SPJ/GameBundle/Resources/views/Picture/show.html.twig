@@ -4,7 +4,17 @@
             <img class="picture" src="{{ asset(picture.path) }}" title="{{ picture.title }}" alt="{{ picture.title }}"/>
         </div>
         <div class="col-xs-3">
-            Comments
+            <div class="comments">
+                <h4>Comments</h4>
+                <div class="list">
+
+                </div>
+                <div class="create">
+                    <form method="POST" action="{{ path('comment_create', { pictureId : picture.id }) }}">
+                        <input type="text" name="content"/>
+                        <input type="submit" class="submit"/>
+                    </form>
+                </div>
         </div>
     </div>
 </div>

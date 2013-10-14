@@ -40,6 +40,10 @@ challenge_user_picture_show:
     pattern:  /challenge/{challengeId}/user/picture
     defaults: { _controller: SPJGameBundle:Picture:challengeUserShow }
 
+comment_create:
+    pattern:  /challenge/{pictureId}/comment/create
+    defaults: { _controller: SPJGameBundle:Comment:create }
+
 SPJGameBundle_admin_challenge:
         resource: "@SPJGameBundle/Resources/config/routing/challenge.yml"
         prefix:   /admin/challenge
