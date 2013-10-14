@@ -63,7 +63,7 @@ class PictureController extends Controller
         $user = $this->get('security.context')->getToken()->getUser();
 
         if ("" !== $user) {
-            $picture = $this->get('picture_repository')->yyfindOneByChallengeAndUser($challenge, $user);
+            $picture = $this->get('picture_repository')->findOneByChallengeAndUser($challenge, $user);
         } else {
             $picture = null;
         }
