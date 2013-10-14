@@ -6,7 +6,7 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <div class="col-md-8 challenge_pictures inprogress" data-content_url="{{ path('challenge_picture_list', { challengeId : challenge.id }) }}">
+            <div class="col-md-8 challenge_pictures {{ challenge.status }}" data-content_url="{{ path('challenge_picture_list', { challengeId : challenge.id }) }}">
                 <p>{{ "challenge.loading"|trans() }}</p>
             </div>
             <div class="col-md-4">
