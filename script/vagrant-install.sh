@@ -16,7 +16,7 @@ echo "create database if not exists spacepicturesjam ; \
       GRANT ALL PRIVILEGES ON spacepicturesjam.* To 'spacepicturesjam'@'localhost' IDENTIFIED BY 'spacepicturesjam' ;" | mysql -u root -proot
 
 #Install various stuff
-sudo apt-get install -y tree curl apache2 php5-mysql php5 php5-cli php-pear php5-curl phpunit php5-intl php5-dev php5-gd php5-mcrypt git-core git acl
+sudo apt-get install -y vim tree curl apache2 php5-mysql php5 php5-cli php5-curl php-pear php5-curl phpunit php5-intl php5-dev php5-gd php5-mcrypt git-core git acl
 
 #Prepare Symfony2 cache and logs dir, out of NFS partition and readable/writable by both cli and web
 mkdir /tmp/spj/
