@@ -8,7 +8,6 @@ use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 use SPJ\GameBundle\Entity\User;
 use SPJ\GameBundle\Form\UserType;
-use SPJ\GameBundle\Response\JsonResponse;
 
 class UserController extends Controller
 {

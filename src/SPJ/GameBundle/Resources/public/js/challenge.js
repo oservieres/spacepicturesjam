@@ -68,9 +68,22 @@ spacePicturesJam.challenge.displayPictureDetails = function(url) {
 };
 
 spacePicturesJam.challenge.bindPictureDetails = function() {
-    $('.fancybox-inner .comments .create .submit').click(function(e) {
+    var commentForm = $('.fancybox-inner .comments form');
+    commentForm.find('.submit').click(function(e) {
         e.preventDefault();
-        alert('désolé ça marche pas encore');
+        $.ajax({
+            method : 'post',
+            url : commentForm.attr('action'),
+            data : commentForm.serialize(),
+            dataType: 'json'
+        }).done(function(response) {
+            var commentContainer = $('<li></li>');
+            commentContainer.append($('<span class="author"></span>').html(response.data.comment.username));
+            commentContainer.append($('<span class="content"></span>').html(response.data.comment.content));
+            commentContainer.append($('<span class="date"></span>').html(response.data.comment.date_created));
+            $('.fancybox-inner .comments ul').append(commentContainer);
+        });
+
     });
 }
 

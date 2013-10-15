@@ -84,6 +84,11 @@ class Picture
      */
     protected $user;
 
+     /**
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="picture")
+     */
+    protected $comments;
+
     /**
      * @Assert\File(maxSize="6000000")
      */
@@ -423,5 +428,45 @@ class Picture
         if (@array_key_exists('ISOSpeedRatings', $exif)) {
             $this->ISO = $exif['ISOSpeedRatings'];
         }
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add comments
+     *
+     * @param \SPJ\GameBundle\Entity\Comment $comments
+     * @return Picture
+     */
+    public function addComment(\SPJ\GameBundle\Entity\Comment $comments)
+    {
+        $this->comments[] = $comments;
+    
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \SPJ\GameBundle\Entity\Comment $comments
+     */
+    public function removeComment(\SPJ\GameBundle\Entity\Comment $comments)
+    {
+        $this->comments->removeElement($comments);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }

@@ -6,9 +6,15 @@
         <div class="col-xs-3">
             <div class="comments">
                 <h4>Comments</h4>
-                <div class="list">
-
-                </div>
+                <ul>
+                    {% for comment in picture.comments %}
+                        <li>
+                            <span class="author">{{ comment.user.username }}</span>
+                            <span class="content">{{ comment.content }}</span>
+                            <span class="date">{{ comment.dateCreated|date('c') }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
                 <div class="create">
                     <form method="POST" action="{{ path('comment_create', { pictureId : picture.id }) }}">
                         <input type="text" name="content"/>

@@ -42,7 +42,7 @@ class Comment
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -127,17 +127,26 @@ class Comment
     public function setUser(\SPJ\GameBundle\Entity\User $user = null)
     {
         $this->user = $user;
-    
+
         return $this;
     }
 
     /**
      * Get user
      *
-     * @return \SPJ\GameBundle\Entity\User 
+     * @return \SPJ\GameBundle\Entity\User
      */
     public function getUser()
     {
         return $this->user;
+    }
+
+    public function getArrayData()
+    {
+        return array(
+            'content' => $this->getContent(),
+            'date_created' => $this->getDateCreated()->format("%c"),
+            'username' => $this->getUser()->getUsername()
+        );
     }
 }

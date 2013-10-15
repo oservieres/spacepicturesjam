@@ -12,6 +12,8 @@ class PictureRepository extends EntityRepository
     public function findOneByChallengeAndUser($challenge, $user)
     {
         return $this->createQueryBuilder('picture')
+                    ->join('picture.comments', 'comments')
+                    ->join('picture.user', 'user')
                     ->where('picture.challenge = :challenge')
                     ->setParameter('challenge', $challenge)
                     ->andWhere('picture.user = :user')
