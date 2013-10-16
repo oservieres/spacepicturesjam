@@ -15,7 +15,7 @@ class PictureRepository extends EntityRepository
                     ->leftJoin('picture.comments', 'comments')
                     ->join('picture.user', 'user')
                     ->where('picture.id = :id')
-                    ->setParameter('id', $id)
+                    ->setParameter('id', $pictureId)
                     ->getQuery()
                     ->getOneOrNullResult();
     }

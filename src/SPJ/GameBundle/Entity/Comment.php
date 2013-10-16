@@ -145,7 +145,7 @@ class Comment
     {
         return array(
             'content' => $this->getContent(),
-            'date_created' => $this->getDateCreated()->format("%c"),
+            'date_created' => $this->getDateCreated()->format("c"),
             'username' => $this->getUser()->getUsername()
         );
     }
