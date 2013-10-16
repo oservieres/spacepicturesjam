@@ -59,7 +59,7 @@ spacePicturesJam.challenge.displayPictureDetails = function(url) {
         $.fancybox.open({
             fitToView : false,
             autoSize : false,
-            width : 900,
+            width : '80%',
             padding : 0,
             content : response,
             afterShow : spacePicturesJam.challenge.bindPictureDetails
@@ -83,7 +83,6 @@ spacePicturesJam.challenge.bindPictureDetails = function() {
             commentContainer.append($('<span class="date"></span>').html(response.data.comment.date_created));
             $('.fancybox-inner .comments ul').append(commentContainer);
         });
-
     });
 }
 
