@@ -27,3 +27,4 @@ picture.create: 'Ajoutez votre photo'
 picture.title: 'Titre'
 picture.location: 'Lieu'
 picture.description: 'description'
+picture_comment_login: "Connectez vous pour commenter cette photo"

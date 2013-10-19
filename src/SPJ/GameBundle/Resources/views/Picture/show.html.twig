@@ -19,12 +19,18 @@
                         </li>
                     {% endfor %}
                 </ul>
-                <div class="create">
-                    <form method="POST" action="{{ path('comment_create', { pictureId : picture.id }) }}">
-                        <input type="text" name="content"/>
-                        <input type="submit" class="submit"/>
-                    </form>
-                </div>
+                {% if app.user == "" %}
+                    <div class="alert alert-danger">
+                        <a href="{{ path('login') }}">{{ "picture_comment_login"|trans() }}</a>
+                    </div>
+                {% else %}
+                    <div class="create">
+                        <form method="POST" action="{{ path('comment_create', { pictureId : picture.id }) }}">
+                            <input type="text" name="content"/>
+                            <input type="submit" class="submit"/>
+                        </form>
+                    </div>
+                {% endif %}
         </div>
     </div>
 </div>
