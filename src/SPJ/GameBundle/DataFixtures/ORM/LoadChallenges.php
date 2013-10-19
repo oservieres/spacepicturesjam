@@ -25,13 +25,18 @@ class LoadChallengeData extends AbstractFixture implements FixtureInterface, Con
      */
     public function load(ObjectManager $manager)
     {
+        $endDate = new \DateTime('today');
+        $endDate->add(new \DateInterval('P14D'));
+
         $inprogressChallenge = new Challenge();
         $inprogressChallenge->setStatus('inprogress')
+                            ->setEndDate($endDate)
                             ->setSubject('La Nuit');
         $manager->persist($inprogressChallenge);
 
         $votingChallenge = new Challenge();
         $votingChallenge->setStatus('voting')
+                        ->setEndVotingDate($endDate)
                         ->setSubject('Le jour');
         $manager->persist($votingChallenge);
 

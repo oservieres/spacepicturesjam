@@ -1,8 +1,10 @@
-<div class="panel panel-{% block panelType %}{% endblock %}">
+<div class="challenge panel panel-{% block panelType %}{% endblock %}">
     <div class="panel-heading">
         <h3 class="panel-title">
             {% block panelTitle %}Challenge{% endblock %} : <strong>{{ challenge.subject }}</strong>
         </h3>
+        {% block challenge_dates %}
+        {% endblock %}
     </div>
     <div class="panel-body">
         <div class="row">

@@ -22,3 +22,14 @@
 .comments ul li:nth-child(even) {
     background-color: #F0F0F0;
 }
+
+.challenge .panel-heading {
+    position: relative;
+}
+
+.challenge .countdown {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+}

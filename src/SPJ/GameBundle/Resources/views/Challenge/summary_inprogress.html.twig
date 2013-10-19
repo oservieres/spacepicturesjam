@@ -3,3 +3,7 @@
 {% block panelType %}success{% endblock %}
 
 {% block panelTitle %}{{ "challenge.status.inprogress"|trans() }}{% endblock %}
+
+{% block challenge_dates %}
+    <div class="countdown" data-end_date="{{ challenge.endDate|date('c') }}"></div>
+{% endblock %}

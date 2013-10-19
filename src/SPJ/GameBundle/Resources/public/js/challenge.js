@@ -12,6 +12,13 @@ spacePicturesJam.challenge.init = function() {
     $('#spj_gamebundle_picture_file').change(function() {
         spacePicturesJam.challenge.previewPicture(this);
     });
+
+    $('.countdown').each(function() {
+        $(this).countdown({
+            until: new Date($(this).attr('data-end_date')),
+            onExpiry: function() { window.location.reload() },
+        });
+    });
 };
 
 spacePicturesJam.challenge.previewPicture = function (input) {
