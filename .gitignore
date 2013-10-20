@@ -16,3 +16,5 @@ app/tmp
 .vagrant
 
 web/content
+web/css
+web/js
