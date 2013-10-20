@@ -64,9 +64,7 @@ spacePicturesJam.challenge.displayPictureDetails = function(url) {
         dataType: 'html'
     }).done(function(response) {
         $.fancybox.open({
-            fitToView : false,
-            autoSize : false,
-            width : '80%',
+            scrolling : 'no',
             padding : 0,
             content : response,
             afterShow : spacePicturesJam.challenge.bindPictureDetails

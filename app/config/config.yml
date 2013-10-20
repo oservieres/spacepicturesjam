@@ -62,3 +62,4 @@ swiftmailer:
 
 parameters:
     challenge_duration: 14
+    assetic.asset_factory.class: SPJ\GameBundle\Factory\AssetFactory
