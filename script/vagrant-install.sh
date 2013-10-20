@@ -43,3 +43,7 @@ php composer.phar install
 #Setup db structure and fixtures
 php app/console doctrine:migrations:migrate --no-interaction
 php app/console doctrine:fixtures:load --no-interaction
+
+#Install assets
+php app/console assets:install --relative --symlink
+php app/console assetic:dump
