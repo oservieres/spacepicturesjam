@@ -18,6 +18,10 @@ I don't really know yet. The main idea was to keep contact with friends spreaded
 
 Then, go to **http://localhost:8080**. Before trying to sign up, you can use fixture users : **admin** (pass : admin) and **player** (pass : player).
 
+If you modify css or js files, always run the following command on the VM to see your changes :
+
+    php /vagrant/app/console assetic:dump --watch
+
 ## Requirements installation under ubuntu 12.04 LTS i386
     wget "http://download.virtualbox.org/virtualbox/4.2.18/virtualbox-4.2_4.2.18-88780~Ubuntu~precise_i386.deb"
     sudo dpkg -i virtualbox-4.2_4.2.18-88780~Ubuntu~precise_i386.deb
