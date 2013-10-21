@@ -13,7 +13,12 @@ width: 100%;
 }
 
 .picture_details .rating {
-    top: 40px;
+    top: 60px;
+    height: 200px;
+}
+
+.picture_details .metadata {
+    top: 100px;
     height: 200px;
 }
 
@@ -27,7 +32,6 @@ width: 100%;
 }
 .picture_details .tab .tag {
     position: absolute;
-    top : 0;
     left : -14px;
     background-color: white;
     opacity: 0.8;
