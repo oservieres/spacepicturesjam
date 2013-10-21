@@ -33,8 +33,35 @@
         Rating !
     </div>
     <div class="tab metadata">
+
         <div class="tag"><span class="glyphicon glyphicon-question-sign"></span></div>
-        Metadata !
+
+        <ul class="list-group">
+            <li class="list-group-item">
+                <span class="badge">{{ picture.ISO }}</span>
+                {{ "picture.ISO"|trans() }}
+            </li>
+            <li class="list-group-item">
+                <span class="badge">{{ picture.aperture }}</span>
+                {{ "picture.aperture"|trans() }}
+            </li>
+            <li class="list-group-item">
+                <span class="badge">{{ picture.shutterSpeed }}</span>
+                {{ "picture.shutter_speed"|trans() }}
+            </li>
+        </ul>
+
+        <div class="list-group">
+            <span class="list-group-item">
+                <h4 class="list-group-item-heading">{{ "picture.description"|trans() }}</h4>
+                <p class="list-group-item-text">{{ picture.description }}</p>
+            </span>
+            <span class="list-group-item">
+                <h4 class="list-group-item-heading">{{ "picture.location"|trans() }}</h4>
+                <p class="list-group-item-text">{{ picture.location }}</p>
+            </span>
+        </div>
+</div>
     </div>
     <img class="picture" src="{{ asset(picture.path) }}" title="{{ picture.title }}" alt="{{ picture.title }}"/>
 </div>

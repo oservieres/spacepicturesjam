@@ -4,12 +4,13 @@ width: 100%;
 
 .picture_details .tab {
     position: absolute;
-    width: 200px;
+    width: 230px;
+    padding: 5px 30px 5px 5px;
     background-color: white;
     opacity: 0.8;
     transition: right 0.1s;
     -webkit-transition: right 0.1s;
-    right: -200px;
+    right: -230px;
 }
 
 .picture_details .rating {
@@ -19,7 +20,6 @@ width: 100%;
 
 .picture_details .metadata {
     top: 100px;
-    height: 200px;
 }
 
 .picture_details .comments {

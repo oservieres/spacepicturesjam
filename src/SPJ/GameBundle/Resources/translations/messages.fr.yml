@@ -7,8 +7,6 @@ challenge.status.over: 'Challenge terminé'
 challenge.status.voting: 'Challenge en cours de vote'
 challenge.status.inprogress: 'Challenge en cours'
 challenge.list.previous: 'Précédents challenges'
-user.login.username: 'Nom d''utilisateur'
-user.login.password: 'Mot de passe'
 user.login.submit: 'Me connecter'
 site.name: 'Space pictures Jam'
 menu.home: Accueil
@@ -24,7 +22,9 @@ user.input.username: 'Nom d''utilisateur'
 user.input.password: 'Mot de passe'
 user.facebook_login: 'Connexion Facebook'
 picture.create: 'Ajoutez votre photo'
-picture.title: 'Titre'
-picture.location: 'Lieu'
-picture.description: 'description'
-picture_comment_login: "Connectez vous pour commenter cette photo"
+picture.location: "Lieu"
+picture.description: "Description"
+picture_comment_login: 'Connectez vous pour commenter cette photo'
+picture.ISO: "ISO"
+picture.aperture: "Ouverture"
+picture.shutter_speed: "Vitesse d'obturateur"
