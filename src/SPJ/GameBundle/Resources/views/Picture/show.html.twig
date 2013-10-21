@@ -1,32 +1,36 @@
 <div class="picture_details">
-            <div class="comments">
-                <div class="tag"><span class="glyphicon glyphicon-comment"></span></div>
-                <h4>Comments</h4>
-                <ul>
-                    {% for comment in picture.comments %}
-                        <li>
-                            <p>
-                                <span class="author">{{ comment.user.username }}</span>
-                                <span class="content">{{ comment.content }}</span>
-                            </p>
-                            <p>
-                                <span class="date">{{ comment.dateCreated|date('c') }}</span>
-                            </p>
-                        </li>
-                    {% endfor %}
-                </ul>
-                {% if app.user == "" %}
-                    <div class="alert alert-danger">
-                        <a href="{{ path('login') }}">{{ "picture_comment_login"|trans() }}</a>
-                    </div>
-                {% else %}
-                    <div class="create">
-                        <form method="POST" action="{{ path('comment_create', { pictureId : picture.id }) }}">
-                            <input type="text" name="content"/>
-                            <input type="submit" class="submit"/>
-                        </form>
-                    </div>
-                {% endif %}
-        </div>
-        <img class="picture" src="{{ asset(picture.path) }}" title="{{ picture.title }}" alt="{{ picture.title }}"/>
+    <div class="tab comments">
+        <div class="tag"><span class="glyphicon glyphicon-comment"></span></div>
+        <h4>Comments</h4>
+        <ul>
+            {% for comment in picture.comments %}
+                <li>
+                    <p>
+                        <span class="author">{{ comment.user.username }}</span>
+                        <span class="content">{{ comment.content }}</span>
+                    </p>
+                    <p>
+                        <span class="date">{{ comment.dateCreated|date('c') }}</span>
+                    </p>
+                </li>
+            {% endfor %}
+        </ul>
+        {% if app.user == "" %}
+            <div class="alert alert-danger">
+                <a href="{{ path('login') }}">{{ "picture_comment_login"|trans() }}</a>
+            </div>
+        {% else %}
+            <div class="create">
+                <form method="POST" action="{{ path('comment_create', { pictureId : picture.id }) }}">
+                    <input type="text" name="content"/>
+                    <input type="submit" class="submit"/>
+                </form>
+            </div>
+        {% endif %}
+    </div>
+    <div class="tab rating">
+        <div class="tag"><span class="glyphicon glyphicon-star"></span></div>
+        Rating !
+    </div>
+    <img class="picture" src="{{ asset(picture.path) }}" title="{{ picture.title }}" alt="{{ picture.title }}"/>
 </div>

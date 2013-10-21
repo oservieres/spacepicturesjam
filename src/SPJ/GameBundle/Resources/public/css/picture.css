@@ -1,0 +1,51 @@
+.picture_details .picture {
+width: 100%;
+}
+
+.picture_details .tab {
+    position: absolute;
+    width: 200px;
+    background-color: white;
+    opacity: 0.8;
+    transition: right 0.1s;
+    -webkit-transition: right 0.1s;
+    right: -200px;
+}
+
+.picture_details .rating {
+    top: 40px;
+    height: 200px;
+}
+
+.picture_details .comments {
+    top: 20px;
+    height: 80%;
+}
+
+.picture_details .tab:hover {
+    right: 0;
+}
+.picture_details .tab .tag {
+    position: absolute;
+    top : 0;
+    left : -14px;
+    background-color: white;
+    opacity: 0.8;
+}
+
+.picture_details .comment ul {
+    list-style-type: none!important;
+    padding: 2px;
+    font-size: 10px;
+}
+.picture_details .comments ul li .author {
+    font-weight: bold;
+}
+.picture_details .comments ul li .dateCreated {
+    color: #404040;
+    text-align: right;
+    font-size: 8px;
+}
+.picture_details .comments ul li:nth-child(even) {
+    background-color: #F0F0F0;
+}
