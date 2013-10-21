@@ -32,9 +32,16 @@ width: 100%;
 }
 .picture_details .tab .tag {
     position: absolute;
-    left : -14px;
+    left : -30px;
     background-color: white;
     opacity: 0.8;
+    padding: 4px 8px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 .picture_details .comment ul {
