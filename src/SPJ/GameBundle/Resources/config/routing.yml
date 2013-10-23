@@ -47,3 +47,7 @@ comment_create:
 SPJGameBundle_admin_challenge:
         resource: "@SPJGameBundle/Resources/config/routing/challenge.yml"
         prefix:   /admin/challenge
+
+rating_create:
+    pattern:  /picture/{pictureId}/rating/create
+    defaults: { _controller: SPJGameBundle:Rating:create }

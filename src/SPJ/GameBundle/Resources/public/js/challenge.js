@@ -73,6 +73,10 @@ spacePicturesJam.challenge.displayPictureDetails = function(url) {
 };
 
 spacePicturesJam.challenge.bindPictureDetails = function() {
+    $('.rating_star').click(function(event) {
+        event.preventDefault();
+        spacePicturesJam.rating.create($(this).attr('href'), $(this).attr('data-value'));
+    });
     var commentForm = $('.fancybox-inner .comments form');
     commentForm.find('.submit').click(function(e) {
         e.preventDefault();

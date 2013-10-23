@@ -5,6 +5,12 @@ services:
         factory_service: doctrine.orm.entity_manager
         factory_method: getRepository
 
+    rating_repository:
+        class: SPJ\GameBundle\Repository\RatingRepository
+        arguments: [SPJGameBundle:Rating]
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+
     challenge_repository:
         class: SPJ\GameBundle\Repository\ChallengeRepository
         arguments: [SPJGameBundle:Challenge]
