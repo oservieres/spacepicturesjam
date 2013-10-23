@@ -51,10 +51,16 @@ class PictureController extends Controller
     public function challengeListAction($challengeId, $page = 1)
     {
         $challenge = $this->get('challenge_repository')->findOneById($challengeId);
-        return $this->render('SPJGameBundle:Picture:' . $challenge->getStatus() . '_challenge_list.html.twig', array(
-            'pictures' => $this->get('picture_repository')->findByChallenge($challenge),
-            'challenge' => $challenge
-        ));
+        $pictures = $this->get('picture_repository')->findByChallenge($challenge);
+        $templateName = 'SPJGameBundle:Picture:' . $challenge->getStatus() . '_challenge_list.html.twig';
+
+        return $this->render(
+            $templateName,
+            array(
+                'pictures' => $pictures,
+                'challenge' => $challenge
+            )
+        );
     }
 
     public function challengeUserShowAction($challengeId)
@@ -62,24 +68,34 @@ class PictureController extends Controller
         $challenge = $this->get('challenge_repository')->findOneById($challengeId);
         $user = $this->get('security.context')->getToken()->getUser();
 
+        $picture = null;
         if ("" !== $user) {
             $picture = $this->get('picture_repository')->findOneByChallengeAndUser($challenge, $user);
-        } else {
-            $picture = null;
         }
-        $templateName = $challenge->getStatus() === 'inprogress' ? 'SPJGameBundle:Picture:challenge_user_show_inprogress.html.twig' : 'SPJGameBundle:Picture:challenge_user_show.html.twig';
-        return $this->render($templateName, array(
-            'picture' => $picture,
-            'challenge' => $challenge
-        ));
+
+        $templateName = $challenge->getStatus() === 'inprogress' ?
+            'SPJGameBundle:Picture:challenge_user_show_inprogress.html.twig' :
+            'SPJGameBundle:Picture:challenge_user_show.html.twig';
+
+        return $this->render(
+            $templateName,
+            array(
+                'picture' => $picture,
+                'challenge' => $challenge
+            )
+        );
     }
 
     public function showAction($pictureId)
     {
         $picture = $this->get('picture_repository')->findOneById($pictureId);
         $user = $this->get('security.context')->getToken()->getUser();
-        return $this->render('SPJGameBundle:Picture:show.html.twig', array(
-            'picture' => $picture
-        ));
+
+        return $this->render(
+            'SPJGameBundle:Picture:show.html.twig',
+            array(
+                'picture' => $picture
+            )
+        );
     }
 }
