@@ -22,10 +22,10 @@ class RatingController extends Controller
         } catch (\Exception $e) {
             $rating = new Rating();
             $rating->setPicture($picture)
+               ->setDateCreated(new \DateTime())
                    ->setUser($user);
         }
-        $rating->setValue($request->request->get('value'))
-               ->setDateCreated(new \DateTime());
+        $rating->setValue($request->request->get('value'));
 
         $em->persist($rating);
         $em->flush();
