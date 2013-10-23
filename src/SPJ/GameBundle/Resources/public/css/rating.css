@@ -1,0 +1,8 @@
+.rating ul {
+    list-style-type: none;
+}
+
+.rating li {
+    float: left;
+    margin-left: 8px;
+}
