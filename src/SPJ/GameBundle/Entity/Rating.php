@@ -5,10 +5,10 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="SPJ\GameBundle\Repository\CommentRepository")
- * @ORM\Table(name="comment")
+ * @ORM\Entity(repositoryClass="SPJ\GameBundle\Repository\RatingRepository")
+ * @ORM\Table(name="rating")
  */
-class Comment
+class Rating
 {
     /**
      * @ORM\Id
@@ -23,9 +23,9 @@ class Comment
     protected $dateCreated;
 
     /**
-     * @ORM\Column(type="string", length=160, nullable=true)
+     * @ORM\Column(type="integer")
      */
-    protected $content;
+    protected $value;
 
     /**
      * @ORM\ManyToOne(targetEntity="Picture", inversedBy="comments")
@@ -42,7 +42,7 @@ class Comment
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
     public function getId()
     {
@@ -53,7 +53,7 @@ class Comment
      * Set dateCreated
      *
      * @param \DateTime $dateCreated
-     * @return Comment
+     * @return Rating
      */
     public function setDateCreated($dateCreated)
     {
@@ -73,33 +73,33 @@ class Comment
     }
 
     /**
-     * Set content
+     * Set value
      *
-     * @param string $content
-     * @return Comment
+     * @param integer $value
+     * @return Rating
      */
-    public function setContent($content)
+    public function setValue($value)
     {
-        $this->content = $content;
+        $this->value = $value;
     
         return $this;
     }
 
     /**
-     * Get content
+     * Get value
      *
-     * @return string 
+     * @return integer 
      */
-    public function getContent()
+    public function getValue()
     {
-        return $this->content;
+        return $this->value;
     }
 
     /**
      * Set picture
      *
      * @param \SPJ\GameBundle\Entity\Picture $picture
-     * @return Comment
+     * @return Rating
      */
     public function setPicture(\SPJ\GameBundle\Entity\Picture $picture = null)
     {
@@ -122,31 +122,22 @@ class Comment
      * Set user
      *
      * @param \SPJ\GameBundle\Entity\User $user
-     * @return Comment
+     * @return Rating
      */
     public function setUser(\SPJ\GameBundle\Entity\User $user = null)
     {
         $this->user = $user;
-
+    
         return $this;
     }
 
     /**
      * Get user
      *
-     * @return \SPJ\GameBundle\Entity\User
+     * @return \SPJ\GameBundle\Entity\User 
      */
     public function getUser()
     {
         return $this->user;
-    }
-
-    public function getArrayData()
-    {
-        return array(
-            'content' => $this->getContent(),
-            'date_created' => $this->getDateCreated()->format("c"),
-            'username' => $this->getUser()->getUsername()
-        );
     }
 }

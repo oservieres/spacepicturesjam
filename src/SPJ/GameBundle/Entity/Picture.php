@@ -89,6 +89,11 @@ class Picture
      */
     protected $comments;
 
+     /**
+     * @ORM\OneToMany(targetEntity="Rating", mappedBy="picture")
+     */
+    protected $ratings;
+
     /**
      * @Assert\File(maxSize="6000000")
      */
@@ -468,5 +473,38 @@ class Picture
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * Add ratings
+     *
+     * @param \SPJ\GameBundle\Entity\Rating $ratings
+     * @return Picture
+     */
+    public function addRating(\SPJ\GameBundle\Entity\Rating $ratings)
+    {
+        $this->ratings[] = $ratings;
+    
+        return $this;
+    }
+
+    /**
+     * Remove ratings
+     *
+     * @param \SPJ\GameBundle\Entity\Rating $ratings
+     */
+    public function removeRating(\SPJ\GameBundle\Entity\Rating $ratings)
+    {
+        $this->ratings->removeElement($ratings);
+    }
+
+    /**
+     * Get ratings
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRatings()
+    {
+        return $this->ratings;
     }
 }
