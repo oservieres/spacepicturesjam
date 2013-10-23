@@ -1,8 +1,8 @@
-.rating ul {
+.rating ul.stars {
     list-style-type: none;
 }
 
-.rating li {
+.rating ul.stars li {
     float: left;
     margin-left: 8px;
 }

@@ -1,42 +1,24 @@
 <div class="picture_details">
+
     <div class="tab comments">
         <div class="tag"><span class="glyphicon glyphicon-comment"></span></div>
         <h4>Comments</h4>
-        <ul>
-            {% for comment in picture.comments %}
-                <li>
-                    <p>
-                        <span class="author">{{ comment.user.username }}</span>
-                        <span class="content">{{ comment.content }}</span>
-                    </p>
-                    <p>
-                        <span class="date">{{ comment.dateCreated|date('c') }}</span>
-                    </p>
-                </li>
-            {% endfor %}
-        </ul>
-        {% if app.user == "" %}
-            <div class="alert alert-danger">
-                <a href="{{ path('login') }}">{{ "picture_comment_login"|trans() }}</a>
-            </div>
-        {% else %}
-            <div class="create">
-                <form method="POST" action="{{ path('comment_create', { pictureId : picture.id }) }}">
-                    <input type="text" name="content"/>
-                    <input type="submit" class="submit"/>
-                </form>
-            </div>
-        {% endif %}
+
+        {% include 'SPJGameBundle:Comment:list.html.twig' %}
+
+        {% include 'SPJGameBundle:Comment:create.html.twig' %}
+
     </div>
+
     <div class="tab rating">
         <div class="tag"><span class="glyphicon glyphicon-star"></span></div>
-        <ul>
-            <li><a href="{{ path('rating_create', { pictureId : picture.id}) }}" class="glyphicon glyphicon-ban-circle rating_star" data-value="0"></a></li>
-            {% for i in 1..5 %}
-                <li><a href="{{ path('rating_create', { pictureId : picture.id}) }}" class="glyphicon glyphicon-star rating_star" data-value="{{ i }}"></a></li>
-            {% endfor %}
-        </ul>
+
+        {% include 'SPJGameBundle:Rating:create.html.twig' %}
+
+        {% include 'SPJGameBundle:Rating:show.html.twig' %}
+
     </div>
+
     <div class="tab metadata">
 
         <div class="tag"><span class="glyphicon glyphicon-question-sign"></span></div>

@@ -22,9 +22,11 @@ user.input.username: 'Nom d''utilisateur'
 user.input.password: 'Mot de passe'
 user.facebook_login: 'Connexion Facebook'
 picture.create: 'Ajoutez votre photo'
-picture.location: "Lieu"
-picture.description: "Description"
+picture.location: Lieu
+picture.description: Description
 picture_comment_login: 'Connectez vous pour commenter cette photo'
-picture.ISO: "ISO"
-picture.aperture: "Ouverture"
-picture.shutter_speed: "Vitesse d'obturateur"
+picture.ISO: ISO
+picture.aperture: Ouverture
+picture.shutter_speed: 'Vitesse d''obturateur'
+rating.average: "Note moyenne"
+rating.sum: "Nombre de notes"

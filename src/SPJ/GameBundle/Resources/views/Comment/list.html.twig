@@ -1,0 +1,13 @@
+<ul>
+    {% for comment in picture.comments %}
+        <li>
+            <p>
+                <span class="author">{{ comment.user.username }}</span>
+                <span class="content">{{ comment.content }}</span>
+            </p>
+            <p>
+                <span class="date">{{ comment.dateCreated|date('c') }}</span>
+            </p>
+        </li>
+    {% endfor %}
+</ul>

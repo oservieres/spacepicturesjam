@@ -1,0 +1,12 @@
+<div class="create">
+    {% if app.user == "" %}
+        <div class="alert alert-danger">
+            <a href="{{ path('login') }}">{{ "picture_comment_login"|trans() }}</a>
+        </div>
+    {% else %}
+        <form method="POST" action="{{ path('comment_create', { pictureId : picture.id }) }}">
+            <input type="text" name="content"/>
+            <input type="submit" class="submit"/>
+        </form>
+    {% endif %}
+</div>
