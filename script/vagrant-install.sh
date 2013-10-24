@@ -18,6 +18,9 @@ echo "create database if not exists spacepicturesjam ; \
 #Install various stuff
 sudo apt-get install -y vim tree curl apache2 php5-mysql php5 php5-cli php5-curl php-pear php5-curl phpunit php5-intl php5-dev php5-gd php5-mcrypt git-core git acl
 
+#Enable apache autostart
+update-rc.d apache2 enable
+
 #Prepare Symfony2 cache and logs dir, out of NFS partition and readable/writable by both cli and web
 VAR_DIR="/var/spacepicturesjam/"
 sudo mkdir -p ${VAR_DIR}
