@@ -19,7 +19,7 @@ class RatingRepository extends EntityRepository
 
     public function findSummary($picture, $user) {
         $statistics = $this->getEntityManager()->createQuery(
-            'SELECT AVG(rating.value), SUM(rating.value)
+            'SELECT AVG(rating.value), COUNT(rating.value)
             FROM SPJGameBundle:Rating rating
             WHERE rating.picture = :picture')
             ->setParameter('picture', $picture)

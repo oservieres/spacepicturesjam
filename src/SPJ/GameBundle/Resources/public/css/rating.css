@@ -1,5 +1,6 @@
 .rating ul.stars {
     list-style-type: none;
+    height: 40px;
 }
 
 .rating ul.stars li {
