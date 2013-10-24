@@ -19,10 +19,11 @@ echo "create database if not exists spacepicturesjam ; \
 sudo apt-get install -y vim tree curl apache2 php5-mysql php5 php5-cli php5-curl php-pear php5-curl phpunit php5-intl php5-dev php5-gd php5-mcrypt git-core git acl
 
 #Prepare Symfony2 cache and logs dir, out of NFS partition and readable/writable by both cli and web
-mkdir -p /tmp/spj/
+VAR_DIR="/var/spacepicturesjam/"
+sudo mkdir -p ${VAR_DIR}
 APACHEUSER=`ps aux | grep -E '[a]pache|[h]ttpd' | grep -v root | head -1 | cut -d\  -f1`
-sudo setfacl -R -m u:$APACHEUSER:rwX -m u:vagrant:rwX /tmp/spj/
-sudo setfacl -dR -m u:$APACHEUSER:rwX -m u:vagrant:rwX /tmp/spj/
+sudo setfacl -R -m u:$APACHEUSER:rwX -m u:vagrant:rwX ${VAR_DIR}
+sudo setfacl -dR -m u:$APACHEUSER:rwX -m u:vagrant:rwX ${VAR_DIR}
 
 #Configure apache
 if [ ! -f /etc/apache2/sites-available/spacepicturesjam ]
