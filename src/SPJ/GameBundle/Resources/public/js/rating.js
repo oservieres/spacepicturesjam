@@ -7,6 +7,12 @@ spacePicturesJam.rating.create = function(url, value) {
         data : 'value=' + value,
         dataType: 'json'
     }).done(function(response) {
-        alert("Thank you !");
+        $('.rating_star').each(function() {
+            if (response.data.rating.value >= $(this).attr('data-value')) {
+                $(this).addClass('highlighted');
+            } else {
+                $(this).removeClass('highlighted');
+            }
+        });
     });
 }

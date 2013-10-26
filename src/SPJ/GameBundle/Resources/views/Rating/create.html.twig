@@ -1,6 +1,7 @@
 <ul class="stars">
-    <li><a href="{{ path('rating_create', { pictureId : picture.id}) }}" class="glyphicon glyphicon-ban-circle rating_star" data-value="0"></a></li>
+    {% set userRating = picture.ratings|length > 0 ? picture.ratings[0].value : -1 %}
+    <li><a href="{{ path('rating_create', { pictureId : picture.id}) }}" class="glyphicon glyphicon-ban-circle rating_star {{ userRating >= 0 ? 'highlighted' }}" data-value="0"></a></li>
     {% for i in 1..5 %}
-        <li><a href="{{ path('rating_create', { pictureId : picture.id}) }}" class="glyphicon glyphicon-star rating_star" data-value="{{ i }}"></a></li>
+        <li><a href="{{ path('rating_create', { pictureId : picture.id}) }}" class="glyphicon glyphicon-star rating_star {{ userRating >= i ? 'highlighted' }}" data-value="{{ i }}"></a></li>
     {% endfor %}
 </ul>

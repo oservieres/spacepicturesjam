@@ -30,6 +30,13 @@ class RatingController extends Controller
         $em->persist($rating);
         $em->flush();
 
-        return new GameJsonResponse(null, 201);
+        return new GameJsonResponse(
+            array(
+                'rating' => array(
+                    'value' => $rating->getValue()
+                )
+            ),
+            201
+        );
     }
 }

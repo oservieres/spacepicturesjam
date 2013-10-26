@@ -7,3 +7,12 @@
     float: left;
     margin-left: 8px;
 }
+
+.rating ul.stars .highlighted {
+    color: red;
+}
+
+.rating ul.stars .rating_star:hover {
+    background-color: #B3B3B3;
+    border-radius: 3px;
+}
