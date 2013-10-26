@@ -14,6 +14,7 @@ class PictureRepository extends EntityRepository
         return $this->createQueryBuilder('picture')
                     ->leftJoin('picture.comments', 'comments')
                     ->join('picture.user', 'user')
+                    ->join('picture.challenge', 'challenge')
                     ->where('picture.id = :id')
                     ->setParameter('id', $pictureId)
                     ->getQuery()
