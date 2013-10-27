@@ -4,13 +4,13 @@
 
 .picture_details .tab {
     position: absolute;
-    width: 230px;
+    width: 280px;
     padding: 5px 45px 5px 5px;
     background-color: white;
     opacity: 0.9;
     transition: right 0.1s;
     -webkit-transition: right 0.1s;
-    right: -230px;
+    right: -280px;
     -webkit-border-top-left-radius: 5px;
     -webkit-border-bottom-left-radius: 5px;
     -moz-border-radius-topleft: 5px;
