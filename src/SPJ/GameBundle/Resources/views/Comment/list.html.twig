@@ -1,12 +1,12 @@
-<ul>
+<ul class="list-group">
     {% for comment in picture.comments %}
-        <li>
+        <li class="comment list-group-item">
             <p>
                 <span class="author">{{ comment.user.username }}</span>
                 <span class="content">{{ comment.content }}</span>
             </p>
-            <p>
-                <span class="date">{{ comment.dateCreated|date('c') }}</span>
+            <p class="date">
+                <span>{{ comment.dateCreated|date('d/m/Y H:m') }}</span>
             </p>
         </li>
     {% endfor %}

@@ -1,0 +1,19 @@
+.picture_details .comments ul {
+    list-style-type: none;
+    padding: 2px;
+    font-size: 10px;
+}
+.picture_details .comments ul li p {
+    margin: 0;
+}
+.picture_details .comments ul li .author {
+    margin-right: 5px;
+    font-weight: bold;
+}
+.picture_details .comments ul li .date {
+    color: #404040;
+    text-align: right;
+}
+.picture_details .comments ul li:nth-child(even) {
+    background-color: #F0F0F0;
+}
