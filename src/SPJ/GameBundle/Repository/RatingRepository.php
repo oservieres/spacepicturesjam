@@ -28,12 +28,12 @@ class RatingRepository extends EntityRepository
         $userRating = null;
         if (null !== $user) {
             $userRating = $this->createQueryBuilder('rating')
-                    ->where('rating.picture = :picture')
-                    ->setParameter('picture', $picture)
-                    ->andWhere('rating.user = :user')
-                    ->setParameter('user', $user)
-                    ->getQuery()
-                    ->getOneOrNullResult();
+                               ->where('rating.picture = :picture')
+                               ->setParameter('picture', $picture)
+                               ->andWhere('rating.user = :user')
+                               ->setParameter('user', $user)
+                               ->getQuery()
+                               ->getOneOrNullResult();
         }
 
         return array(

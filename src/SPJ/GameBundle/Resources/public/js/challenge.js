@@ -73,7 +73,7 @@ spacePicturesJam.challenge.displayPictureDetails = function(url) {
 };
 
 spacePicturesJam.challenge.bindPictureDetails = function() {
-    $('.rating_star').click(function(event) {
+    $('.stars a.rating_star').click(function(event) {
         event.preventDefault();
         spacePicturesJam.rating.create($(this).attr('href'), $(this).attr('data-value'));
     });

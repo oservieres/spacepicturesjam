@@ -1,7 +1,15 @@
-<ul class="stars">
-    {% set userRating = picture.ratings|length > 0 ? picture.ratings[0].value : -1 %}
-    <li><a href="{{ path('rating_create', { pictureId : picture.id}) }}" class="glyphicon glyphicon-ban-circle rating_star {{ userRating >= 0 ? 'highlighted' }}" data-value="0"></a></li>
-    {% for i in 1..5 %}
-        <li><a href="{{ path('rating_create', { pictureId : picture.id}) }}" class="glyphicon glyphicon-star rating_star {{ userRating >= i ? 'highlighted' }}" data-value="{{ i }}"></a></li>
-    {% endfor %}
+<ul class="stars challenge-{{ picture.challenge.status}}">
+    {% set ratingCreatePath = path('rating_create', { pictureId : picture.id}) %}
+
+    {% if "voting" == picture.challenge.status and app.user != "" and picture.user.id != app.user.id %}
+        <li><a href="{{ ratingCreatePath }}" class="glyphicon glyphicon-ban-circle rating_star {{ ratingSummary.userRating >= 0 ? 'highlighted' }}" data-value="0"></a></li>
+        {% for i in 1..5 %}
+            <li><a href="{{ ratingCreatePath }}" class="glyphicon glyphicon-star rating_star {{ ratingSummary.userRating >= i ? 'highlighted' }}" data-value="{{ i }}"></a></li>
+        {% endfor %}
+    {% else %}
+        <li><span class="glyphicon glyphicon-ban-circle rating_star {{ ratingSummary.userRating >= 0 ? 'highlighted' }}" data-value="0"></span></li>
+        {% for i in 1..5 %}
+            <li><span class="glyphicon glyphicon-star rating_star {{ ratingSummary.userRating >= i ? 'highlighted' }}" data-value="{{ i }}"></span></li>
+        {% endfor %}
+    {% endif %}
 </ul>
