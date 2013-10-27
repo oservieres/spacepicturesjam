@@ -1,8 +1,11 @@
-.picture_details .comments ul {
+.picture_details .comments .list-group {
+    height: 300px;
+    overflow-y: scroll;
     list-style-type: none;
     padding: 2px;
     font-size: 10px;
 }
+
 .picture_details .comments ul li p {
     margin: 0;
 }

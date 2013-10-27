@@ -20,16 +20,12 @@
 }
 
 .picture_details .rating {
-    top: 60px;
+    top: 100px;
     height: 200px;
 }
 
 .picture_details .metadata {
-    top: 100px;
-}
-.picture_details .comments .list-group {
-    height: 300px;
-    overflow-y: scroll;
+    top: 200px;
 }
 
 .picture_details .comments {
