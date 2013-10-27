@@ -100,6 +100,16 @@ class Picture
     protected $file;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    protected $ratingsCount = 0;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $ratingsAverage = 0;
+
+    /**
      * Get id
      *
      * @return integer
@@ -506,5 +516,51 @@ class Picture
     public function getRatings()
     {
         return $this->ratings;
+    }
+
+    /**
+     * Set ratingsCount
+     *
+     * @param integer $ratingsCount
+     * @return Picture
+     */
+    public function setRatingsCount($ratingsCount)
+    {
+        $this->ratingsCount = $ratingsCount;
+    
+        return $this;
+    }
+
+    /**
+     * Get ratingsCount
+     *
+     * @return integer 
+     */
+    public function getRatingsCount()
+    {
+        return $this->ratingsCount;
+    }
+
+    /**
+     * Set ratingsAverage
+     *
+     * @param integer $ratingsAverage
+     * @return Picture
+     */
+    public function setRatingsAverage($ratingsAverage)
+    {
+        $this->ratingsAverage = $ratingsAverage;
+    
+        return $this;
+    }
+
+    /**
+     * Get ratingsAverage
+     *
+     * @return integer 
+     */
+    public function getRatingsAverage()
+    {
+        return $this->ratingsAverage;
     }
 }
