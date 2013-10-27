@@ -60,3 +60,17 @@ width: 100%;
 .picture_details .comments ul li:nth-child(even) {
     background-color: #F0F0F0;
 }
+.challenge_pictures.over ul {
+    list-style-type: none;
+}
+.challenge_pictures.over li {
+    float: left;
+    margin-right: 10px;
+}
+.challenge_pictures.over li .rank {
+    vertical-align: middle;
+    line-height: 40px;
+    font-size: 55px;
+    color: #BABABA;
+    font-weight: bold;
+}

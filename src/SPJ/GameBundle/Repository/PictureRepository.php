@@ -9,6 +9,24 @@ use \Doctrine\Orm\NoResultException;
  */
 class PictureRepository extends EntityRepository
 {
+
+    public function findByChallenge($challenge)
+    {
+        $queryBuilder = $this->createQueryBuilder('picture')
+                             ->join('picture.user', 'user')
+                             ->where('picture.challenge = :challenge')
+                             ->setParameter('challenge', $challenge);
+
+        if ("over" === $challenge->getStatus()) {
+            $queryBuilder->addOrderBy('picture.ratingsAverage', 'DESC')
+                         ->addOrderBy('picture.ratingsCount', 'DESC')
+                         ->setMaxResults(3);
+        }
+
+        return $queryBuilder->getQuery()
+                            ->getResult();
+    }
+
     public function findOneById($pictureId)
     {
         return $this->createQueryBuilder('picture')

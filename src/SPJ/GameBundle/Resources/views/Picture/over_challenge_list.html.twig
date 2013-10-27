@@ -1,1 +1,12 @@
-{% extends 'SPJGameBundle:Picture:voting_challenge_list.html.twig' %}
+{% extends 'SPJGameBundle:Picture:challenge_list.html.twig' %}
+
+{% block challenge_picture %}
+    <li class="img-thumbnail">
+        {% spaceless %}
+            <span class="rank">{{ loop.index }}</span>
+            <a class="challenge_picture_link" href="{{ path('picture_show', { pictureId : picture.getId() }) }}">
+                <img src="{{ asset(picture.miniaturePath) }}" alt="{{ picture.title }}"/>
+            </a>
+        {% endspaceless %}
+    </li>
+{% endblock %}
