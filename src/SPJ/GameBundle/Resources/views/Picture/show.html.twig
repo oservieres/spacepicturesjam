@@ -13,7 +13,9 @@
     <div class="tab rating">
         <div class="tag"><span class="glyphicon glyphicon-star"></span></div>
 
-        {% include 'SPJGameBundle:Rating:create.html.twig' %}
+        {% if app.user != "" and picture.user.id != app.user.id %}
+            {% include 'SPJGameBundle:Rating:create.html.twig' %}
+        {% endif %}
 
         {% include 'SPJGameBundle:Rating:show.html.twig' %}
 
