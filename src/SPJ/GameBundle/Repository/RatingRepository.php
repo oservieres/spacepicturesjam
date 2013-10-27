@@ -17,29 +17,20 @@ class RatingRepository extends EntityRepository
                     ->getSingleResult();
     }
 
-    public function findSummary($picture, $user) {
-        $statistics = $this->getEntityManager()->createQuery(
-            'SELECT AVG(rating.value), COUNT(rating.value)
-            FROM SPJGameBundle:Rating rating
-            WHERE rating.picture = :picture')
-            ->setParameter('picture', $picture)
-            ->getScalarResult();
-
-        $userRating = null;
-        if (null !== $user) {
-            $userRating = $this->createQueryBuilder('rating')
-                               ->where('rating.picture = :picture')
-                               ->setParameter('picture', $picture)
-                               ->andWhere('rating.user = :user')
-                               ->setParameter('user', $user)
-                               ->getQuery()
-                               ->getOneOrNullResult();
+    public function findValueByPictureAndUser($picture, $user)
+    {
+        try {
+            return $this->createQueryBuilder('rating')
+                        ->select('rating.value')
+                        ->where('rating.picture = :picture')
+                        ->setParameter('picture', $picture)
+                        ->andWhere('rating.user = :user')
+                        ->setParameter('user', $user)
+                        ->getQuery()
+                        ->getSingleScalarResult();
+        } catch (\Exception $e) {
+            return null;
         }
-
-        return array(
-            'average' => $statistics[0][1],
-            'sum' => $statistics[0][2],
-            'userRating' => $userRating
-        );
     }
+
 }

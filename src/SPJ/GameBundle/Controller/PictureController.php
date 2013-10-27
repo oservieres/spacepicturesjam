@@ -90,13 +90,13 @@ class PictureController extends Controller
     {
         $picture = $this->get('picture_repository')->findOneById($pictureId);
         $user = $this->get('security.context')->getToken()->getUser();
-        $ratingSummary = $this->get('rating_repository')->findSummary($picture, $user);
+        $userRatingValue = "" === $user ? null : $this->get('rating_repository')->findValueByPictureAndUser($picture, $user);
 
         return $this->render(
             'SPJGameBundle:Picture:show.html.twig',
             array(
                 'picture' => $picture,
-                'ratingSummary' => $ratingSummary
+                'userRatingValue' => $userRatingValue
             )
         );
     }

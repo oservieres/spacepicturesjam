@@ -12,20 +12,25 @@ class RatingController extends Controller
 {
     public function createAction($pictureId, Request $request)
     {
+        $pictureRepository = $this->get('picture_repository');
         $user = $this->get('security.context')->getToken()->getUser();
-        $picture = $this->get('picture_repository')->findOneById($pictureId);
+        $picture = $pictureRepository->findOneById($pictureId);
+
+        $ratingValue = $request->request->get('value');
 
         $em = $this->getDoctrine()->getManager();
 
         try {
             $rating = $this->get('rating_repository')->findOneByUserAndPicture($user, $picture);
+            $pictureRepository->updateRating($picture, $rating->getValue(), $ratingValue);
         } catch (\Exception $e) {
+            $pictureRepository->addRating($picture, $ratingValue);
             $rating = new Rating();
             $rating->setPicture($picture)
-               ->setDateCreated(new \DateTime())
+                   ->setDateCreated(new \DateTime())
                    ->setUser($user);
         }
-        $rating->setValue($request->request->get('value'));
+        $rating->setValue($ratingValue);
 
         $em->persist($rating);
         $em->flush();
