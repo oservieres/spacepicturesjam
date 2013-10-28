@@ -27,6 +27,32 @@ class PictureRepository extends EntityRepository
                             ->getResult();
     }
 
+    public function findOneBeside($picture, $isNext)
+    {
+        return $this->createQueryBuilder('picture')
+                    ->leftJoin('picture.comments', 'comments')
+                    ->join('picture.user', 'user')
+                    ->join('picture.challenge', 'challenge')
+                    ->where('picture.challenge = :challenge')
+                    ->setParameter('challenge', $picture->getChallenge())
+                    ->andWhere('picture.id ' . ($isNext ? '>' : '<') . ' :id')
+                    ->setParameter('id', $picture->getId())
+                    ->orderBy('picture.id', $isNext ? 'ASC' : 'DESC')
+                    ->setMaxResults(1)
+                    ->getQuery()
+                    ->getOneOrNullResult();
+    }
+
+    public function findOnePrevious($picture)
+    {
+        return $this->findOneBeside($picture, false);
+    }
+
+    public function findOneNext($picture)
+    {
+        return $this->findOneBeside($picture, true);
+    }
+
     public function findOneById($pictureId)
     {
         return $this->createQueryBuilder('picture')

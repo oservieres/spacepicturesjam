@@ -89,6 +89,8 @@ class PictureController extends Controller
     public function showAction($pictureId)
     {
         $picture = $this->get('picture_repository')->findOneById($pictureId);
+        $nextPicture = $this->get('picture_repository')->findOneNext($picture);
+        $previousPicture = $this->get('picture_repository')->findOnePrevious($picture);
         $user = $this->get('security.context')->getToken()->getUser();
         $userRatingValue = "" === $user ? null : $this->get('rating_repository')->findValueByPictureAndUser($picture, $user);
 
@@ -96,7 +98,9 @@ class PictureController extends Controller
             'SPJGameBundle:Picture:show.html.twig',
             array(
                 'picture' => $picture,
-                'userRatingValue' => $userRatingValue
+                'userRatingValue' => $userRatingValue,
+                'nextPicture' => $nextPicture,
+                'previousPicture' => $previousPicture
             )
         );
     }

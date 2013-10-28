@@ -53,51 +53,10 @@ spacePicturesJam.challenge.loadPictures = function(picturesContainer) {
         picturesContainer.html(response);
         picturesContainer.find('.challenge_picture_link').click(function(event) {
             event.preventDefault();
-            spacePicturesJam.challenge.displayPictureDetails($(this).attr('href'));
+            spacePicturesJam.picture.displayDetails($(this).attr('href'));
         });
     });
 };
-
-spacePicturesJam.challenge.displayPictureDetails = function(url) {
-    $.ajax({
-        url : url,
-        dataType: 'html'
-    }).done(function(response) {
-        $.fancybox.open({
-            scrolling : 'no',
-            padding : 0,
-            content : response,
-            afterShow : spacePicturesJam.challenge.bindPictureDetails
-        });
-    });
-};
-
-spacePicturesJam.challenge.bindPictureDetails = function() {
-    $('.stars a.rating_star').click(function(event) {
-        event.preventDefault();
-        spacePicturesJam.rating.create($(this).attr('href'), $(this).attr('data-value'));
-    });
-    var commentForm = $('.fancybox-inner .comments form');
-    commentForm.find('.submit').click(function(e) {
-        e.preventDefault();
-        $.ajax({
-            method : 'post',
-            url : commentForm.attr('action'),
-            data : commentForm.serialize(),
-            dataType: 'json'
-        }).done(function(response) {
-            $(".comments ul.list-group").animate({
-                scrollTop: $(".comments ul.list-group")[0].scrollHeight
-            }, 300);
-            var commentContainer = $('<li class="list-group-item"></li>');
-            commentContainer.append($('<span class="author"></span>').html(response.data.comment.username));
-            commentContainer.append($('<span class="content"></span>').html(response.data.comment.content));
-            var dateContainer = $('<span></span>').html(response.data.comment.date_created);
-            commentContainer.append($('<p class="date"></p>').append(dateContainer));
-            $('.fancybox-inner .comments ul').append(commentContainer);
-        });
-    });
-}
 
 spacePicturesJam.challenge.displayUploadForm = function(event) {
     event.preventDefault();

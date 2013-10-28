@@ -28,5 +28,7 @@ picture_comment_login: 'Connectez vous pour commenter cette photo'
 picture.ISO: ISO
 picture.aperture: Ouverture
 picture.shutter_speed: 'Vitesse d''obturateur'
-rating.average: "Note moyenne"
-rating.sum: "Nombre de notes"
+rating.average: 'Note moyenne'
+rating.sum: 'Nombre de notes'
+picture.button.previous: 'Précédente photo'
+picture.button.next: 'Prochaine photo'

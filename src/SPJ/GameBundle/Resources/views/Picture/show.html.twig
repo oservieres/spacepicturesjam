@@ -50,7 +50,20 @@
                 <p class="list-group-item-text">{{ picture.location }}</p>
             </span>
         </div>
-</div>
+    </div>
+    <div class="pager btn-group">
+        {% if previousPicture %}
+            <button type="button" data-href="{{ path('picture_show', { pictureId : previousPicture.id }) }}" class="btn btn-default">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                {{ "picture.button.previous"|trans() }}
+            </button>
+        {% endif %}
+        {% if nextPicture %}
+            <button type="button" data-href="{{ path('picture_show', { pictureId : nextPicture.id }) }}" class="btn btn-default">
+                {{ "picture.button.next"|trans() }}
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </button>
+        {% endif %}
     </div>
     <img class="picture" src="{{ asset(picture.path) }}" title="{{ picture.title }}" alt="{{ picture.title }}"/>
 </div>
