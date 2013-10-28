@@ -9,3 +9,4 @@ function createAlias {
 
 createAlias "mysqlconnect" "mysql -uspacepicturesjam -pspacepicturesjam spacepicturesjam" "Connect to the mysql database"
 createAlias "apacherestart" "sudo service apache2 restart" "Restart apache"
+createAlias "asseticwatch" "php /vagrant/app/console assetic:dump" "Launch assetic watch command for auto dump"
