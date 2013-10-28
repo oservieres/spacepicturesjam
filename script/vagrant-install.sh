@@ -41,6 +41,9 @@ sudo a2dissite 000-default
 sudo a2ensite spacepicturesjam
 sudo service apache2 restart
 
+#Install profile file
+grep "source /vagrant/script/profile.sh" /home/vagrant/.bashrc || echo "source /vagrant/script/profile.sh" >> /home/vagrant/.bashrc
+
 #Install Symfony vendors
 cd /vagrant
 curl -s http://getcomposer.org/installer | php5
