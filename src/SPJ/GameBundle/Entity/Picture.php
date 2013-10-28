@@ -105,7 +105,7 @@ class Picture
     protected $ratingsCount = 0;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="decimal", scale=4)
      */
     protected $ratingsAverage = 0;
 
