@@ -31,7 +31,7 @@ class RotateChallengesCommand extends ContainerAwareCommand
             $inprogressChallenge->setStatus('voting');
             $endVotingDate = new \DateTime('today');
             $endVotingDate->add(new \DateInterval('P' . $challengeDuration . 'D'));
-            $inprogressChallenge->setEndDate($endVotingDate);
+            $inprogressChallenge->setEndVotingDate($endVotingDate);
             $entityManager->persist($inprogressChallenge);
         }
 
