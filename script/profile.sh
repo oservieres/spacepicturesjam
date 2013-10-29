@@ -11,4 +11,4 @@ createAlias "mysqlconnect" "mysql -uspacepicturesjam -pspacepicturesjam spacepic
 createAlias "apacherestart" "sudo service apache2 restart" "Restart apache"
 createAlias "asseticwatch" "php /vagrant/app/console assetic:dump --watch" "Launch assetic watch command for auto dump"
 createAlias "cacheclear" "php /vagrant/app/console cache:clear" "Clear Symfony cache"
-createAlias "messagesdump" "php /vagrant/app/console translation:update fr SPJ\GameBundle --dump-messages --output-format=\"yml\" --force --clean --no-backup" "Dump translation messages"
+createAlias "messagesdump" "php /vagrant/app/console translation:update fr SPJ\GameBundle --dump-messages --output-format=\"yml\" --force --clean" "Dump translation messages"

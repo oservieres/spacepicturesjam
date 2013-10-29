@@ -30,7 +30,10 @@ spacePicturesJam.picture.bindDetailsActions = function() {
         });
     });
     var commentForm = $('.fancybox-inner .comments form');
-    commentForm.find('.submit').click(function(e) {
+    commentForm.find('.content').keypress(function(e) {
+        if (13 != e.which) {
+            return;
+        }
         e.preventDefault();
         $.ajax({
             method : 'post',
@@ -47,6 +50,7 @@ spacePicturesJam.picture.bindDetailsActions = function() {
             var dateContainer = $('<span></span>').html(response.data.comment.date_created);
             commentContainer.append($('<p class="date"></p>').append(dateContainer));
             $('.fancybox-inner .comments ul').append(commentContainer);
+            commentForm.find('.content').val('');
         });
     });
 }

@@ -5,8 +5,9 @@
         </div>
     {% else %}
         <form method="POST" action="{{ path('comment_create', { pictureId : picture.id }) }}">
-            <input type="text" name="content" class="content_input"/>
-            <input type="submit" class="submit"/>
+            <div class="input-group">
+                <textarea name="content" class="form-control content" placeholder="Rédigez un commentaire..."></textarea>
+            </div>
         </form>
     {% endif %}
 </div>
