@@ -91,7 +91,7 @@ class PictureRepository extends EntityRepository
     {
          $this->getEntityManager()->createQuery(
             'UPDATE SPJGameBundle:Picture picture
-             SET picture.ratingsAverage = ((picture.ratingsCount - 1) * (picture.ratingsAverage - :former_rating) + :new_rating) / picture.ratingsCount
+             SET picture.ratingsAverage = (picture.ratingsCount * picture.ratingsAverage - :former_rating + :new_rating) / picture.ratingsCount
              WHERE picture.id = :picture_id')
             ->setParameter('picture_id', $picture->getId())
             ->setParameter('former_rating', $formerRating)
