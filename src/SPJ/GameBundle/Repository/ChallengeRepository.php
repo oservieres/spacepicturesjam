@@ -43,6 +43,7 @@ class ChallengeRepository extends EntityRepository
         return $this->createQueryBuilder('challenge')
                     ->where('challenge.status = :status')
                     ->setParameter('status', 'over')
+                    ->orderBy('challenge.id', 'DESC')
                     ->getQuery()
                     ->getResult();
     }
