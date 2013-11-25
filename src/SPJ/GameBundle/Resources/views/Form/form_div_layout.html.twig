@@ -2,4 +2,13 @@
     <div class="input-group">
         {{ form_widget(form) }}
     </div>
+    <br/>
+{% endblock %}
+
+{% block form_widget_simple %}
+    {% set type = type|default('text') %}
+    {% if 'text' == type or 'password' == type %}
+        <span class="input-group-addon">{{ attr.placeholder|trans() }}</span>
+    {% endif %}
+    <input type="{{ type }}" {% if value is not empty %}value="{{ value }}" {% endif %}/>
 {% endblock %}

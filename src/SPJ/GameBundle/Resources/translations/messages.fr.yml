@@ -19,6 +19,7 @@ challenge.user.picture_empty: 'Vous n''avez pas participé.'
 user.signup: Inscription
 user.login: Connexion
 user.input.username: 'Nom d''utilisateur'
+user.input.email: 'Adresse E-mail'
 user.input.password: 'Mot de passe'
 user.facebook_login: 'Connexion Facebook'
 picture.create: 'Ajoutez votre photo'
@@ -32,4 +33,4 @@ rating.average: 'Note moyenne'
 rating.sum: 'Nombre de notes'
 picture.button.previous: 'Précédente photo'
 picture.button.next: 'Prochaine photo'
-picture.author: 'Auteur'
+picture.author: Auteur
