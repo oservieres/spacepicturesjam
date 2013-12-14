@@ -10,5 +10,5 @@
     {% if 'text' == type or 'password' == type %}
         <span class="input-group-addon">{{ attr.placeholder|trans() }}</span>
     {% endif %}
-    <input type="{{ type }}" {% if value is not empty %}value="{{ value }}" {% endif %}/>
+    <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
 {% endblock %}
