@@ -22,7 +22,7 @@ class PictureController extends Controller
             ),
             'method' => 'POST',
         ));
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'picture.create.validate'));
 
         $form->handleRequest($request);
 

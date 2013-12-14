@@ -12,3 +12,7 @@
     {% endif %}
     <input type="{{ type }}" class="form-control" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
 {% endblock %}
+
+{% block button_widget %}
+    <button type="{{ type|default('button') }}" {{ block('button_attributes') }} class="btn btn-primary">{{ label|trans() }}</button>
+{% endblock button_widget %}

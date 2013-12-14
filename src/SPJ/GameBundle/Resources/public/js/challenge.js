@@ -26,7 +26,7 @@ spacePicturesJam.challenge.previewPicture = function (input) {
         var fileReader = new FileReader();
         fileReader.onload = function(e) {
             var imageElement = $('<img/>')
-                               .attr('width', '100')
+                               .attr('width', '200')
                                .attr('class', 'img-thumbnail')
                                .attr('src', e.target.result);
             $('#picture_preview_area').html(imageElement)

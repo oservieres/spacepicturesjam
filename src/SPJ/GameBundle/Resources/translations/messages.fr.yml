@@ -29,6 +29,7 @@ picture_comment_login: 'Connectez vous pour commenter cette photo'
 picture.ISO: ISO
 picture.aperture: Ouverture
 picture.shutter_speed: 'Vitesse d''obturateur'
+picture.create.validate: 'Envoyer ma photo !'
 rating.average: 'Note moyenne'
 rating.sum: 'Nombre de notes'
 picture.button.previous: 'Précédente photo'
@@ -38,3 +39,4 @@ picture.title: Titre
 form.errors: "Veuillez corriger les champs suivants :"
 user.email.taken: "L'adresse E-mail est déjà utilisée"
 user.username.taken: "Le nom d'utilisateur est déjà utilisé"
+user.signup.validate: "Je m'inscris !"
