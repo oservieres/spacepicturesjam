@@ -35,3 +35,6 @@ picture.button.previous: 'Précédente photo'
 picture.button.next: 'Prochaine photo'
 picture.author: Auteur
 picture.title: Titre
+form.errors: "Veuillez corriger les champs suivants :"
+user.email.taken: "L'adresse E-mail est déjà utilisée"
+user.username.taken: "Le nom d'utilisateur est déjà utilisé"

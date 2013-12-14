@@ -10,6 +10,9 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-6">
+                    {% if errors is not empty %}
+                        {% include 'SPJGameBundle:Form:errors.html.twig' %}
+                    {% endif %}
                     {{ form(form) }}
                 </div>
                 <div class="col-md-6">

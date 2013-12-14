@@ -54,6 +54,7 @@ class UserController extends Controller
             return $this->render('SPJGameBundle:User:signup.html.twig', array(
                 'facebookLoginUrl' => $this->get('facebook')->getLoginUrl(),
                 'entity' => $user,
+                'errors' => $errors,
                 'form'   => $form->createView(),
             ));
         }
