@@ -13,11 +13,13 @@
                 <div class="col-md-6">
                     <form action="{{ path('login_check') }}" method="post">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="{{ "user.input.username"|trans() }}" name="_username">
+                            <span class="input-group-addon">{{ "user.input.username"|trans() }}</span>
+                            <input type="text" class="form-control" name="_username">
                         </div>
 
                         <div class="input-group">
-                            <input type="password" class="form-control" placeholder="{{ "user.input.password"|trans() }}" name="_password">
+                            <span class="input-group-addon">{{ "user.input.password"|trans() }}</span>
+                            <input type="password" class="form-control" name="_password">
                         </div>
 
                         <button type="submit" class="btn btn-primary">{{ "user.login.submit"|trans() }}</button>

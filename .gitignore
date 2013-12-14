@@ -12,6 +12,7 @@ app/config/parameters.yml
 
 *.*~
 *.swp
+*.swo
 app/tmp
 
 .vagrant
