@@ -1,5 +1,11 @@
-{% for picture in pictures %}
-    {% block challenge_picture %}
-        <img class="img-thumbnail" src="{{ asset(picture.miniaturePath) }}" alt="{{ picture.title }}"/>
-    {% endblock %}
-{% endfor %}
+<p class="picture_count">{{ "picture.count"|transchoice(picturesCount) }}</p>
+
+<ul>
+    {% for picture in pictures %}
+        <li>
+            {% block challenge_picture %}
+                <img class="img-thumbnail" src="{{ asset(picture.miniaturePath) }}" alt="{{ picture.title }}"/>
+            {% endblock %}
+        </li>
+    {% endfor %}
+</ul>

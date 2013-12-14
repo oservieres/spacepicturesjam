@@ -1,5 +1,5 @@
 {% extends 'SPJGameBundle:Picture:challenge_list.html.twig' %}
 
 {% block challenge_picture %}
-    <img class="img-thumbnail" src="{{ asset(picture.blurredMiniaturePath) }}" alt="{{ picture.title }}"/>
+    {{ picture.user.username }}
 {% endblock %}

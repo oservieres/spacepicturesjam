@@ -74,3 +74,18 @@
     color: #BABABA;
     font-weight: bold;
 }
+
+.challenge_pictures.voting ul, .challenge_pictures.over ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.challenge_pictures.voting ul li, .challenge_pictures.over ul li {
+    float: left;
+    margin-right: 5px;
+}
+
+.picture_count {
+    font-size: 9px;
+    font-style: italic;
+}

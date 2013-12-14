@@ -22,6 +22,7 @@ user.input.username: 'Nom d''utilisateur'
 user.input.email: 'Adresse E-mail'
 user.input.password: 'Mot de passe'
 user.facebook_login: 'Connexion Facebook'
+picture.count: "{0} Aucune participant|{1} Un participant|]1,Inf] %count% participants"
 picture.create: 'Ajoutez votre photo'
 picture.location: Lieu
 picture.description: Description
@@ -40,3 +41,4 @@ form.errors: "Veuillez corriger les champs suivants :"
 user.email.taken: "L'adresse E-mail est déjà utilisée"
 user.username.taken: "Le nom d'utilisateur est déjà utilisé"
 user.signup.validate: "Je m'inscris !"
+

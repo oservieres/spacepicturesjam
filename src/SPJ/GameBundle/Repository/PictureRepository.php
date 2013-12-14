@@ -98,4 +98,14 @@ class PictureRepository extends EntityRepository
             ->setParameter('new_rating', $newRating)
             ->execute();
     }
+
+    public function findCountByChallenge($challenge)
+    {
+        return $this->createQueryBuilder('picture')
+                    ->select('COUNT(picture)')
+                    ->where('picture.challenge = :challenge')
+                    ->setParameter('challenge', $challenge)
+                    ->getQuery()
+                    ->getSingleScalarResult();
+    }
 }
