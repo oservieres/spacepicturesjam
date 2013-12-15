@@ -42,4 +42,4 @@ form.errors: "Veuillez corriger les champs suivants :"
 user.email.taken: "L'adresse E-mail est déjà utilisée"
 user.username.taken: "Le nom d'utilisateur est déjà utilisé"
 user.signup.validate: "Je m'inscris !"
-
+comments: Commentaires

@@ -11,16 +11,16 @@ use SPJ\GameBundle\Entity\Comment;
 class CommentController extends Controller
 {
 
-    public function createAction($pictureId, Request $request)
+    public function createAction($challengeId, Request $request)
     {
         $user = $this->get('security.context')->getToken()->getUser();
-        $picture = $this->get('picture_repository')->findOneById($pictureId);
+        $challenge = $this->get('challenge_repository')->findOneById($challengeId);
 
         $em = $this->getDoctrine()->getManager();
 
         $comment = new Comment();
         $comment->setContent($request->request->get('content'))
-                ->setChallenge($picture->getChallenge())
+                ->setChallenge($challenge)
                 ->setUser($user)
                 ->setDateCreated(new \DateTime());
 

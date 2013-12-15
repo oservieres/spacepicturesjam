@@ -45,7 +45,7 @@ challenge_comment_list:
     defaults: { _controller: SPJGameBundle:Comment:challengeList }
 
 comment_create:
-    pattern:  /challenge/{pictureId}/comment/create
+    pattern:  /challenge/{challengeId}/comment/create
     defaults: { _controller: SPJGameBundle:Comment:create }
 
 SPJGameBundle_admin_challenge:

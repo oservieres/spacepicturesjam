@@ -8,14 +8,14 @@
     {% endif %}
 
     <div class="row">
-        <div id="inprogress_challenge" class="col-md-6">
+        <div id="inprogress_challenge" class="col-md-5">
             {% if inprogressChallenge %}
                 {% include 'SPJGameBundle:Challenge:summary_inprogress.html.twig' with {'challenge' : inprogressChallenge} %}
             {% else %}
                 <div class="alert alert-danger">{{ "challenge.no_inprogress"|trans() }}</div>
             {% endif %}
         </div>
-        <div id="voting_challenge" class="col-md-6">
+        <div id="voting_challenge" class="col-md-7">
             {% if votingChallenge %}
                 {% include 'SPJGameBundle:Challenge:summary_voting.html.twig' with {'challenge' : votingChallenge} %}
             {% else %}

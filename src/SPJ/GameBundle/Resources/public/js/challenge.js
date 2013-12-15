@@ -5,8 +5,12 @@ spacePicturesJam.challenge.init = function() {
         spacePicturesJam.challenge.loadPictures($(this));
     });
 
-    $('.challenge_comments').each(function() {
+    $('.comments .list').each(function() {
         spacePicturesJam.challenge.loadComments($(this));
+    });
+
+    $('.comments.create form').each(function() {
+        spacePicturesJam.comment.initForm($(this));
     });
 
     $('.challenge_user_picture').each(function() {

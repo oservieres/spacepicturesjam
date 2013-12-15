@@ -1,10 +1,10 @@
-<div class="create">
+<div class="create comments">
     {% if app.user == "" %}
         <div class="alert alert-danger">
             <a href="{{ path('login') }}">{{ "picture_comment_login"|trans() }}</a>
         </div>
     {% else %}
-        <form method="POST" action="{{ path('comment_create', { pictureId : picture.id }) }}">
+        <form method="POST" data-challenge_id="{{ challenge.id }}" action="{{ path('comment_create', { challengeId : challenge.id }) }}">
             <div class="input-group">
                 <textarea name="content" class="form-control content" placeholder="Rédigez un commentaire..."></textarea>
             </div>
