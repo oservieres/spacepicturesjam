@@ -6,7 +6,7 @@
 
         {% include 'SPJGameBundle:Comment:list.html.twig' %}
 
-        {% include 'SPJGameBundle:Comment:create.html.twig' %}
+        {% include 'SPJGameBundle:Comment:create.html.twig' with {'challenge' : picture.challenge} %}
 
     </div>
 
