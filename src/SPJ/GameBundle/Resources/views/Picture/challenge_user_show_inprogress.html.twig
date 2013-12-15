@@ -5,5 +5,5 @@
         <button type="button" id="picture_upload_button" class="btn btn-primary" data-href="{{ path('picture_create', { challengeId : challenge.id }) }}">{{ "challenge.picture.upload"|trans() }}</button>
     {% endif %}
 {% else %}
-    <div class="alert alert-warning">{{ "challenge.picture.login_advice"|trans() }}</div>
+        <a class="btn btn-primary" href="{{ path('login') }}">{{ "challenge.picture.upload"|trans() }}</a>
 {% endif %}

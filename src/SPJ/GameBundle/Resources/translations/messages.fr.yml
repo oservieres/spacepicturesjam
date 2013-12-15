@@ -14,10 +14,11 @@ menu.login: 'Me connecter'
 menu.signup: 'M''inscrire'
 menu.logout: 'Me déconnecter'
 challenge.picture.upload: 'Envoyer une photo'
-challenge.picture.login_advice: 'Connectez vous ou inscrivez vous pour participer !'
 challenge.user.picture_empty: 'Vous n''avez pas participé.'
 user.signup: Inscription
 user.login: Connexion
+user.no_signup: "Vous n'avez pas de compte ?"
+user.signup_advice: "Inscrivez vous !"
 user.input.username: 'Nom d''utilisateur'
 user.input.email: 'Adresse E-mail'
 user.input.password: 'Mot de passe'

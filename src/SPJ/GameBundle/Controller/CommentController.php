@@ -29,4 +29,17 @@ class CommentController extends Controller
 
         return new GameJsonResponse(array('comment' => $comment->getArrayData()), 201);
     }
+
+    public function challengeListAction($challengeId, Request $request)
+    {
+        $challenge = $this->get('challenge_repository')->findOneById($challengeId);
+        $comments = $this->get('comment_repository')->findByChallenge($challenge);
+
+        return $this->render(
+            'SPJGameBundle:Comment:list.html.twig',
+            array(
+                'comments' => $comments
+            )
+        );
+    }
 }

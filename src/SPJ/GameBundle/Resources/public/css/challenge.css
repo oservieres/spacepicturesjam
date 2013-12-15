@@ -2,6 +2,10 @@
     margin: 10px;
 }
 
+.challenge.panel {
+    height: 400px;
+}
+
 .challenge .panel-heading {
     position: relative;
 }
@@ -11,4 +15,8 @@
     top: 0;
     right: 0;
     width: 200px;
+}
+
+.challenge_user_picture {
+    float: right;
 }

@@ -40,6 +40,10 @@ challenge_user_picture_show:
     pattern:  /challenge/{challengeId}/user/picture
     defaults: { _controller: SPJGameBundle:Picture:challengeUserShow }
 
+challenge_comment_list:
+    pattern: /challenge/{challengeId}/comments
+    defaults: { _controller: SPJGameBundle:Comment:challengeList }
+
 comment_create:
     pattern:  /challenge/{pictureId}/comment/create
     defaults: { _controller: SPJGameBundle:Comment:create }

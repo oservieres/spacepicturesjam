@@ -5,6 +5,10 @@ spacePicturesJam.challenge.init = function() {
         spacePicturesJam.challenge.loadPictures($(this));
     });
 
+    $('.challenge_comments').each(function() {
+        spacePicturesJam.challenge.loadComments($(this));
+    });
+
     $('.challenge_user_picture').each(function() {
         spacePicturesJam.challenge.loadUserPicture($(this));
     });
@@ -45,6 +49,15 @@ spacePicturesJam.challenge.loadUserPicture = function(pictureContainer) {
     });
 };
 
+spacePicturesJam.challenge.loadComments = function(commentsContainer) {
+    $.ajax({
+        url : commentsContainer.attr('data-content_url'),
+        dataType: 'html'
+    }).done(function(response) {
+        commentsContainer.html(response);
+    });
+};
+
 spacePicturesJam.challenge.loadPictures = function(picturesContainer) {
     $.ajax({
         url : picturesContainer.attr('data-content_url'),
@@ -73,6 +86,7 @@ spacePicturesJam.challenge.displayUploadForm = function(event) {
 
 spacePicturesJam.challenge.pictureCreatedCallback = function() {
     spacePicturesJam.challenge.loadPictures($('.challenge_pictures.inprogress'));
+    spacePicturesJam.challenge.loadUserPicture($('#inprogress_challenge .challenge_user_picture'));
     $.fancybox.close();
 }
 
