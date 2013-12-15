@@ -30,7 +30,6 @@ class PictureRepository extends EntityRepository
     public function findOneBeside($picture, $isNext)
     {
         return $this->createQueryBuilder('picture')
-                    ->leftJoin('picture.comments', 'comments')
                     ->join('picture.user', 'user')
                     ->join('picture.challenge', 'challenge')
                     ->where('picture.challenge = :challenge')
@@ -56,7 +55,6 @@ class PictureRepository extends EntityRepository
     public function findOneById($pictureId)
     {
         return $this->createQueryBuilder('picture')
-                    ->leftJoin('picture.comments', 'comments')
                     ->join('picture.user', 'user')
                     ->join('picture.challenge', 'challenge')
                     ->where('picture.id = :id')

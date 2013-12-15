@@ -95,11 +95,13 @@ class PictureController extends Controller
         $previousPicture = $this->get('picture_repository')->findOnePrevious($picture);
         $user = $this->get('security.context')->getToken()->getUser();
         $userRatingValue = "" === $user ? null : $this->get('rating_repository')->findValueByPictureAndUser($picture, $user);
+        $comments = $this->get('comment_repository')->findByChallenge($picture->getChallenge());
 
         return $this->render(
             'SPJGameBundle:Picture:show.html.twig',
             array(
                 'picture' => $picture,
+                'comments' => $comments,
                 'userRatingValue' => $userRatingValue,
                 'nextPicture' => $nextPicture,
                 'previousPicture' => $previousPicture

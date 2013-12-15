@@ -20,7 +20,7 @@ class CommentController extends Controller
 
         $comment = new Comment();
         $comment->setContent($request->request->get('content'))
-                ->setPicture($picture)
+                ->setChallenge($picture->getChallenge())
                 ->setUser($user)
                 ->setDateCreated(new \DateTime());
 

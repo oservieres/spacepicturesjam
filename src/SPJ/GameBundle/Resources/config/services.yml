@@ -11,6 +11,12 @@ services:
         factory_service: doctrine.orm.entity_manager
         factory_method: getRepository
 
+    comment_repository:
+        class: SPJ\GameBundle\Repository\CommentRepository
+        arguments: [SPJGameBundle:Comment]
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+
     challenge_repository:
         class: SPJ\GameBundle\Repository\ChallengeRepository
         arguments: [SPJGameBundle:Challenge]

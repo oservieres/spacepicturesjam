@@ -28,13 +28,13 @@ class Comment
     protected $content;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Picture", inversedBy="comments")
-     * @ORM\JoinColumn(name="picture_id", referencedColumnName="id", onDelete="CASCADE")
+     * @ORM\ManyToOne(targetEntity="Challenge", inversedBy="comments")
+     * @ORM\JoinColumn(name="challenge_id", referencedColumnName="id", onDelete="CASCADE")
      */
-    protected $picture;
+    protected $challenge;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="pictures")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="challenges")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")
      */
     protected $user;
@@ -96,26 +96,26 @@ class Comment
     }
 
     /**
-     * Set picture
+     * Set challenge
      *
-     * @param \SPJ\GameBundle\Entity\Picture $picture
+     * @param \SPJ\GameBundle\Entity\Challenge $challenge
      * @return Comment
      */
-    public function setPicture(\SPJ\GameBundle\Entity\Picture $picture = null)
+    public function setChallenge(\SPJ\GameBundle\Entity\Challenge $challenge = null)
     {
-        $this->picture = $picture;
-    
+        $this->challenge = $challenge;
+
         return $this;
     }
 
     /**
-     * Get picture
+     * Get challenge
      *
-     * @return \SPJ\GameBundle\Entity\Picture 
+     * @return \SPJ\GameBundle\Entity\Challenge
      */
-    public function getPicture()
+    public function getChallenge()
     {
-        return $this->picture;
+        return $this->challenge;
     }
 
     /**
