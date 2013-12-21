@@ -49,7 +49,6 @@ class LoadPictureData extends AbstractFixture implements FixtureInterface, Conta
                 ->setISO('200')
                 ->setShutterSpeed('1/100')
                 ->setPath('http://imageshack.com/scaled/800x600/163/yzsw.jpg')
-                ->setBlurredMiniaturePath('http://imageshack.com/scaled/800x600/707/42jg.jpg')
                 ->setMiniaturePath('http://imageshack.com/scaled/800x600/208/jw1q.jpg')
                 ->setChallenge($challenge)
                 ->setUser($user);

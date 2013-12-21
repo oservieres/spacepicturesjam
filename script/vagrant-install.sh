@@ -18,6 +18,10 @@ echo "create database if not exists spacepicturesjam ; \
 #Install various stuff
 sudo apt-get install -y vim tree curl apache2 php5-mysql php5 php5-cli php5-curl php-pear php5-curl phpunit php5-intl php5-dev php5-gd php5-mcrypt git-core git acl
 
+#Install phpunit
+sudo pear config-set auto_discover 1
+sudo pear install pear.phpunit.de/PHPUnit
+
 #Enable apache autostart. Ugly I know
 sudo rm /etc/rc.local
 sudo ln -s /vagrant/etc/rc.local /etc/rc.local

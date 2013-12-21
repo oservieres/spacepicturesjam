@@ -1,15 +1,20 @@
 <?php
 namespace SPJ\GameBundle\Service;
 
-/**
- * ImageFilterService
- */
+use SPJ\GameBundle\Adapter\ImageProcessingAdapterInterface;
+
 class ImageFilterService
 {
+    protected $imageProcesssingAdapter;
+
+    public function __construct(ImageProcessingAdapterInterface $imageProcesssingAdapter)
+    {
+        $this->imageProcesssingAdapter = $imageProcesssingAdapter;
+    }
 
     public function resize($sourcePath, $destinationPath, $maxWidth, $maxHeight)
     {
-        list($width, $height) = getimagesize($sourcePath);
+        list($width, $height) = $this->imageProcesssingAdapter->getSize($sourcePath);
 
         $newWidth = $maxWidth;
         $newHeight = $height * $maxWidth / $width;
@@ -18,18 +23,12 @@ class ImageFilterService
             $newHeight = $maxHeight;
         }
 
-        $originalImage = imagecreatefromjpeg($sourcePath);
-        $resizedImage = imagecreatetruecolor($newWidth, $newHeight);
-        imagecopyresampled(
-            $resizedImage,
-            $originalImage,
-            0, 0, 0, 0,
+        $this->imageProcesssingAdapter->resize(
+            $sourcePath,
+            $destinationPath,
             $newWidth,
-            $newHeight,
-            $width,
-            $height
+            $newHeight
         );
-        imagejpeg($resizedImage, $destinationPath, 100);
     }
 
 }

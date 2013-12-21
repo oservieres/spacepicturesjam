@@ -35,7 +35,11 @@ services:
 
     image_filter:
         class: SPJ\GameBundle\Service\ImageFilterService
+        arguments: [@image_processing_adapter]
 
     facebook:
         class: SPJ\GameBundle\Service\FacebookService
         arguments: [%facebook_app_id%, %facebook_app_secret%, @router, @user_repository, @security.context, @security.encoder_factory, @doctrine.orm.entity_manager]
+
+    image_processing_adapter:
+        class: SPJ\GameBundle\Adapter\ImageProcessingAdapter
