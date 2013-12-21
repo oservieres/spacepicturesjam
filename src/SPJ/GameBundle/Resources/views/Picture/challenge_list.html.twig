@@ -1,6 +1,6 @@
 <p class="picture_count">{{ "picture.count"|transchoice(picturesCount) }}</p>
 
-<ul>
+<ul class="pictures">
     {% for picture in pictures %}
         <li>
             {% block challenge_picture %}

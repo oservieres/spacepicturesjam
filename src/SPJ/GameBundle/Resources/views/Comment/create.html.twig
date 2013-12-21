@@ -1,7 +1,7 @@
 <div class="create comments">
     {% if app.user == "" %}
         <div class="alert alert-danger">
-            <a href="{{ path('login') }}">{{ "picture_comment_login"|trans() }}</a>
+            <a href="{{ path('login') }}">{{ "challenge_comment_login"|trans() }}</a>
         </div>
     {% else %}
         <form method="POST" data-challenge_id="{{ challenge.id }}" action="{{ path('comment_create', { challengeId : challenge.id }) }}">

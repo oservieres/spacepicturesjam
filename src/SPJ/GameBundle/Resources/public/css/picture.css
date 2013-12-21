@@ -89,3 +89,8 @@
     font-size: 9px;
     font-style: italic;
 }
+
+.challenge_pictures.inprogress .pictures
+{
+    width: auto;
+}

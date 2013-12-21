@@ -27,7 +27,7 @@ picture.count: "{0} Aucun participant|{1} Un participant|]1,Inf] %count% partici
 picture.create: 'Ajoutez votre photo'
 picture.location: Lieu
 picture.description: Description
-picture_comment_login: 'Connectez vous pour commenter cette photo'
+challenge_comment_login: 'Connectez vous pour commenter'
 picture.ISO: ISO
 picture.aperture: Ouverture
 picture.shutter_speed: 'Vitesse d''obturateur'
