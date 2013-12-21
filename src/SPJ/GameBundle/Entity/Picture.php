@@ -68,11 +68,6 @@ class Picture
     protected $miniaturePath;
 
     /**
-     * @ORM\Column(type="string", length=100)
-     */
-    protected $blurredMiniaturePath;
-
-    /**
      * @ORM\ManyToOne(targetEntity="Challenge", inversedBy="pictures")
      * @ORM\JoinColumn(name="challenge_id", referencedColumnName="id", onDelete="CASCADE")
      */
@@ -405,29 +400,6 @@ class Picture
     public function getUser()
     {
         return $this->user;
-    }
-
-    /**
-     * Set blurredMiniaturePath
-     *
-     * @param string $blurredMiniaturePath
-     * @return Picture
-     */
-    public function setBlurredMiniaturePath($blurredMiniaturePath)
-    {
-        $this->blurredMiniaturePath = $blurredMiniaturePath;
-
-        return $this;
-    }
-
-    /**
-     * Get blurredMiniaturePath
-     *
-     * @return string
-     */
-    public function getBlurredMiniaturePath()
-    {
-        return $this->blurredMiniaturePath;
     }
 
     public function setExifProperties($exif)
