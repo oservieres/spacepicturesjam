@@ -21,7 +21,8 @@
         "doctrine/migrations": "dev-master",
         "doctrine/doctrine-migrations-bundle": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
-        "facebook/php-sdk": "dev-master"
+        "facebook/php-sdk": "dev-master",
+        "behat/behat": "*"
     },
     "scripts": {
         "post-install-cmd": [

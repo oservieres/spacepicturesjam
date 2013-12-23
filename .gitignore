@@ -20,3 +20,5 @@ app/tmp
 web/content
 web/css
 web/js
+
+bin
