@@ -20,19 +20,37 @@ class LoadPictureData extends AbstractFixture implements FixtureInterface, Conta
         $this->container = $container;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function load(ObjectManager $manager)
     {
-        $votingPicture1 = $this->getPicture($this->getReference('voting_challenge'), $this->getReference('user_admin'));
+        $votingPicture1 = $this->getPicture(
+            $this->getReference('voting_challenge'),
+            $this->getReference('user_admin')
+        );
         $manager->persist($votingPicture1);
 
-        $votingPicture2 = $this->getPicture($this->getReference('voting_challenge'), $this->getReference('user_player'));
+        $votingPicture2 = $this->getPicture(
+            $this->getReference('voting_challenge'),
+            $this->getReference('user_player')
+        );
         $manager->persist($votingPicture2);
 
-        $inprogressPicture1 = $this->getPicture($this->getReference('inprogress_challenge'), $this->getReference('user_admin'));
+        $inprogressPicture1 = $this->getPicture(
+            $this->getReference('inprogress_challenge'),
+            $this->getReference('user_admin')
+        );
         $manager->persist($inprogressPicture1);
+
+        $overPicture1 = $this->getPicture(
+            $this->getReference('over_challenge'),
+            $this->getReference('user_admin')
+        );
+        $manager->persist($overPicture1);
+
+        $overPicture2 = $this->getPicture(
+            $this->getReference('over_challenge'),
+            $this->getReference('user_player')
+        );
+        $manager->persist($overPicture2);
 
         $manager->flush();
     }

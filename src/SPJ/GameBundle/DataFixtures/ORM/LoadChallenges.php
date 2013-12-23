@@ -20,9 +20,6 @@ class LoadChallengeData extends AbstractFixture implements FixtureInterface, Con
         $this->container = $container;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function load(ObjectManager $manager)
     {
         $endDate = new \DateTime('today');
@@ -42,8 +39,8 @@ class LoadChallengeData extends AbstractFixture implements FixtureInterface, Con
 
         $overChallenge = new Challenge();
         $overChallenge->setStatus('over')
-                            ->setSubject('L\'agitation');
-        $manager->persist($votingChallenge);
+                      ->setSubject('L\'agitation');
+        $manager->persist($overChallenge);
 
         $queuedChallenge1 = new Challenge();
         $queuedChallenge1->setStatus('queued')
