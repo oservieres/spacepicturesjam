@@ -1,3 +1,7 @@
+body{
+overflow: hidden;
+}
+
 .navbar-right {
   margin-right: 100px!important;
 }
