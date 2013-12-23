@@ -19,8 +19,27 @@ class PrepareChallengeResultEmailsCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $entityManager = $this->getContainer()->get('doctrine.orm.entity_manager');
-        $challengeRepository = $this->getContainer()->get('challenge_repository');
+        $challenge = $this->getContainer()
+                          ->get('challenge_repository')
+                          ->findOneLatestOver();
+        $users = $this->getContainer()
+                      ->get('user_repository')
+                      ->findBatchByChallenge($challenge);
 
-        $challenge = $challengeRepository->findOneLatestOver();
+        foreach ($users as $user) {
+            $message = \Swift_Message::newInstance()
+                     ->setSubject('Hello Email')
+                     ->setFrom('send@example.com')
+                     ->setTo('recipient@example.com')
+                     ->setBody($this->getContainer()->get('templating')->render(
+                         'SPJGameBundle:Email:challenge_result.html.twig',
+                         array(
+                             'user' => $user[0],
+                             'challenge' => $challenge
+                         )
+                     ));
+            $this->getContainer()->get('mailer')->send($message);
+            $entityManager->detach($user[0]);
+        }
     }
 }
