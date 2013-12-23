@@ -48,6 +48,17 @@ class ChallengeRepository extends EntityRepository
                     ->getResult();
     }
 
+    public function findOneLatestOver()
+    {
+        return $this->createQueryBuilder('challenge')
+                    ->where('challenge.status = :status')
+                    ->setParameter('status', 'over')
+                    ->orderBy('challenge.id', 'DESC')
+                    ->setMaxResults(1)
+                    ->getQuery()
+                    ->getOneOrNullResult();
+    }
+
     public function findOneInprogress()
     {
         return $this->createQueryBuilder('challenge')
