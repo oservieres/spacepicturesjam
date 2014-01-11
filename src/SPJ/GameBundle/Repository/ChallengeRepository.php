@@ -38,13 +38,14 @@ class ChallengeRepository extends EntityRepository
                     ->getResult();
     }
 
-    public function findAllOver()
+    public function findAllOver($limit = 5)
     {
         return $this->createQueryBuilder('challenge')
                     ->where('challenge.status = :status')
                     ->setParameter('status', 'over')
-                    ->orderBy('challenge.id', 'DESC')
+                    ->orderBy('challenge.endVotingDate', 'DESC')
                     ->getQuery()
+                    ->setMaxResults($limit)
                     ->getResult();
     }
 
