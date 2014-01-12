@@ -17,8 +17,9 @@ spacePicturesJam.comment.initForm = function(commentForm) {
         if (13 != e.which) {
             return;
         }
-        if (!spacePicturesJam.comment.lockForm(commentForm)) {
-            return;
+        if ("" == commentForm.find('.content').val()
+            || !spacePicturesJam.comment.lockForm(commentForm)) {
+            return false;
         }
         e.preventDefault();
         $.ajax({
