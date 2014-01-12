@@ -59,6 +59,7 @@ spacePicturesJam.challenge.loadComments = function(commentsContainer) {
         dataType: 'html'
     }).done(function(response) {
         commentsContainer.html(response);
+        spacePicturesJam.comment.scrollDownList(commentsContainer.find('ul.list-group'));
     });
 };
 

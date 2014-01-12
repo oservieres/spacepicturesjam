@@ -11,6 +11,13 @@ spacePicturesJam.comment.lockForm = function(commentForm) {
 spacePicturesJam.comment.unlockForm = function(commentForm) {
     commentForm.attr('is_locked', 'false');
 };
+
+spacePicturesJam.comment.scrollDownList = function(commentsList) {
+    commentsList.animate({
+        scrollTop: commentsList[0].scrollHeight
+     }, 300);
+};
+
 spacePicturesJam.comment.initForm = function(commentForm) {
     var challengeId = commentForm.attr('data-challenge_id');
     commentForm.find('.content').keypress(function(e) {
@@ -30,9 +37,7 @@ spacePicturesJam.comment.initForm = function(commentForm) {
         }).done(function(response) {
             commentForm.find('.content').val('');
             spacePicturesJam.comment.unlockForm(commentForm)
-            $("#challenge_" + challengeId + "_comments ul.list-group").animate({
-                scrollTop: $("#challenge_" + challengeId + "_comments ul.list-group")[0].scrollHeight
-            }, 300);
+            spacePicturesJam.comment.scrollDownList($("#challenge_" + challengeId + "_comments ul.list-group"));
             var commentContainer = $('<li class="list-group-item"></li>');
             commentContainer.append($('<span class="author"></span>').html(response.data.comment.username));
             commentContainer.append($('<span class="content"></span>').html(response.data.comment.content));
