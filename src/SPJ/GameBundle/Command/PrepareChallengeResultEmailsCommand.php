@@ -30,23 +30,33 @@ class PrepareChallengeResultEmailsCommand extends ContainerAwareCommand
                       ->get('user_repository')
                       ->findAllBatch();
 
+        $templating = $this->getContainer()->get('templating');
+
         foreach ($users as $user) {
-            $body = $this->getContainer()->get('templating')->render(
-                'SPJGameBundle:Email:challenge_result.html.twig',
-                array(
-                    'user' => $user[0],
-                    'overChallenge' => $overChallenge,
-                    'newChallenge' => $newChallenge,
-                )
+            $templateData = array(
+                'user' => $user[0],
+                'overChallenge' => $overChallenge,
+                'newChallenge' => $newChallenge,
             );
+            $htmlBody = $templating->render(
+                'SPJGameBundle:Email:challenge_result.html.twig',
+                $templateData
+            );
+            $textBody = $templating->render(
+                'SPJGameBundle:Email:challenge_result.html.twig',
+                $templateData
+            );
+
             $message = \Swift_Message::newInstance()
                      ->setSubject('Space Pictures Jam : nouveau challenge !')
                      ->setFrom('no-reply@spj.deudtens.com')
                      ->setTo($user[0]->getEmail())
-                     ->setBody($body);
+                     ->setBody($htmlBody, 'text/html')
+                     ->addPart($textBody, 'text/plain');
+            ;
             $this->getContainer()->get('mailer')->send($message);
             if ($isVerbose) {
-                var_dump($body);
+                var_dump($htmlBody);
             }
             $entityManager->detach($user[0]);
         }
