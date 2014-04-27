@@ -26,3 +26,4 @@ monolog:
             level: debug
 parameters:
     cdn_local_path: "/var/www/cdn/spacepicturesjam"
+

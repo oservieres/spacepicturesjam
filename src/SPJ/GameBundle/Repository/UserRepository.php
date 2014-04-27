@@ -6,11 +6,10 @@ use \Doctrine\Orm\NoResultException;
 
 class UserRepository extends EntityRepository
 {
-    public function findBatchByChallenge($challenge)
+    public function findAllBatch()
     {
         return $this->getEntityManager()
-                    ->createQuery('SELECT DISTINCT user from SPJGameBundle:User user JOIN user.pictures pictures JOIN pictures.challenge challenge WHERE challenge = :challenge')
-                    ->setParameter('challenge', $challenge)
+                    ->createQuery('SELECT DISTINCT user from SPJGameBundle:User user')
                     ->iterate();
     }
 

@@ -23,6 +23,8 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    globals:
+        base_url: %base_url%
 
 assetic:
     debug:          %kernel.debug%

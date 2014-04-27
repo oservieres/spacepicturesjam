@@ -18,27 +18,36 @@ class PrepareChallengeResultEmailsCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $isVerbose = $input->getOption('verbose');
         $entityManager = $this->getContainer()->get('doctrine.orm.entity_manager');
-        $challenge = $this->getContainer()
+        $overChallenge = $this->getContainer()
                           ->get('challenge_repository')
                           ->findOneLatestOver();
+        $newChallenge = $this->getContainer()
+                          ->get('challenge_repository')
+                          ->findOneInprogress();
         $users = $this->getContainer()
                       ->get('user_repository')
-                      ->findBatchByChallenge($challenge);
+                      ->findAllBatch();
 
         foreach ($users as $user) {
+            $body = $this->getContainer()->get('templating')->render(
+                'SPJGameBundle:Email:challenge_result.html.twig',
+                array(
+                    'user' => $user[0],
+                    'overChallenge' => $overChallenge,
+                    'newChallenge' => $newChallenge,
+                )
+            );
             $message = \Swift_Message::newInstance()
                      ->setSubject('Hello Email')
                      ->setFrom('send@example.com')
                      ->setTo('recipient@example.com')
-                     ->setBody($this->getContainer()->get('templating')->render(
-                         'SPJGameBundle:Email:challenge_result.html.twig',
-                         array(
-                             'user' => $user[0],
-                             'challenge' => $challenge
-                         )
-                     ));
+                     ->setBody($body);
             $this->getContainer()->get('mailer')->send($message);
+            if ($isVerbose) {
+                var_dump($body);
+            }
             $entityManager->detach($user[0]);
         }
     }

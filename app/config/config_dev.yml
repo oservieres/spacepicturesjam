@@ -32,3 +32,4 @@ assetic:
 
 parameters:
     cdn_local_path: "/vagrant/web"
+

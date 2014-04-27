@@ -13,3 +13,4 @@ parameters:
     secret: dsfkjdfdhsk6776Dd-dDlo9
     facebook_app_id: "place your facebook app id"
     facebook_app_secret: "place your facebook app secret"
+    base_url: http://localhost:8080
