@@ -40,9 +40,9 @@ class PrepareChallengeResultEmailsCommand extends ContainerAwareCommand
                 )
             );
             $message = \Swift_Message::newInstance()
-                     ->setSubject('Hello Email')
-                     ->setFrom('send@example.com')
-                     ->setTo('recipient@example.com')
+                     ->setSubject('Space Pictures Jam : nouveau challenge !')
+                     ->setFrom('no-reply@spj.deudtens.com')
+                     ->setTo($user[0]->getEmail())
                      ->setBody($body);
             $this->getContainer()->get('mailer')->send($message);
             if ($isVerbose) {
