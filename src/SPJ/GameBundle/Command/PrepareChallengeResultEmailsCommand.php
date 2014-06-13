@@ -23,7 +23,7 @@ class PrepareChallengeResultEmailsCommand extends ContainerAwareCommand
         $votingChallenge = $this->getContainer()
                           ->get('challenge_repository')
                           ->findOneVoting();
-        if ($votingChallenge->getEndDate()->diff(new \DateTime())->h > 1) {
+        if ($votingChallenge->getEndDate()->diff(new \DateTime())->d > 1) {
             return;
         }
         $newChallenge = $this->getContainer()
