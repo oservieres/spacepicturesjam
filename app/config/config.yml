@@ -60,9 +60,9 @@ swiftmailer:
     host:      %mailer_host%
     username:  %mailer_user%
     password:  %mailer_password%
-    spool:
-        type: file
-        path: /var/spacepicturesjam/email-spool
+    #spool:
+    #    type: file
+    #    path: /var/spacepicturesjam/email-spool
 
 parameters:
     challenge_duration: 14
