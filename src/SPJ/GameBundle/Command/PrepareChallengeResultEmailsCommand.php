@@ -49,7 +49,7 @@ class PrepareChallengeResultEmailsCommand extends ContainerAwareCommand
 
             $message = \Swift_Message::newInstance()
                      ->setSubject('Space Pictures Jam : nouveau challenge !')
-                     ->setFrom('spacepicturesjam@gmail.com')
+                     ->setFrom($this->getContainer()->getParameter('mailer_sender'))
                      ->setTo($user[0]->getEmail())
                      ->setBody($htmlBody, 'text/html')
                      ->addPart($textBody, 'text/plain');
