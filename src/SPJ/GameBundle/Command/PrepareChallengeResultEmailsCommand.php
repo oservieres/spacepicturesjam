@@ -20,9 +20,12 @@ class PrepareChallengeResultEmailsCommand extends ContainerAwareCommand
     {
         $isVerbose = $input->getOption('verbose');
         $entityManager = $this->getContainer()->get('doctrine.orm.entity_manager');
-        $overChallenge = $this->getContainer()
+        $votingChallenge = $this->getContainer()
                           ->get('challenge_repository')
-                          ->findOneLatestOver();
+                          ->findOneVoting();
+        if ($votingChallenge->getEndDate()->diff(new \DateTime())->h > 1) {
+            return;
+        }
         $newChallenge = $this->getContainer()
                           ->get('challenge_repository')
                           ->findOneInprogress();
@@ -35,7 +38,7 @@ class PrepareChallengeResultEmailsCommand extends ContainerAwareCommand
         foreach ($users as $user) {
             $templateData = array(
                 'user' => $user[0],
-                'overChallenge' => $overChallenge,
+                'votingChallenge' => $votingChallenge,
                 'newChallenge' => $newChallenge,
             );
             $htmlBody = $templating->render(

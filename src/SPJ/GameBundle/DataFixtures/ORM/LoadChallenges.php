@@ -31,8 +31,12 @@ class LoadChallengeData extends AbstractFixture implements FixtureInterface, Con
                             ->setSubject('La Nuit');
         $manager->persist($inprogressChallenge);
 
+        $previousEndDate = new \DateTime('today');
+        $previousEndDate->sub(new \DateInterval('P1D'));
+
         $votingChallenge = new Challenge();
         $votingChallenge->setStatus('voting')
+                        ->setEndDate($previousEndDate)
                         ->setEndVotingDate($endDate)
                         ->setSubject('Le jour');
         $manager->persist($votingChallenge);

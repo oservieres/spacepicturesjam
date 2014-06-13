@@ -27,6 +27,11 @@ monolog:
             type:  chromephp
             level: info
 
+swiftmailer:
+    spool:
+        type: file
+        path: /var/spacepicturesjam/email-spool
+
 assetic:
     use_controller: false
 
