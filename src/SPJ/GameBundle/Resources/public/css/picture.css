@@ -75,12 +75,12 @@
     font-weight: bold;
 }
 
-.challenge_pictures.voting ul, .challenge_pictures.over ul {
+.challenge_pictures ul {
     list-style-type: none;
     padding: 0;
 }
 
-.challenge_pictures.voting ul li, .challenge_pictures.over ul li {
+.challenge_pictures ul li {
     float: left;
     margin-right: 5px;
 }

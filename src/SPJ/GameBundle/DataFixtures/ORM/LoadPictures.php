@@ -22,23 +22,17 @@ class LoadPictureData extends AbstractFixture implements FixtureInterface, Conta
 
     public function load(ObjectManager $manager)
     {
-        $votingPicture1 = $this->getPicture(
-            $this->getReference('voting_challenge'),
-            $this->getReference('user_admin')
-        );
-        $manager->persist($votingPicture1);
-
-        $votingPicture2 = $this->getPicture(
-            $this->getReference('voting_challenge'),
-            $this->getReference('user_player')
-        );
-        $manager->persist($votingPicture2);
-
         $inprogressPicture1 = $this->getPicture(
             $this->getReference('inprogress_challenge'),
             $this->getReference('user_admin')
         );
         $manager->persist($inprogressPicture1);
+
+        $inprogressPicture2 = $this->getPicture(
+            $this->getReference('inrogress_challenge'),
+            $this->getReference('user_player')
+        );
+        $manager->persist($inprogressPicture2);
 
         $overPicture1 = $this->getPicture(
             $this->getReference('over_challenge'),

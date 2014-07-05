@@ -1,10 +1,8 @@
 challenge.title_plural: Challenges
-challenge.no_voting: 'Aucun challenge en cours de vote.'
 challenge.no_inprogress: 'Aucun challenge en cours.'
 challenge.loading: Chargement...
 challenge.user_picture: 'Votre photo'
 challenge.status.over: 'Challenge terminé'
-challenge.status.voting: 'Challenge en cours de vote'
 challenge.status.inprogress: 'Challenge en cours'
 challenge.list.previous: 'Précédents challenges'
 user.login.submit: 'Me connecter'

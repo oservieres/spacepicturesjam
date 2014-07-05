@@ -14,7 +14,7 @@ class RotateChallengesCommand extends ContainerAwareCommand
     {
         $this
             ->setName('challenges:rotate')
-            ->setDescription('Draws a new challenge, terminates the voting one');
+            ->setDescription('Draws a new challenge, terminates the in-progress one');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -28,17 +28,8 @@ class RotateChallengesCommand extends ContainerAwareCommand
             if ($inprogressChallenge->getEndDate() > new \DateTime()) {
                 return;
             }
-            $inprogressChallenge->setStatus('voting');
-            $endVotingDate = new \DateTime('today');
-            $endVotingDate->add(new \DateInterval('P' . $challengeDuration . 'D'));
-            $inprogressChallenge->setEndVotingDate($endVotingDate);
+            $inprogressChallenge->setStatus('over');
             $entityManager->persist($inprogressChallenge);
-        }
-
-        $votingChallenge = $challengeRepository->findOneVoting();
-        if (null !== $votingChallenge) {
-            $votingChallenge->setStatus('over');
-            $entityManager->persist($votingChallenge);
         }
 
         $newChallenge = $challengeRepository->findOneRandomQueued();

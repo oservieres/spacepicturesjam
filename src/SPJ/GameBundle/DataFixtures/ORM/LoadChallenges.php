@@ -34,13 +34,6 @@ class LoadChallengeData extends AbstractFixture implements FixtureInterface, Con
         $previousEndDate = new \DateTime('today');
         $previousEndDate->sub(new \DateInterval('P1D'));
 
-        $votingChallenge = new Challenge();
-        $votingChallenge->setStatus('voting')
-                        ->setEndDate($previousEndDate)
-                        ->setEndVotingDate($endDate)
-                        ->setSubject('Le jour');
-        $manager->persist($votingChallenge);
-
         $overChallenge = new Challenge();
         $overChallenge->setStatus('over')
                       ->setSubject('L\'agitation');
@@ -59,7 +52,6 @@ class LoadChallengeData extends AbstractFixture implements FixtureInterface, Con
         $manager->flush();
 
         $this->addReference('inprogress_challenge', $inprogressChallenge);
-        $this->addReference('voting_challenge', $votingChallenge);
         $this->addReference('over_challenge', $overChallenge);
     }
 

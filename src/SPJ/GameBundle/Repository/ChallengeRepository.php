@@ -68,13 +68,4 @@ class ChallengeRepository extends EntityRepository
                     ->getQuery()
                     ->getOneOrNullResult();
     }
-
-    public function findOneVoting()
-    {
-        return $this->createQueryBuilder('challenge')
-                    ->where('challenge.status = :status')
-                    ->setParameter('status', 'voting')
-                    ->getQuery()
-                    ->getOneOrNullResult();
-    }
 }

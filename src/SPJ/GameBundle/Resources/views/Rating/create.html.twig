@@ -1,7 +1,7 @@
 <ul class="stars challenge-{{ picture.challenge.status}}">
     {% set ratingCreatePath = path('rating_create', { pictureId : picture.id}) %}
 
-    {% if "voting" == picture.challenge.status %}
+    {% if "inprogress" == picture.challenge.status %}
         <li><a href="{{ ratingCreatePath }}" class="glyphicon glyphicon-ban-circle rating_star {{ userRatingValue > 0 or userRatingValue is sameas(0) ? 'highlighted' }}" data-value="0"></a></li>
         {% for i in 1..5 %}
             <li><a href="{{ ratingCreatePath }}" class="glyphicon glyphicon-star rating_star {{ userRatingValue >= i ? 'highlighted' }}" data-value="{{ i }}"></a></li>

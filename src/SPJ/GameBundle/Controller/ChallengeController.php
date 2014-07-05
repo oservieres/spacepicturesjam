@@ -35,13 +35,11 @@ class ChallengeController extends Controller
 
         $overChallenges = $challengeRepository->findAllOver();
         $inprogressChallenge = $challengeRepository->findOneInProgress($user);
-        $votingChallenge = $challengeRepository->findOneVoting($user);
 
         return $this->render(
             'SPJGameBundle:Challenge:list.html.twig',
             array(
                 'inprogressChallenge' => $inprogressChallenge,
-                'votingChallenge' => $votingChallenge,
                 'overChallenges'      => $overChallenges,
                 'inprogressUserPicture' => $user === "" ? "" : $this->get('picture_repository')->findOneByChallengeAndUser($inprogressChallenge, $user)
             )

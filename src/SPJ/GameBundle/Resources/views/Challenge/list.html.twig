@@ -15,13 +15,6 @@
                 <div class="alert alert-danger">{{ "challenge.no_inprogress"|trans() }}</div>
             {% endif %}
         </div>
-        <div id="voting_challenge" class="col-md-7">
-            {% if votingChallenge %}
-                {% include 'SPJGameBundle:Challenge:summary_voting.html.twig' with {'challenge' : votingChallenge} %}
-            {% else %}
-                <div class="alert alert-danger">{{ "challenge.no_voting"|trans() }}</div>
-            {% endif %}
-        </div>
     </div>
 
     <div id="over_challenges">
