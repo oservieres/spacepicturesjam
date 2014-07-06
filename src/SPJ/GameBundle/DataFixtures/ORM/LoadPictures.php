@@ -29,7 +29,7 @@ class LoadPictureData extends AbstractFixture implements FixtureInterface, Conta
         $manager->persist($inprogressPicture1);
 
         $inprogressPicture2 = $this->getPicture(
-            $this->getReference('inrogress_challenge'),
+            $this->getReference('inprogress_challenge'),
             $this->getReference('user_player')
         );
         $manager->persist($inprogressPicture2);

@@ -44,8 +44,17 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
 
         $manager->flush();
 
+        $userNewPlayer = new User();
+        $userNewPlayer->setUsername('new_player')
+                   ->setEmail('new_player@spj.local.com')
+                   ->setPassword($encoder->encodePassword('new_player', $userPlayer->getSalt()));
+        $manager->persist($userNewPlayer);
+
+        $manager->flush();
+
         $this->addReference('user_admin', $userAdmin);
         $this->addReference('user_player', $userPlayer);
+        $this->addReference('user_new_player', $userNewPlayer);
     }
 
     public function getOrder()

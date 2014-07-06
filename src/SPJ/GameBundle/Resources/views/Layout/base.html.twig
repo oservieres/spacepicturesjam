@@ -25,6 +25,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="{{ path('challenge_list') }}">{{ "menu.home"|trans() }}</a></li>
+                    <li><a href="{{ path('challenge_list_over') }}">{{ "menu.challenges_over"|trans() }}</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     {% if app.user == "" %}

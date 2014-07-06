@@ -20,6 +20,10 @@ challenge_list:
     pattern: /
     defaults: { _controller: SPJGameBundle:Challenge:list }
 
+challenge_list_over:
+    pattern:  /challenge/status/over
+    defaults: { _controller: "SPJGameBundle:Challenge:listOver" }
+
 login:
     pattern: /login
     defaults: { _controller: SPJGameBundle:User:login }

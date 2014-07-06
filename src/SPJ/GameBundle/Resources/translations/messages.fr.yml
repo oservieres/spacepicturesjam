@@ -7,6 +7,7 @@ challenge.status.inprogress: 'Challenge en cours'
 challenge.list.previous: 'Précédents challenges'
 user.login.submit: 'Me connecter'
 site.name: 'Space pictures Jam'
+menu.challenges_over: 'Précédents challenges'
 menu.home: Accueil
 menu.login: 'Me connecter'
 menu.signup: 'M''inscrire'
