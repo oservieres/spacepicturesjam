@@ -52,10 +52,9 @@ class PictureController extends Controller
         $challenge = $this->get('challenge_repository')->findOneById($challengeId);
         $pictures = $this->get('picture_repository')->findByChallenge($challenge);
         $picturesCount = $this->get('picture_repository')->findCountByChallenge($challenge);
-        $templateName = 'SPJGameBundle:Picture:' . $challenge->getStatus() . '_challenge_list.html.twig';
 
         return $this->render(
-            $templateName,
+            'SPJGameBundle:Picture:challenge_list.html.twig',
             array(
                 'picturesCount' => $picturesCount,
                 'pictures' => $pictures,

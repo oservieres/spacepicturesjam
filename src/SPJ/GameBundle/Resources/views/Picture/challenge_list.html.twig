@@ -1,10 +1,10 @@
-<p class="picture_count">{{ "picture.count"|transchoice(picturesCount) }}</p>
-
 <ul class="pictures">
     {% for picture in pictures %}
         <li>
             {% block challenge_picture %}
-                <img class="img-thumbnail" src="{{ asset(picture.miniaturePath) }}" alt="{{ picture.title }}"/>
+                <a class="challenge_picture_link" href="{{ path('picture_show', { pictureId : picture.getId() }) }}">
+                    <img class="img-thumbnail" src="{{ asset(picture.miniaturePath) }}" alt="{{ picture.title }}"/>
+                </a>
             {% endblock %}
         </li>
     {% endfor %}

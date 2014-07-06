@@ -1,19 +1,32 @@
 {% extends "SPJGameBundle:Layout:base.html.twig" %}
 
 {% block page_content %}
-    <h2>{{ "challenge.title_plural"|trans() }}</h2>
 
     {% if is_granted('ROLE_ADMIN') %}
         <p><a href="{{ url('admin_challenge_list') }}">Challenges admin</a></p>
     {% endif %}
 
-    <div class="row">
-        <div id="inprogress_challenge" class="col-md-5">
-            {% if inprogressChallenge %}
-                {% include 'SPJGameBundle:Challenge:summary_inprogress.html.twig' with {'challenge' : inprogressChallenge} %}
-            {% else %}
-                <div class="alert alert-danger">{{ "challenge.no_inprogress"|trans() }}</div>
-            {% endif %}
+
+    <div class="challenge">
+        <div class="row">
+            <div class="col-md-10 pictures">
+                <div class="challenge_pictures" data-content_url="{{ path('challenge_picture_list', { challengeId : challenge.id }) }}">
+                    <p>{{ "challenge.loading"|trans() }}</p>
+                </div>
+            </div>
+
+            <div class="col-md-2 metadata">
+                {% block panelTitle %}Challenge{% endblock %} : <strong>{{ challenge.subject }}</strong>
+                <div class="challenge_user_picture" data-content_url="{{ path('challenge_user_picture_show', { challengeId : challenge.id }) }}">
+                    <p>{{ "challenge.loading"|trans() }}</p>
+                </div>
+                <h4>{{ "comments"|trans() }}</h4>
+                <div class="list" id="challenge_{{ challenge.id }}_comments" data-content_url="{{ path('challenge_comment_list', { challengeId : challenge.id }) }}">
+                    <p>{{ "challenge.loading"|trans() }}</p>
+                </div>
+                {% include 'SPJGameBundle:Comment:create.html.twig' %}
+            </div>
+
         </div>
     </div>
 

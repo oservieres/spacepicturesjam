@@ -54,8 +54,8 @@ class ChallengeController extends Controller
         return $this->render(
             'SPJGameBundle:Challenge:list.html.twig',
             array(
-                'inprogressChallenge' => $inprogressChallenge,
-                'inprogressUserPicture' => $user === "" ? "" : $this->get('picture_repository')->findOneByChallengeAndUser($inprogressChallenge, $user)
+                'challenge' => $inprogressChallenge,
+                'iserPicture' => $user === "" ? "" : $this->get('picture_repository')->findOneByChallengeAndUser($inprogressChallenge, $user)
             )
         );
     }
