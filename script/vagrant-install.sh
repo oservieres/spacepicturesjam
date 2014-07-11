@@ -20,7 +20,7 @@ sudo apt-get install -y vim tree curl apache2 php5-mysql php5 php5-cli php5-curl
 
 #Install phpunit
 sudo pear config-set auto_discover 1
-sudo pear install pear.phpunit.de/PHPUnit
+sudo pear install pear.phpunit.de/PHPUnit || echo "phpunit already installed"
 
 #Enable apache autostart. Ugly I know
 sudo rm /etc/rc.local
