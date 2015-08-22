@@ -1,7 +1,7 @@
 {% block stylesheets %}
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.2/flatly/bootstrap.min.css">
     {% stylesheets
-        'bundles/spjgame/css/*.css'
+        '@SPJGameBundle/Resources/public/css/*.css'
         filter='cssrewrite'
     %}
         <link rel="stylesheet" href="{{ asset_url }}"></link>

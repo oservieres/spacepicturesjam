@@ -33,7 +33,7 @@ swiftmailer:
         path: /var/spacepicturesjam/email-spool
 
 assetic:
-    use_controller: false
+    use_controller: true
 
 parameters:
     cdn_local_path: "/vagrant/web"

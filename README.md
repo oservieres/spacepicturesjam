@@ -14,7 +14,10 @@ I don't really know yet. The main idea was to keep contact with friends spreaded
 
     git clone git@github.com:oservieres/spacepicturesjam.git
     cd spacepicturesjam
-    docker-compose up
+    docker-compose up -d
+
+    docker exec spacepicturesjam_appweb_1 php app/console doctrine:migrations:migrate
+    docker exec spacepicturesjam_appweb_1 php app/console doctrine:fixtures:load
 
 Then, go to **http://localhost**. Before trying to sign up, you can use fixture users : **admin** (pass : admin) and **player** (pass : player).
 
