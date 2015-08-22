@@ -1,0 +1,25 @@
+mysql:
+    image: mysql
+    environment:
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_USER=spacepicturesjam
+    - MYSQL_PASSWORD=spacepicturesjam
+    - MYSQL_DATABASE=spacepicturesjam
+appweb:
+    links:
+    - mysql
+    build : ./etc/phpfpm
+    volumes:
+    - .:/srv/http:rw
+    ports:
+    - 9000:9000
+nginx:
+    domainname: spj.deudtens.lxc
+    image: nginx
+    links:
+    - appweb:webstack_php
+    volumes:
+    - .:/srv/http
+    - etc/nginx:/etc/nginx/conf.d
+    ports:
+    - 80:80

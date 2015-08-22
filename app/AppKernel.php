@@ -3,6 +3,8 @@
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
+date_default_timezone_set('UTC');
+
 class AppKernel extends Kernel
 {
     public function registerBundles()
@@ -32,7 +34,7 @@ class AppKernel extends Kernel
     public function getCacheDir()
     {
         if (in_array($this->environment, array('dev', 'test'))) {
-            return '/var/spacepicturesjam/cache/' .  $this->environment;
+            return '/tmp/spacepicturesjam/cache/' .  $this->environment;
         }
 
         return parent::getCacheDir();
@@ -41,7 +43,7 @@ class AppKernel extends Kernel
     public function getLogDir()
     {
         if (in_array($this->environment, array('dev', 'test'))) {
-            return '/var/spacepicturesjam/logs';
+            return '/tmp/spacepicturesjam/logs';
         }
 
         return parent::getLogDir();
