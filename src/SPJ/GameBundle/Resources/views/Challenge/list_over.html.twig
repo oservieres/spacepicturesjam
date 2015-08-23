@@ -3,8 +3,10 @@
 {% block page_content %}
     <div id="over_challenges">
         <h3>{{ "challenge.list.previous"|trans() }}</h3>
-        {% for challenge in overChallenges %}
-            {% include 'SPJGameBundle:Challenge:summary_over.html.twig' with {'challenge' : challenge} %}
-        {% endfor %}
+        <ul>
+            {% for challenge in overChallenges %}
+                <a href="">{{ challenge.subject }}</a> ({{ challenge.startDate|date }} - {{ challenge.endDate|date }})
+            {% endfor %}
+        </ul>
     </div>
 {% endblock %}

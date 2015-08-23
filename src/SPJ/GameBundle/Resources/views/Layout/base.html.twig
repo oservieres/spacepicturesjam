@@ -12,11 +12,6 @@
     </head>
 
     <body>
-        <div class="github-fork-ribbon-wrapper right">
-            <div class="github-fork-ribbon">
-                <a href="https://github.com/oservieres/spacepicturesjam">Fork me on GitHub</a>
-            </div>
-        </div>
         <nav class="navbar navbar-default" role="navigation">
             <div class="navbar-header">
                 <a class="navbar-brand" href="{{ path('challenge_list') }}">{{ "site.name"|trans() }}</a>
@@ -24,7 +19,6 @@
 
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ path('challenge_list') }}">{{ "menu.home"|trans() }}</a></li>
                     <li><a href="{{ path('challenge_list_over') }}">{{ "menu.challenges_over"|trans() }}</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
